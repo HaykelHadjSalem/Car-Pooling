@@ -154,6 +154,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "car-pooling"
+    }
+  },
+  "defaultProject": "car-pooling",
+  "cli": {
+    "analytics": "3ae86d0f-0d08-4340-87c2-901ccd46eddc"
+  }
 }
