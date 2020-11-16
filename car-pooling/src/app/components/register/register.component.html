@@ -6,7 +6,19 @@
   <p class="h4 mb-4">Sign up</p>
 
   <div class="form-row mb-4">
-    <div class="col">
+    <div class="input-group mb-3">
+              
+      <label class="input-group-text">User Type</label>
+      <select class="form-select" formControlName="type">
+        <option value="Driver">
+          Driver
+        </option>
+        <option value="passenger">
+          Passenger
+        </option>
+      </select>
+</div>  
+    <div class="col" *ngIf="signupForm.value.type==='passenger'">
       <!-- First name -->
       <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
     </div>
@@ -50,6 +62,7 @@
     <!--****************************************************************************************************************************-->
     <!--added information for the driver-->
         <!-- ID card of driver -->
+        <div class="col" *ngIf="signupForm.value.type==='driver'">
         <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
         <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
           
@@ -60,7 +73,7 @@
         <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
           
         </small>
-
+      </div>
   <!-- Sign up button -->
   <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
 </form>
