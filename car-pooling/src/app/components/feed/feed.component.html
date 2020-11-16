@@ -1,0 +1,60 @@
+<div>
+    
+        
+            <div class="row" id="co">
+                <div class="col"> destination </div>
+                <div class="col"> deparature </div>
+                 
+                <div class="col"> time </div>
+                <div class="col"> date </div>
+                <div class="col"> price </div>
+            </div>
+        
+
+    
+</div>
+
+<div *ngFor= "let ride of allRides">
+    <div class="row"> 
+      <div class="col">{{ride.destination}}</div> 
+      <div class="col">{{ride.deparature}}</div>
+      
+      <div class="col">{{ride.time}}</div>
+      <div class="col">{{ride.date}}</div>
+      <div class="col">{{ride.price}}</div>
+      <div><button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
+        (click)="frame.show()" mdbWavesEffect> Reservation </button></div>
+    </div> 
+  </div> 
+  <br><br>
+
+  
+
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-primary" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <mdb-icon fas icon="times" size="4x" class="animated rotateIn"></mdb-icon>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a href="https://mdbootstrap.com/pricing/angular/pro/" mdbBtn color="primary" outline="true" class="waves-effect"
+          mdbWavesEffect>Yes</a>
+        <a type="button" mdbBtn color="primary" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+

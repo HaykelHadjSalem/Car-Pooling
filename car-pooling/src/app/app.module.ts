@@ -3,11 +3,17 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeedComponent } from './feed/feed.component';
-import { PostComponent } from './post/post.component';
+import { FeedComponent } from '../app/components/feed/feed.component';
+import { PostComponent } from '../app/components/post/post.component';
+import { RouterModule } from '@angular/router';
+
+
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -15,6 +21,10 @@ import { PostComponent } from './post/post.component';
     AppComponent,
     FeedComponent,
     PostComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -22,6 +32,10 @@ import { PostComponent } from './post/post.component';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    HttpClientModule,
+
+    RouterModule.forRoot([{path: 'feed', component: FeedComponent},
+                          {path: 'post', component: PostComponent}])
   ],
   providers: [],
   bootstrap: [AppComponent]
