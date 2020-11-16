@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DriverComponent } from './components/driver/driver.component';
+import { DriverViewComponent } from './components/driver-view/driver-view.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
+    DriverComponent,
+    DriverViewComponent
     
   ],
   imports: [
