@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { DriverViewComponent } from './components/driver-view/driver-view.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { DriverViewComponent } from './components/driver-view/driver-view.compon
     RegisterComponent,
     NavbarComponent,
     DriverComponent,
-    DriverViewComponent
+    DriverViewComponent,
+    ContactComponent
+   
     
   ],
   imports: [
