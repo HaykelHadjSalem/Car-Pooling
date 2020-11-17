@@ -36,11 +36,8 @@ import { DriverViewComponent } from './components/driver-view/driver-view.compon
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
-
-    RouterModule.forRoot([{path: 'feed', component: FeedComponent},
-                          {path: 'post', component: PostComponent}])
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
