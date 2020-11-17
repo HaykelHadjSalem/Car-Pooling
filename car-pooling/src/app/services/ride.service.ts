@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RideService {
 
   constructor(private http: HttpClient) { }
@@ -12,6 +13,6 @@ export class RideService {
 
  getAllRides() {
    return this.http.get('http://localhost:3000/api/rides')
-}
+  }
 
 }
