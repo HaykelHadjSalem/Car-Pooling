@@ -3,6 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import {Router} from '@angular/router'
 import {UserService} from 'src/app/services/user.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenStorageService } from '../../services/token-storage.service';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,11 +14,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   view: "";
+
+
+  isLoggedIn : boolean = false;
+  isLoginFailed: boolean = false;
  
- 
+  
    constructor(
      private router : Router,
-     private formBuilder: FormBuilder, 
+     private formBuilder: FormBuilder,
+     private tokenStorage: TokenStorageService, 
      private userService:UserService) { 
         this.loginForm = this.formBuilder.group({
        email: '',
@@ -60,6 +68,7 @@ export class LoginComponent implements OnInit {
        })
      }
    }
+
    changeView(option) {
      this.view = option;
    }
@@ -67,5 +76,10 @@ export class LoginComponent implements OnInit {
    signUp(){
      this.router.navigate(['/register'])
    }
+
+   reloadPage(): void {
+    window.location.reload();
+  }
+
  }
 
