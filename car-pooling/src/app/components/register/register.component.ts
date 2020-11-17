@@ -25,6 +25,8 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+
+
   ngOnInit(): void {
     this.userService.getAllPassengers().subscribe((passengers: any[])=>{
       console.log(passengers)
