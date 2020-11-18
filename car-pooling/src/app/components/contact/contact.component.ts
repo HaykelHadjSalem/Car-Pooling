@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import Swal from 'sweetalert';
 
 @Component({
   selector: 'app-contact',

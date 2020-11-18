@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { DriverViewComponent } from './components/driver-view/driver-view.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -24,7 +25,8 @@ import { ContactComponent } from './components/contact/contact.component';
     NavbarComponent,
     DriverComponent,
     DriverViewComponent,
-    ContactComponent
+    ContactComponent,
+    HomeComponent
    
     
   ],
