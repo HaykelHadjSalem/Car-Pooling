@@ -2,3 +2,35 @@
     
 //     width: 250px;
 // }
+
+th {
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-style: none;
+}
+
+td {
+    background-color: black;
+    color: white;
+    margin-left: 150px;
+    text-align: center;
+    border-style: dotted;
+}
+
+table {
+    width: 900px;
+    height: 250px;
+    margin: auto;
+    border-style: none;
+}
+
+tr {
+    border-style: none;
+}
+
+.checked {
+    color: orange;
+  }
+
+  

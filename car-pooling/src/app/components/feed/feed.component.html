@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     
         
             <div class="row" id="co">
@@ -12,9 +12,9 @@
         
 
     
-</div>
+</div> -->
 
-<div *ngFor= "let ride of allRides">
+<!-- <div *ngFor= "let ride of allRides">
     <div class="row"> 
       <div class="col">{{ride.destination}}</div> 
       <div class="col">{{ride.deparature}}</div>
@@ -26,7 +26,41 @@
         (click)="frame.show()" mdbWavesEffect> Reservation </button></div>
     </div> 
   </div> 
-  <br><br>
+  <br><br> -->
+
+  <table Table>
+    <thead>
+      <tr>
+        <th> Name of Driver </th>  
+        <th> Destination </th>
+        <th> Deparature </th>
+        <th> Time </th>
+        <th> Date </th>
+        <th> Price </th>
+        <th> Seats </th>
+        <th> Ride </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ride of allRides">
+        <td>{{ride.name}}</td>  
+        <td>{{ride.deparature}}</td>
+        <td>{{ride.destination}}</td>
+        <td>{{ride.time}}</td>
+        <td>{{ride.date}}</td>
+        <td>{{ride.price}}</td>
+        <td>{{ride.seats}}</td>
+        <td><span id ="1" class="fa fa-star checked"></span>
+            <span id="2" class="fa fa-star checked"></span>
+            <span id="3" class="fa fa-star"></span>
+            <span id="4" class="fa fa-star"></span>
+            <span id="5" class="fa fa-star"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
 
   
 

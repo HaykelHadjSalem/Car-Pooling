@@ -32,25 +32,48 @@ export class FeedComponent implements OnInit {
 
     this.allRides = [
       
-      { destination: 'tunis',
+      { name :'Hamdi',
+        destination: 'Tunis',
         deparature: 'sousse',
         time:'15:52',
         date: '20/2/2023',
-        price: 30
+        price: 30,
+        seats: 4
       },
-      { destination: 'tunis',
-        deparature: 'sousse',
-        time:'15:52',
+      { name :'Amira',
+        destination: 'Sousse',
+        deparature: 'Hammamet',
+        time:'10:20',
         date: '20/2/2023',
-        price: 30
+        price: 30,
+        seats: 2
       },
-      { destination: 'tunis',
-        deparature: 'sousse',
-        time:'15:52',
+      { name :'Bassma',
+        destination: 'Beja',
+        deparature: 'Benzart',
+        time:'12:58',
         date: '20/2/2023',
-        price: 30
+        price: 30,
+        seats: 1
+      },
+      { name :'Kais',
+        destination: 'Beja',
+        deparature: 'Tunis',
+        time:'12:58',
+        date: '20/2/2023',
+        price: 30,
+        seats: 1
+      },
+      { name :'Haykel',
+        destination: 'Beja',
+        deparature: 'Nabeul',
+        time:'12:58',
+        date: '20/2/2023',
+        price: 30,
+        seats: 1
       }
     ]
+  
    
   
  
