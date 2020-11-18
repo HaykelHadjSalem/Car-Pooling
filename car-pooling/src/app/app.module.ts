@@ -6,6 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FeedComponent } from '../app/components/feed/feed.component';
+import { PostComponent } from '../app/components/post/post.component';
+import { RouterModule } from '@angular/router';
+
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -17,6 +21,8 @@ import { authInterceptorProviders } from './components/_helper/auth.interceptor'
 @NgModule({
   declarations: [
     AppComponent,
+    FeedComponent,
+    PostComponent,
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
@@ -31,7 +37,8 @@ import { authInterceptorProviders } from './components/_helper/auth.interceptor'
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
