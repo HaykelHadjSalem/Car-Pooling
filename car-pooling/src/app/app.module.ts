@@ -18,8 +18,7 @@ import { DriverComponent } from './components/driver/driver.component';
 import { DriverViewComponent } from './components/driver-view/driver-view.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
-
-
+import { authInterceptorProviders } from './components/_helper/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,6 +37,7 @@ import { HomeComponent } from './components/home/home.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
@@ -45,7 +45,7 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,13 +27,13 @@
     <label id="icon" for="password"><i class="fas fa-lock"></i></label>
     <input type="password" placeholder="Confirm Password" id="password" formControlName="confirmPassword"> <br/> 
     <label id="icon" for="password"><i class="fas fa-map-marker"></i></label>
-    <input type="password" placeholder="Address" id="password" formControlName="address"> <br/> 
+    <input type="text" placeholder="Address" id="password" formControlName="address"> <br/> 
     <label id="icon" for="password"><i class="fas fa-phone-alt"></i></label>
-    <input type="password" placeholder="Phone Number" id="password" formControlName="phoneNumber"> <br/> 
-    <label id="icon" for="password"><i class="far fa-address-card"></i></label>
-    <input type="password" placeholder="ID Card" id="password" formControlName="idCard"> <br/> 
-    <label *ngIf="signupForm.value.type==='driver'" id="icon" for="password"><i class="fas fa-id-badge"></i></label>
-    <input *ngIf="signupForm.value.type==='driver'" type="password" placeholder="Licence Number" id="password" formControlName="driverLicenceNumber"> <br/> <br/> <br/> 
+    <input type="number" placeholder="Phone Number" id="password" formControlName="phoneNumber"> <br/> 
+    <label id="icon" for="idCard"><i class="far fa-address-card"></i></label>
+    <input type="number" placeholder="ID Card" id="idCard" formControlName="idCard"> <br/> 
+    <label *ngIf="signupForm.value.type==='driver'" id="icon" for="driverLicense"><i class="fas fa-id-badge"></i></label>
+    <input *ngIf="signupForm.value.type==='driver'" type="number" placeholder="Licence Number" id="driverLicense" formControlName="driverLicense"> <br/> 
     <input type="submit" value="Sign Up">
     <hr>
   </form>
