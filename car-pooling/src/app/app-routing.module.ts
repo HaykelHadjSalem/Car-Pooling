@@ -8,6 +8,7 @@ import { DriverViewComponent } from './components/driver-view/driver-view.compon
 
 
 const routes: Routes = [
+{path: '', redirectTo: 'home', pathMatch: 'full'},
 {path:'login', component: LoginComponent},
 {path:'register',component: RegisterComponent},
 {path:'contact', component: ContactComponent},

@@ -50,11 +50,11 @@ export class LoginComponent implements OnInit {
        const driver = {email: userLoginInfo.email, password: userLoginInfo.password}
        this.authService.login(driver).subscribe((results:any) => {
          console.log(results);
-         this.tokenStorage.saveToken(results.accessToken);
-        this.tokenStorage.saveUser(results.driver);
-        this.router.navigate(['driver-view']);
-         if(Object.keys(results).length) {
-           this.userService.setCurrentUser(undefined);
+         if(results.accessToken) {
+           this.tokenStorage.saveToken(results.accessToken);
+           this.tokenStorage.saveUser(results.driver);
+           this.router.navigate(['driver-view']);
+         } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
          }
        })
