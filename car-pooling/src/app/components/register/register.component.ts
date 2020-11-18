@@ -10,13 +10,8 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-<<<<<<< HEAD
   signupForm;
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { 
-=======
-  signupForm : FormGroup;
   constructor(private formBuilder: FormBuilder, private userService: UserService, private authService: AuthService) { 
->>>>>>> 8166bd70464a37388ce84e4742f3e5198f10d0a4
     this.signupForm = this.formBuilder.group({
       firstName : "",
       lastName : "",
