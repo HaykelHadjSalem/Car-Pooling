@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-driver-view',
@@ -11,9 +11,13 @@ export class DriverViewComponent implements OnInit {
   focus;
   focus1;
   focus2;
-  constructor() { }
+  verfy:boolean = false;
+  constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+    if (this.tokenStorage.getUser()) {
+      this.verfy = true
+    }
   }
 
 }
