@@ -1,0 +1,28 @@
+
+  
+  #contact {
+   margin-top: 50px;
+   margin-left: 370px;
+    // background: -webkit-image-set( url('http://placehold.it/1600x900') 1x, url('http://placehold.it/3200x1800') 2x);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  #contactForm {
+      
+    padding: 10px;
+    opacity: 0.8;
+    background: -webkit-linear-gradient(white, transparent, white);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, transparent, white);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, transparent, white);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, transparent, white);
+    /* Standard syntax (must be last) */
+  }
+  
+  .mycol {
+    width: contain;
+  }
