@@ -1,6 +1,7 @@
 
-
-<div class="wrapper animated bounce">
+<br/><br/>
+<div id="login" class="wrapper animated bounce">
+  <br/><br/>
   <h1>Carpooling</h1>
   <hr>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
@@ -21,7 +22,7 @@
     <input type="password" placeholder="Password" id="password" formControlName="password"> <br/> <br/> <br/>
     <input type="submit" value="Sign In">
     <hr>
-    <div class="crtacc"><a routerLink="/register">Create Account</a></div>
+    <div   class="crtacc"><a routerLink="/register">Create Account</a></div>
   </form>
 </div>
 

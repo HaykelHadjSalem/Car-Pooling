@@ -21,32 +21,21 @@
     <div class="col-lg-5 col-md-7">
       <div class="card bg-secondary shadow border-0">
         <div class="card-header bg-transparent pb-5">
-          <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
-          <div id="d" class="input-group mb-3">
-            
-            <label class="input-group-text">User Type</label>
-            <select class="form-select">
-              <option value="Driver">
-                Driver
-              </option>
-              <option value="passenger">
-                Passenger
-              </option>
-            </select>
-      </div>  
-      
-        </div>
-        <div class="card-body px-lg-5 py-lg-5">
-          <div class="text-center text-muted mb-4">
-            <small>Or sign in with credentials</small>
-          </div>
-          <form role="form">
+          <div class="text-muted text-center mt-2 mb-3">Sign In </div>
+          <form role="form" #myform="ngForm" (ngSubmit)="login(myform)">
             <div class="form-group mb-3">
+                <select class="form-select"  name="type"  ngModel required style="background :bisque">
+                  <option value="driver">
+                    Driver
+                  </option>
+                  <option value="passenger">Passenger</option>
+                </select>
+            <br/><br/>
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Email" type="email" name="email"  ngModel required>
               </div>
             </div>
             <div class="form-group">
@@ -54,7 +43,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" name="password" ngModel required>
               </div>
             </div>
             <div class="custom-control custom-control-alternative custom-checkbox">
@@ -68,7 +57,7 @@
               <label class="custom-control-label" for="customCheck1">Unchecked</label>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary my-4">Sign in</button>
+              <button type="submit" class="btn btn-primary my-4">Sign in</button>
             </div>
           </form>
         </div>
@@ -78,7 +67,7 @@
           <a href="javascript:void(0)" class="text-light"><small>Forgot password?</small></a>
         </div>
         <div class="col-6 text-right">
-          <a href="javascript:void(0)" class="text-light" routerLink="/register" href=""> <small> Create new account</small></a>
+          <a routerLink="/register" class="text-light"><small>Create new account</small></a>
         </div>
       </div>
     </div>
