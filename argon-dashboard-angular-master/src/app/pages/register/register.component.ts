@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,23 +7,25 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  signupForm : FormGroup;
-  constructor(private formBuilder: FormBuilder) {
-    this.signupForm = this.formBuilder.group({
-      firstName : "",
-      lastName : "",
-      email : "",
-      password : "",
-      confirmPassword : "",
-      address : "",
-      phoneNumber : "",
-      idCard : "",
-      driverLicenceNumber : "",
-      type : "driver"
-    })
-   }
+
+  constructor() { }
 
   ngOnInit() {
   }
+
+  ngOnDestroy() {
+  }
+
+  register(form) {
+    console.log(form.controls['firstName'].value);
+    console.log(form.controls['lastName'].value);   
+    console.log(form.controls['email'].value);
+    console.log(form.controls['password'].value);
+    console.log(form.controls['confirmPassword'].value);
+    console.log(form.controls['address'].value);
+    console.log(form.controls['phoneNumber'].value);  
+    console.log(form.controls['idCard'].value);
+    console.log(form.controls['driverLicenceNumber'].value);    
+     }
 
 }

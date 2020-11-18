@@ -66,7 +66,7 @@ input[type=text], input[type=password] {
 }
 input[type=submit]{
   width: 237px;
-  height: 40px;
+  height: 60px;
   margin-left:17px;
   border-radius:3px;
   background-color:#ae6a6a;
@@ -89,7 +89,8 @@ input[type=submit]:hover{
   font-size:14px;
   padding-top:10px;
   padding-bottom:7px;
-  width:40px;
+  width:50px;
+  height: 38px;
   margin-left: 15px;
   margin-bottom:20px;
   text-align:center;
@@ -110,7 +111,7 @@ input[type=submit]:hover{
 }
 .wrapper h1{
   font-family: 'Galada', cursive;
-  color:#f4f4f4;
+  color: #262626;
   letter-spacing:8px;
   text-align:center;
   padding-top:5px;
@@ -123,13 +124,30 @@ input[type=submit]:hover{
 .crtacc{
   margin-left:75px;
   font-weight: bold;
+  
 }
 
 
+
 #b{
-    margin-left: 16px;
+    margin-left: 170px;
     height: 40px ;
     width: 45px;
     font-family: 'Galada', cursive;
     
+
+
 }
+
+#login{
+  position: absolute;
+  top: 40%;
+  left: 77%;
+  transform: translate(-50%,-50%);
+  height: 600px;
+  background-color:white;
+    width: 500px;
+    align-items: center;
+    text-align: center;
+}
+
