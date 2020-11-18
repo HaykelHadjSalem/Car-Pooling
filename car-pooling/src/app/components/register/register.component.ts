@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   signupForm : FormGroup;
-  constructor(private formBuilder: FormBuilder, private userService: UserService) { 
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private authService: AuthService) { 
     this.signupForm = this.formBuilder.group({
       firstName : "",
       lastName : "",
@@ -18,20 +19,17 @@ export class RegisterComponent implements OnInit {
       password : "",
       confirmPassword : "",
       address : "",
-      phoneNumber : "",
-      idCard : "",
-      driverLicenceNumber : "",
+      phoneNumber : 0,
+      idCard : 0,
+      driverLicense : 0,
       type : "driver"
     })
   }
 
+
+
   ngOnInit(): void {
-    this.userService.getAllPassengers().subscribe((passengers: any[])=>{
-      console.log(passengers)
-  })
-  this.userService.getAllDrivers().subscribe((drivers: any[])=>{
-    console.log(drivers)
-  })
+
  }
  
 onSubmit(userInfo){
@@ -44,10 +42,10 @@ onSubmit(userInfo){
     password : userInfo.password,
     address : userInfo.address,
     phoneNumber : userInfo.phoneNumber,
-    idCard : userInfo.idCard,
-    driverLicenceNumber : userInfo.driverLicenceNumber,
+    ICN : userInfo.idCard,
+    driverLicense : userInfo.driverLicense,
   }
-  console.log(userInfo);
+
   const passengerInfo = {
     type : userInfo.type,
     firstName : userInfo.firstName,
@@ -56,11 +54,11 @@ onSubmit(userInfo){
     password : userInfo.password,
     address : userInfo.address,
     phoneNumber : userInfo.phoneNumber,
-    idCard : userInfo.idCard,
+    ICN : userInfo.idCard,
   }
 
   if(userInfo.type === "driver") {
-    this.userService.addNewDriver(driverInfo).subscribe((driver : any)=>{
+    this.authService.register(driverInfo).subscribe((driver : any)=>{
       if(driver.message){
         alert(driver.message)
         return;
@@ -68,7 +66,7 @@ onSubmit(userInfo){
       console.log("account successfully created", driver);
     })
   }else{
-    this.userService.addNewPassenger(passengerInfo).subscribe((passenger:any)=>{
+    this.userService.register(passengerInfo).subscribe((passenger:any)=>{
       if(passenger.message){
         alert(passenger.message)
       return;

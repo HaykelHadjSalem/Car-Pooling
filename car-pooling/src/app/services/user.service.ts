@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
+const passengerUrl = 'http://localhost:3000/passenger/';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
   @Injectable({
     providedIn: 'root'
@@ -7,15 +14,13 @@ import { HttpClient } from '@angular/common/http';
   export class UserService { 
   
     currentUser: any;
-    private passengerUrl = 'http://localhost:3000/api/passenger';
-    private driverUrl = "http://localhost:3000/api/driver";
+ 
+    private driverUrl = "http://localhost:3000/driver";
   
     constructor(private http: HttpClient) { }
 
 
-   public getAllPassengers() {
-      return this.http.get(this.passengerUrl);
-   }
+
   
   
  public getAllDrivers() {
@@ -24,8 +29,16 @@ import { HttpClient } from '@angular/common/http';
   
 //add a new  passenger user
 
-public addNewPassenger(options){
-    return this.http.post(this.passengerUrl + '/add', options)
+register(driver): Observable<any> {
+  return this.http.post(passengerUrl + 'register', {
+    firstName: driver.firstName,
+    lastName : driver.lastName,
+    email: driver.email,
+    ICN : driver.ICN,
+    address: driver.address,
+    phoneNumber: driver.phoneNumber,
+    password: driver.password
+  });
 }
 
 //add a new  driver user
@@ -36,8 +49,11 @@ public addNewDriver(options){
 
    // log in passenger
   
-   public logInPassenger(options){
-    return this.http.post(this.passengerUrl+ '/login', options)
+   login(credentials): Observable<any> {
+    return this.http.post(passengerUrl+ 'login', {
+      email: credentials.email,
+      password: credentials.password
+    }, httpOptions);
   }
   
     // log in driver 

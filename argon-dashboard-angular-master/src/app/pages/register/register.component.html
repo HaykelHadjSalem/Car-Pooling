@@ -18,23 +18,16 @@
 <!-- Page content -->
 <div class="container mt--8 pb-5">
   <!-- Table -->
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" >
     <div class="col-lg-6 col-md-8">
       <div class="card bg-secondary shadow border-0">
         <div class="card-header bg-transparent pb-5">
           <div class="text-muted text-center mt-2 mb-4"><small>Sign up as</small></div>
-          <div class="input-group mb-3">
-              
-            <label class="input-group-text">User Type</label>
-            <select class="form-select">
-              <option value="Driver">
-                Driver
-              </option>
-              <option value="passenger">
-                Passenger
-              </option>
-            </select>
-          </div>  
+          <select id="drop" >
+            <option value="volvo">Driver</option>
+            <option value="saab">Passenger</option>
+          
+          </select>
         </div>
         <div class="card-body px-lg-5 py-lg-5">
           <div class="text-center text-muted mb-4">
@@ -46,7 +39,15 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="Name" type="text">
+                <input class="form-control" placeholder="FirstName" type="text" >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="LastName" type="text" >
               </div>
             </div>
             <div class="form-group">
@@ -54,7 +55,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Email" type="email" >
               </div>
             </div>
             <div class="form-group">
@@ -62,10 +63,51 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password">
+                <input class="form-control" placeholder="Password" type="password" >
+              </div> <div class="text-muted font-italic"><small> At least 6 characters and 1 digit </small></div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Confirm Password" type="password" >
               </div>
             </div>
-            <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
+           
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                </div>
+                <input class="form-control" placeholder="Address" type="text" >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                </div>
+                <input class="form-control" placeholder="Phone Number" type="text" >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                </div>
+                <input class="form-control" placeholder="ID card" type="text" >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                </div>
+                <input class="form-control" placeholder="Driver Licence Number" type="text"  >
+              </div>
+            </div>
             <div class="row my-4">
               <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -75,9 +117,10 @@
                   </label>
                 </div>
               </div>
+              
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4">Create account</button>
+              <button type="button" class="btn btn-primary mt-4">Sign Up</button>
             </div>
           </form>
         </div>

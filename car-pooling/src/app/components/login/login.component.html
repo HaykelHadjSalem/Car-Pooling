@@ -1,47 +1,28 @@
-<!-- Default form login -->
-<form  class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
 
-  <p class="h4 mb-4">Login</p>
 
-  <!--type to choose between passenger and driver-->
-  <div class="input-group mb-3">
-            
-      <label class="input-group-text">User Type</label>
-      <select class="form-select" formControlName="type">
-        <option value="Driver">
-          Driver
-        </option>
-        <option value="passenger">
-          Passenger
-        </option>
-      </select>
-</div>  
-
-  <!-- Email -->
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" formControlName="email" placeholder="E-mail">
-
-  <!-- Password -->
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password">
-
-  <!-- <div class="d-flex justify-content-around">
-    <div>
-     
-      <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-    </div>
-    <div>
+<div class="wrapper animated bounce">
+  <h1>Carpooling</h1>
+  <hr>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    
+<div id="b" class="input-group mb-3 ">
+  <select class="form-select" formControlName="type" style="background :bisque">
+    <option value="driver">
+      Driver
+    </option>
+    <option value="passenger">Passenger</option>
       
-      <a href="">Forgot password?</a>
-    </div>
-  </div> -->
+  
+  </select>
+</div>  <br/>
+    <label id="icon" for="username"><i class="fa fa-user"></i></label>
+    <input type="email" placeholder="Email" id="username" formControlName="email"> <br/> <br/>
+    <label id="icon" for="password"><i class="fa fa-key"></i></label>
+    <input type="password" placeholder="Password" id="password" formControlName="password"> <br/> <br/> <br/>
+    <input type="submit" value="Sign In">
+    <hr>
+    <div class="crtacc"><a routerLink="/register">Create Account</a></div>
+  </form>
+</div>
 
-  <!-- login button -->
-  <button mdbBtn color="login" block="true" class="my-4" type="submit">Login</button>
-
-  <!-- Register -->
-  <p>Not a member?</p>
-
- <!-- Register button -->
- <button mdbBtn color="register" block="true" class="my-4" type="submit" (click)="signUp()" >Create an account</button>
-</form>
-<!-- Default form login -->
-
+ <router-outlet></router-outlet>
