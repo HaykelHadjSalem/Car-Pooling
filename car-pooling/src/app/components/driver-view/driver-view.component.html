@@ -1,0 +1,30 @@
+<div class="feed" *ngIf="verfy === true">
+    <ul>
+      <li class="feed-list-item">
+          Departure : 
+        <span class="feed-list-item-title"> 
+          Arrival :
+        </span>
+        <p type="date" class="feed-list-item-description">
+         date :
+        </p>
+        <span class="feed-list-item-poster">
+        </span>
+        <span class="feed-list-item-price">
+          <strong>  Price : </strong>
+        </span>
+        <div
+        >
+       Stopps : 
+        </div>
+        <div class="feed-list-item-address">
+            CheckStatus : Not yet
+        </div>
+        <span>
+        </span>
+      </li>
+    </ul>
+    <!-- Add a form with inputs containing fields for the ride -->
+    <button (click) = "addRide()">Add ride</button>
+    <button (click) = "logout()">Logout</button>
+</div>

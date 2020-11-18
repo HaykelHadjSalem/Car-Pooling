@@ -1,0 +1,131 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">Welcome!</h1>
+          <p class="text-lead text-light">Use these awesome forms to login or create new account in your project for free.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+          <div class="text-muted text-center mt-2 mb-4">Sign Up </div>
+        </div>
+        
+        <div class="card-body px-lg-5 py-lg-5">
+         
+          <form role="form" #myform="ngForm" (ngSubmit)="register(myform)">
+            <div class="form-group">
+                <select class="form-select"  name="type"  ngModel required  style="background :bisque">
+                  <option value="driver">
+                    Driver
+                  </option>
+                  <option value="passenger">Passenger</option>
+                </select>
+            <br/><br/>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+              </div>
+              <input class="form-control" placeholder="FirstName" type="text" name="firstName"  ngModel required >
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+              </div>
+              <input class="form-control" placeholder="LastName" type="text" name="lastName"  ngModel required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+              </div>
+              <input class="form-control" placeholder="Email" type="email" name="email"  ngModel required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+              </div>
+              <input class="form-control" placeholder="Password" type="password" name="password"  ngModel required>
+            </div> <div class="text-muted font-italic"><small> At least 6 characters and 1 digit </small></div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+              </div>
+              <input class="form-control" placeholder="Confirm Password" type="password" name="confirmPassword"  ngModel required>
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+              </div>
+              <input class="form-control" placeholder="Address" type="text" name="address"  ngModel required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+              </div>
+              <input class="form-control" placeholder="Phone Number" type="text" name="phoneNumber"  ngModel required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+              </div>
+              <input class="form-control" placeholder="ID card" type="text" name="idCard"  ngModel required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+              </div>
+              <input  class="form-control" placeholder="Driver Licence Number" type="text" name="driverLicenceNumber"  ngModel required >
+            </div>
+          </div>
+          <div class="row my-4">
+            <div class="col-12">
+              <div class="custom-control custom-control-alternative custom-checkbox">
+                <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                <label class="custom-control-label" for="customCheckRegister">
+                  <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                </label>
+              </div>
+            </div>
+            
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-4">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

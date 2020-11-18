@@ -1,0 +1,40 @@
+
+
+<div id="login" class="wrapper animated bounce">
+  <br/> <br/>
+  <h1 id="f">Sign Up</h1>
+  <hr>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+    
+<div id="b" class="input-group mb-3 ">
+  <select class="form-select" formControlName="type" style="background :bisque">
+    <option value="driver">
+      Driver
+    </option>
+    <option value="passenger">Passenger</option>
+      
+  
+  </select>
+</div>  <br/>
+<label id="icon" for="username"><i class="fa fa-user"></i></label>
+    <input type="text" placeholder="FirstName" id="username" formControlName="firstName"> <br/> 
+<label id="icon" for="username"><i class="fa fa-user"></i></label>
+    <input type="text" placeholder="LastName" id="username" formControlName="lastName"> <br/> 
+    <label id="icon" for="username"><i class="fas fa-envelope-open"></i></label>
+    <input type="email" placeholder="Email" id="username" formControlName="email"> <br/> 
+    <label id="icon" for="password"><i class="fa fa-key"></i></label>
+    <input type="password" placeholder="Password" id="password" formControlName="password"> <br/> 
+    <label id="icon" for="password"><i class="fas fa-lock"></i></label>
+    <input type="password" placeholder="Confirm Password" id="password" formControlName="confirmPassword"> <br/> 
+    <label id="icon" for="password"><i class="fas fa-map-marker"></i></label>
+    <input type="text" placeholder="Address" id="password" formControlName="address"> <br/> 
+    <label id="icon" for="password"><i class="fas fa-phone-alt"></i></label>
+    <input type="number" placeholder="Phone Number" id="password" formControlName="phoneNumber"> <br/> 
+    <label id="icon" for="idCard"><i class="far fa-address-card"></i></label>
+    <input type="number" placeholder="ID Card" id="idCard" formControlName="idCard"> <br/> 
+    <label *ngIf="signupForm.value.type==='driver'" id="icon" for="driverLicense"><i class="fas fa-id-badge"></i></label>
+    <input *ngIf="signupForm.value.type==='driver'" type="number" placeholder="Licence Number" id="driverLicense" formControlName="driverLicense"> <br/> 
+    <input type="submit" value="Sign Up">
+    <hr>
+  </form>
+</div>

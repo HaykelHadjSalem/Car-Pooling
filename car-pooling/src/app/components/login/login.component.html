@@ -1,0 +1,29 @@
+
+<br/><br/>
+<div id="login" class="wrapper animated bounce">
+  <br/><br/>
+  <h1>Carpooling</h1>
+  <hr>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    
+<div id="b" class="input-group mb-3 ">
+  <select class="form-select" formControlName="type" style="background :bisque">
+    <option value="driver">
+      Driver
+    </option>
+    <option value="passenger">Passenger</option>
+      
+  
+  </select>
+</div>  <br/>
+    <label id="icon" for="username"><i class="fa fa-user"></i></label>
+    <input type="email" placeholder="Email" id="username" formControlName="email"> <br/> <br/>
+    <label id="icon" for="password"><i class="fa fa-key"></i></label>
+    <input type="password" placeholder="Password" id="password" formControlName="password"> <br/> <br/> <br/>
+    <input type="submit" value="Sign In">
+    <hr>
+    <div   class="crtacc"><a routerLink="/register">Create Account</a></div>
+  </form>
+</div>
+
+ <router-outlet></router-outlet>
