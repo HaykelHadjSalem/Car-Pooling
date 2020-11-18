@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { AgmCoreModule } from '@agm/core';
+
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -27,10 +27,7 @@ import { ComponentsModule } from './components/components.module';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-   
-    AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyCs6QhIZmoPP-HLdb3zdAKb0giGL18AX9k'
-  }),
+    ReactiveFormsModule
   ],
 
 
