@@ -64,7 +64,7 @@ public addNewDriver(options){
   
 
   public setCurrentUser(user: any) {
-    this.currentUser = user;
+    this.currentUser = [user.driver];
   }
   public getCurrentUser() {
     return this.currentUser;
