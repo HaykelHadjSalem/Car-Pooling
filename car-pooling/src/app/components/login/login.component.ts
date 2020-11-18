@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
      if(userLoginInfo.type === 'driver') {
        const driver = {email: userLoginInfo.email, password: userLoginInfo.password}
        this.authService.login(driver).subscribe((results:any) => {
-         console.log(results);
+         console.log(results.accessToken);
          this.tokenStorage.saveToken(results.accessToken);
         this.tokenStorage.saveUser(results.driver);
         this.router.navigate(['driver-view']);
