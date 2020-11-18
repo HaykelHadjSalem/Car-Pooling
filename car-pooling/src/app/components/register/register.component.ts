@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import {Router} from '@angular/router';
 
@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  signupForm : FormGroup;
+  signupForm;
   constructor(private formBuilder: FormBuilder, private userService: UserService) { 
     this.signupForm = this.formBuilder.group({
       firstName : "",
