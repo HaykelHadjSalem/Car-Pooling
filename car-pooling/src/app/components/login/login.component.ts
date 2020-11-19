@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators,FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {Router} from '@angular/router'
-import {UserService} from 'src/app/services/user.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 import {AuthService} from '../../services/auth.service';
 
@@ -12,7 +11,6 @@ import {AuthService} from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm;
-  view: "";
 
 
   isLoggedIn : boolean = false;
@@ -23,8 +21,7 @@ export class LoginComponent implements OnInit {
      private router : Router,
      private formBuilder: FormBuilder,
      private tokenStorage: TokenStorageService,
-     private authService: AuthService, 
-     private userService:UserService) { 
+     private authService: AuthService) { 
         this.loginForm = this.formBuilder.group({
        email: '',
        password: '',
@@ -48,12 +45,12 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm.value)
      if(userLoginInfo.type === 'driver') {
        const driver = {email: userLoginInfo.email, password: userLoginInfo.password}
-       this.authService.login(driver).subscribe((results:any) => {
+       this.authService.loginDriver(driver).subscribe((results:any) => {
          console.log(results);
          if(results.accessToken) {
            this.tokenStorage.saveToken(results.accessToken);
-           this.tokenStorage.saveUser(results.driver);
-           this.router.navigate(['driver-view']);
+           this.tokenStorage.saveUser(results.driver, 'driver');
+           this.router.navigate(['driver']);
          } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
          }
@@ -61,11 +58,12 @@ export class LoginComponent implements OnInit {
      }
      else if(userLoginInfo.type === 'passenger') {
        const passenger = {email: userLoginInfo.email, password: userLoginInfo.password}
-       this.userService.login(passenger).subscribe((results:any) => {
+       this.authService.loginPassenger(passenger).subscribe((results:any) => {
+         console.log(results)
         this.tokenStorage.saveToken(results.accessToken);
-         this.userService.setCurrentUser(results);
+         this.tokenStorage.saveUser(results.passenger, 'passenger');
          if(Object.keys(results).length) {
-           this.router.navigate(['driver-view']);
+           this.router.navigate(['passenger']);
            console.log('success')
          } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
@@ -93,9 +91,7 @@ export class LoginComponent implements OnInit {
 
 
 
-   changeView(option) {
-     this.view = option;
-   }
+  
  
    signUp(){
      this.router.navigate(['/register'])

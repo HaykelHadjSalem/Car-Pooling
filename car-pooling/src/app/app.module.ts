@@ -20,6 +20,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { authInterceptorProviders } from './components/_helper/auth.interceptor';
 import { CarComponent } from './components/car/car.component';
+import { PassengerComponent } from './components/passenger/passenger.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CarComponent } from './components/car/car.component';
     DriverViewComponent,
     ContactComponent,
     HomeComponent,
-    CarComponent
+    CarComponent,
+    PassengerComponent
    
     
   ],

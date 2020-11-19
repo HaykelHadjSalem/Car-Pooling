@@ -30,7 +30,7 @@
   </div>
 
   <!-- E-mail -->
-  <input type="email"  class="form-control mb-4" placeholder="E-mail">
+  <input type="email"  class="form-control mb-4" placeholder="E-mail" formControlName="email">
 
   <!-- Password -->
   <input type="password"  class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
@@ -39,9 +39,9 @@
   </small>
    
    <!-- reconfirm Password -->
-   <input type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
+   <input (change)="checkPassword($event)" type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
    <small  class="form-text text-muted mb-4">
-  
+    {{checkedPassword}}
    </small>
 
    <!-- address -->
@@ -50,12 +50,12 @@
     
   </small>
   <!-- Phone number -->
-  <input type="text"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
+  <input type="number"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
   <small  class="form-text text-muted mb-4">
   </small>
 
     <!-- ID card of passenger and driver -->
-    <input type="text"  class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="idCard">
+    <input type="number"  class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="idCard">
     <small  class="form-text text-muted mb-4">
       
 
@@ -66,7 +66,7 @@
 
 
         <!-- Licence driver -->
-        <input  *ngIf="signupForm.value.type==='driver'" type="text"  class="form-control" placeholder="Driver Licence number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="driverLicense">
+        <input  *ngIf="signupForm.value.type==='driver'" type="number"  class="form-control" placeholder="Driver Licence number"  formControlName="driverLicense">
         <small  class="form-text text-muted mb-4">
           
         </small>
