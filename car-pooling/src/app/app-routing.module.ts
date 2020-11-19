@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DriverViewComponent } from './components/driver-view/driver-view.component';
 import { PassengerComponent } from './components/passenger/passenger.component';
+import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 
 const routes: Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
 {path:'home', component: HomeComponent},
 {path:'driver', component:  DriverViewComponent},
 {path:'passenger', component:  PassengerComponent},
+{path:'passenger/profile', component:  PassengerProfileComponent},
 ];
 
 @NgModule({

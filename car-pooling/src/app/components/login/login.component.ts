@@ -48,8 +48,9 @@ export class LoginComponent implements OnInit {
        this.authService.loginDriver(driver).subscribe((results:any) => {
          console.log(results);
          if(results.accessToken) {
+           results.driver.type = 'driver';
            this.tokenStorage.saveToken(results.accessToken);
-           this.tokenStorage.saveUser(results.driver, 'driver');
+           this.tokenStorage.saveUser(results.driver);
            this.router.navigate(['driver']);
          } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
@@ -60,9 +61,11 @@ export class LoginComponent implements OnInit {
        const passenger = {email: userLoginInfo.email, password: userLoginInfo.password}
        this.authService.loginPassenger(passenger).subscribe((results:any) => {
          console.log(results)
-        this.tokenStorage.saveToken(results.accessToken);
-         this.tokenStorage.saveUser(results.passenger, 'passenger');
-         if(Object.keys(results).length) {
+        
+         if(results.accessToken) {
+           results.passenger.type = 'passenger';
+           this.tokenStorage.saveToken(results.accessToken);
+           this.tokenStorage.saveUser(results.passenger);
            this.router.navigate(['passenger']);
            console.log('success')
          } else {

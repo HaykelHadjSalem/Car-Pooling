@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
@@ -7,7 +8,6 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
-  type: string = '';
   constructor() { }
 
   signOut(): void {
@@ -23,17 +23,13 @@ export class TokenStorageService {
     return localStorage.getItem(TOKEN_KEY);
   }
 
-  public saveUser(user, type): void {
+  public saveUser(user: any): void {
     window.localStorage.removeItem(USER_KEY);
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
-    this.type = type;
   }
 
   public getUser(): any {
     return JSON.parse(localStorage.getItem(USER_KEY));
-  }
-  public getType(): string {
-    return this.type;
   }
 
 }
