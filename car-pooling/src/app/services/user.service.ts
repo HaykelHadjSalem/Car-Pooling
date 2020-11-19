@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 
 const passengerUrl = 'http://localhost:3000/passenger/';
+const carUrl = 'http://localhost:3000/car/';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -20,7 +21,18 @@ const httpOptions = {
     constructor(private http: HttpClient) { }
 
 
-
+   public addCar(car): Observable<any> {
+      return this.http.post(carUrl + 'create', {
+        model: car.model,
+        color : car.color,
+        fuelType: car.fuelType,
+        ICN : car.ICN,
+        maxSeats: car.maxSeats,
+        VKT: car.VKT,
+        VIN: car.VIN,
+        driverId: car.driverId
+      }, httpOptions);
+    }
   
   
  public getAllDrivers() {
@@ -58,9 +70,6 @@ public addNewDriver(options){
   
     // log in driver 
   
-    public logInDriver(options){
-      return this.http.post(this.driverUrl + '/login', options)
-    }
   
 
   public setCurrentUser(user: any) {

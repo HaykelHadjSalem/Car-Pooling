@@ -11,7 +11,7 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm : FormGroup;
+  loginForm;
   view: "";
 
 
@@ -49,11 +49,12 @@ export class LoginComponent implements OnInit {
      if(userLoginInfo.type === 'driver') {
        const driver = {email: userLoginInfo.email, password: userLoginInfo.password}
        this.authService.login(driver).subscribe((results:any) => {
-         this.tokenStorage.saveToken(results.accessToken);
-        this.tokenStorage.saveUser(results.driver);
-        this.router.navigate(['driver-view']);
-         if(Object.keys(results).length) {
-           this.userService.setCurrentUser(results.driver);
+         console.log(results);
+         if(results.accessToken) {
+           this.tokenStorage.saveToken(results.accessToken);
+           this.tokenStorage.saveUser(results.driver);
+           this.router.navigate(['driver-view']);
+         } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
          }
        })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import { TokenStorageService } from '../../services/token-storage.service';
-
+import {UserService} from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-car',
@@ -15,10 +15,11 @@ export class CarComponent implements OnInit {
     model:"",
   fuelType :"", 
   color :"", maxSeats: 0, VKT : 0, VIN : 0, driverId : 0};
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService,  private userService:UserService) { }
 
   ngOnInit(): void {
     this.data = this.tokenStorage.getUser();
+    
   }
 
   onSubmit(form: NgForm) {
@@ -29,9 +30,7 @@ export class CarComponent implements OnInit {
     this.obj.VIN = form.value['VIN']
     this.obj.maxSeats = form.value['seats'];
     this.obj.driverId = this.data.id
-    // this.authPat.patSingUp(this.obj).subscribe(doctor=>{
-    //   console.log(doctor, 'in submission')
-    console.log(this.obj)
+    this.userService.addCar(this.obj).subscribe(data => {console.log(data)})
 }
-
+ 
 }
