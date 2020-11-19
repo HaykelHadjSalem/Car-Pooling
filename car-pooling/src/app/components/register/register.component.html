@@ -21,42 +21,42 @@
 </div>  
     <div class="col" >
       <!-- First name -->
-      <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+      <input type="text"  class="form-control" placeholder="First name" formControlName="firstName">
     </div>
     <div class="col">
       <!-- Last name -->
-      <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+      <input type="text"  class="form-control" placeholder="Last name" formControlName="lastName">
     </div>
   </div>
 
   <!-- E-mail -->
-  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+  <input type="email"  class="form-control mb-4" placeholder="E-mail">
 
   <!-- Password -->
-  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+  <input type="password"  class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
     At least 6 characters and 1 digit
   </small>
    
    <!-- reconfirm Password -->
-   <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+   <input type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
+   <small  class="form-text text-muted mb-4">
   
    </small>
 
    <!-- address -->
-  <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Address" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-  <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+  <input type="text" class="form-control" placeholder="Address" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="address">
+  <small class="form-text text-muted mb-4">
     
   </small>
   <!-- Phone number -->
-  <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-  <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+  <input type="text"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
+  <small  class="form-text text-muted mb-4">
   </small>
 
     <!-- ID card of passenger and driver -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+    <input type="text"  class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="idCard">
+    <small  class="form-text text-muted mb-4">
       
     </small>
 
@@ -65,11 +65,11 @@
 
 
         <!-- Licence driver -->
-        <input  *ngIf="signupForm.value.type==='driver'" type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Driver Licence number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+        <input  *ngIf="signupForm.value.type==='driver'" type="text"  class="form-control" placeholder="Driver Licence number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName=" driverLicense">
+        <small  class="form-text text-muted mb-4">
           
         </small>
      
   <!-- Sign up button -->
-  <br/>
+  <br/><br/>
   <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
