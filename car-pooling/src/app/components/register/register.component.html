@@ -1,40 +1,76 @@
 
 
-<div id="login" class="wrapper animated bounce">
-  <br/> <br/>
-  <h1 id="f">Sign Up</h1>
-  <hr>
-  <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
-    
-<div id="b" class="input-group mb-3 ">
-  <select class="form-select" formControlName="type" style="background :bisque">
-    <option value="driver">
-      Driver
-    </option>
-    <option value="passenger">Passenger</option>
-      
+  <!--Passenger-->
+<!-- Default form register -->
+<form  class="text-center border border-light p-5" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+
+  <p class="h4 mb-4">Sign up</p>
+
+  <div class="form-row mb-4">
+    <div class="input-group mb-3">
+              
+      <label class="input-group-text">User Type</label>
+      <select class="form-select" formControlName="type">
+        <option value="driver">
+          Driver
+        </option>
+        <option value="passenger">
+          Passenger
+        </option>
+      </select>
+</div>  
+    <div class="col" >
+      <!-- First name -->
+      <input type="text"  class="form-control" placeholder="First name" formControlName="firstName">
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <input type="text"  class="form-control" placeholder="Last name" formControlName="lastName">
+    </div>
+  </div>
+
+  <!-- E-mail -->
+  <input type="email"  class="form-control mb-4" placeholder="E-mail">
+
+  <!-- Password -->
+  <input type="password"  class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
+  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    At least 6 characters and 1 digit
+  </small>
+   
+   <!-- reconfirm Password -->
+   <input type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
+   <small  class="form-text text-muted mb-4">
   
-  </select>
-</div>  <br/>
-<label id="icon" for="username"><i class="fa fa-user"></i></label>
-    <input type="text" placeholder="FirstName" id="username" formControlName="firstName"> <br/> 
-<label id="icon" for="username"><i class="fa fa-user"></i></label>
-    <input type="text" placeholder="LastName" id="username" formControlName="lastName"> <br/> 
-    <label id="icon" for="username"><i class="fas fa-envelope-open"></i></label>
-    <input type="email" placeholder="Email" id="username" formControlName="email"> <br/> 
-    <label id="icon" for="password"><i class="fa fa-key"></i></label>
-    <input type="password" placeholder="Password" id="password" formControlName="password"> <br/> 
-    <label id="icon" for="password"><i class="fas fa-lock"></i></label>
-    <input type="password" placeholder="Confirm Password" id="password" formControlName="confirmPassword"> <br/> 
-    <label id="icon" for="password"><i class="fas fa-map-marker"></i></label>
-    <input type="text" placeholder="Address" id="password" formControlName="address"> <br/> 
-    <label id="icon" for="password"><i class="fas fa-phone-alt"></i></label>
-    <input type="number" placeholder="Phone Number" id="password" formControlName="phoneNumber"> <br/> 
-    <label id="icon" for="idCard"><i class="far fa-address-card"></i></label>
-    <input type="number" placeholder="ID Card" id="idCard" formControlName="idCard"> <br/> 
-    <label *ngIf="signupForm.value.type==='driver'" id="icon" for="driverLicense"><i class="fas fa-id-badge"></i></label>
-    <input *ngIf="signupForm.value.type==='driver'" type="number" placeholder="Licence Number" id="driverLicense" formControlName="driverLicense"> <br/> 
-    <input type="submit" value="Sign Up">
-    <hr>
-  </form>
-</div>
+   </small>
+
+   <!-- address -->
+  <input type="text" class="form-control" placeholder="Address" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="address">
+  <small class="form-text text-muted mb-4">
+    
+  </small>
+  <!-- Phone number -->
+  <input type="text"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
+  <small  class="form-text text-muted mb-4">
+  </small>
+
+    <!-- ID card of passenger and driver -->
+    <input type="text"  class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="idCard">
+    <small  class="form-text text-muted mb-4">
+      
+
+    </small>
+
+    <!--****************************************************************************************************************************-->
+    <!--added information for the driver-->
+
+
+        <!-- Licence driver -->
+        <input  *ngIf="signupForm.value.type==='driver'" type="text"  class="form-control" placeholder="Driver Licence number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName=" driverLicense">
+        <small  class="form-text text-muted mb-4">
+          
+        </small>
+     
+  <!-- Sign up button -->
+  <br/><br/>
+  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>

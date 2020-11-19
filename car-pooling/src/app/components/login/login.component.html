@@ -1,4 +1,4 @@
-
+<!-- 
 <br/><br/>
 <div id="login" class="wrapper animated bounce">
   <br/><br/>
@@ -24,6 +24,42 @@
     <hr>
     <div   class="crtacc"><a routerLink="/register">Create Account</a></div>
   </form>
-</div>
+</div> -->
 
- <router-outlet></router-outlet>
+<!-- Default form login -->
+<form  class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+  <h1 class="h4 mb-4">Login</h1>
+
+  <!--type to choose between passenger and driver-->
+  <div class="input-group mb-3">
+            
+      <label class="input-group-text">User Type</label>
+      <select class="form-select" formControlName="type" style="background :bisque">
+        <option value="driver">
+          Driver
+        </option>
+        <option value="passenger">
+          Passenger
+        </option>
+      </select>
+</div>  
+
+  <!-- Email -->
+  <input type="email" class="form-control mb-4" formControlName="email" placeholder="E-mail">
+
+  <!-- Password -->
+  <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password">
+
+  <!-- login button -->
+  <button mdbBtn color="login" block="true" class="my-4" type="submit">Login</button>
+
+  <!-- Register -->
+  <p>Not a member?</p>
+
+ <!-- Register button -->
+ <button mdbBtn color="register" block="true" class="my-4" type="submit" routerLink="/register" >Create an account</button>
+</form>
+<!-- Default form login -->
+
+<router-outlet></router-outlet>

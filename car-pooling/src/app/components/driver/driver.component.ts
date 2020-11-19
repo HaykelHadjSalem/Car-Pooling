@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../../services/token-storage.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-driver',
@@ -6,14 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent implements OnInit {
+  data:any;
 selectedFile: File = null ;
-  constructor() { }
+  constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+this.data = this.tokenStorage.getUser();
+console.log(this.data.firstName)
+
   }
 
   onFileselected(event){
     this.selectedFile = <File>event.target.files[0];
   }
+
+
 
 }
