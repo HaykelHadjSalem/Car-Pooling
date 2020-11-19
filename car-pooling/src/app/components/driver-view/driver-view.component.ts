@@ -18,7 +18,7 @@ export class DriverViewComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.tokenStorage.getUser())
     if (this.tokenStorage.getUser()) {
-      this.verfy = true
+      this.verfy = true;
     }
   }
   addRide() {

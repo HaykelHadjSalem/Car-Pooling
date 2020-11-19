@@ -45,7 +45,7 @@ export class FeedComponent implements OnInit {
         deparature: 'Hammamet',
         time:'10:20',
         date: '20/2/2023',
-        price: 30,
+        price: 10,
         seats: 2
       },
       { name :'Bassma',
@@ -53,24 +53,24 @@ export class FeedComponent implements OnInit {
         deparature: 'Benzart',
         time:'12:58',
         date: '20/2/2023',
-        price: 30,
-        seats: 1
+        price: 20,
+        seats: 3
       },
       { name :'Kais',
         destination: 'Beja',
         deparature: 'Tunis',
         time:'12:58',
         date: '20/2/2023',
-        price: 30,
-        seats: 1
+        price: 25,
+        seats: 4
       },
       { name :'Haykel',
         destination: 'Beja',
         deparature: 'Nabeul',
         time:'12:58',
         date: '20/2/2023',
-        price: 30,
-        seats: 1
+        price: 15,
+        seats: 2
       }
     ]
   
