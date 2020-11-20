@@ -10,7 +10,7 @@
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/home">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link waves-light" mdbWavesEffect>Features</a>
@@ -44,8 +44,8 @@
             <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height: 2em;">
           </a>
           <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-            <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
-            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="checkProfile()">My account</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Log out</a>
           </div>
         </li>
       </ul>
@@ -54,13 +54,5 @@
   
   </mdb-navbar>
   <!--/.Navbar-->
-  <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-  
-  
-    </div>
-  </div>
-  </div>
   
   
