@@ -1,20 +1,18 @@
-
-<!--Navbar-->
+<!-- 
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false">
 
-    <!-- Navbar brand -->
     <mdb-navbar-brand><a class="navbar-brand" href="#">Home</a></mdb-navbar-brand>
   
-    <!-- Collapsible content -->
+
     <links>
   
-      <!-- Links -->
+ 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link waves-light" mdbWavesEffect>Rides<mdb-icon fas icon="car-side"></mdb-icon><span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <!-- Links -->
+
   
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
@@ -31,13 +29,13 @@
         </li>
       </ul>
     </links>
-    <!-- Collapsible content -->
+
   
-  </mdb-navbar>
-  <!--/.Navbar-->
+  </mdb-navbar> -->
+
   <div class="container">
     <div class="row justify-content-lg-center">
-        <div class="col-md-6">
+        <div class="col-md-6" *ngIf="carData">
 <form class="text-center border border-light p-5">
     <p class="h4 mb-4">Your car information :</p>
     <div   id="defaultContactFormName"  class="form-control mb-4" >Model : {{carData.model}}</div>
@@ -50,5 +48,6 @@
 </div>
 </div>
 </div>
+
 
   

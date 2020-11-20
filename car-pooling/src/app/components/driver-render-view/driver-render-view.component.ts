@@ -12,19 +12,16 @@ import { DriverService} from '../../services/driver.service';
   styleUrls: ['./driver-render-view.component.scss']
 })
 export class DriverRenderViewComponent implements OnInit {
-  data:any;
+  driver:any;
   carData:any;
+  
   constructor(private router : Router, private tokenStorage: TokenStorageService, private driverService: DriverService) { }
 
   ngOnInit(): void {
-  this.data = this.tokenStorage.getUser();
-  console.log(this.data.id)
-this.driverService.getOneCar(this.data.id).subscribe((car:any) => {this.carData = car})
-setTimeout(
-  () => {   
-    console.log(this.carData);    
-  }, 10
-);
+  this.driver= this.tokenStorage.getUser();
+this.driverService.getOneCar(this.driver.id).subscribe((car:any) => {  console.log(car) 
+  this.carData = car})
+
 }
 
 logout() {
