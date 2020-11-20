@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ride of allRides">
+      <tr *ngFor="let ride of rides">
         <td>{{ride.name}}</td>
         <td><span id ="1" class="fa fa-star checked"></span>
           <span id="2" class="fa fa-star checked"></span>
@@ -24,29 +24,17 @@
           <span id="4" class="fa fa-star"></span>
           <span id="5" class="fa fa-star"></span>
         </td>  
-        <td>{{ride.deparature}}</td>
+        <td>{{ride.departure}}</td>
         <td>{{ride.destination}}</td>
         <td>{{ride.time}}</td>
         <td>{{ride.date}}</td>
         <td>{{ride.price}}</td>
         <td>{{ride.seats}}</td>
         <td>
-          <button type="button" mdbBtn color="warning" class="waves-light" data-toggle="modal" data-target="#basicExample"
+          <button type="button" mdbBtn color="warning" class="waves-light" data-toggle="modal" data-target="rides"
           (click)="frame.show()" mdbWavesEffect> Reserve </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 
-
-  
-
-  
-
-
- 
-
-<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+          <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm modal-notify modal-warning" role="document">
     <!--Content-->
@@ -63,7 +51,7 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a href="https://mdbootstrap.com/pricing/angular/pro/" mdbBtn color="warning" outline="true" class="waves-effect"
+        <a mdbBtn color="warning" outline="true" class="waves-effect" (click)="reserve(ride.id)"
           mdbWavesEffect>Yes</a>
         <a type="button" mdbBtn color="warning" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
       </div>
@@ -71,4 +59,18 @@
     <!--/.Content-->
   </div>
 </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  
+
+
+ 
+
+
 
