@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row justify-content-lg-center">
+        <div class="col-md-6">
+<form class="text-center border border-light p-5" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <p class="h4 mb-4">Your car information :</p>
+    <input type="text" name="departure" id="defaultContactFormName" mdbInput class="form-control mb-4" placeholder="Departure" ngModel>
+    <input type="text" name="destination" mdbInput class="form-control mb-4" placeholder="Desitination" ngModel>
+    <input type="date" name="date"  mdbInput class="form-control mb-4"  ngModel>
+    <input type="number" name="seats"  mdbInput class="form-control mb-4" placeholder="seats" ngModel>
+    <input type="number" name="price"  mdbInput class="form-control mb-4" placeholder="price" ngModel>
+    <input type="time" name="time" mdbInput class="form-control mb-4" placeholder="Number of seats" ngModel>
+    <label>first stopp1 <span>optionale</span></label>
+    <input type="text" name="stop1" mdbInput class="form-control mb-4" placeholder="stop1" ngModel>
+    <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
+      mdbWavesEffect type="submit" >Send</button>
+  </form>
+</div>
+</div>
+</div>
