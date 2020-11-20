@@ -31,7 +31,7 @@ export class RidesComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log(this.obj)
     this.obj.departure= form.value['departure'];
-    this.obj.destination = form.value['departure'];
+    this.obj.destination = form.value['destination'];
     this.obj.date = form.value['date'];
     this.obj.seats= form.value['seats'];
     this.obj.time = form.value['time']

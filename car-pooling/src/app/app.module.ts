@@ -23,6 +23,7 @@ import { DriverRenderViewComponent } from './components/driver-render-view/drive
 import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 import { RidesComponent } from './components/rides/rides.component';
+import { DriverComponent } from './components/driver/driver.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RidesComponent } from './components/rides/rides.component';
     ContactComponent,
     HomeComponent,
     CarComponent,
+    DriverComponent,
     DriverViewComponent,
     DriverRenderViewComponent,
     PassengerComponent,

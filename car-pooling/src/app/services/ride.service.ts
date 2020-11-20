@@ -37,6 +37,8 @@ export class RideService {
       stop3: ride.stop3
     });
   }
-
+  getSearchedRides(query: any): Observable<any>{
+    return this.http.post(AUTH_Rides + 'search', query);
+  }
 
 }
