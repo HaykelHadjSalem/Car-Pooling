@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
          if(results.accessToken) {
            this.tokenStorage.saveToken(results.accessToken);
            this.tokenStorage.saveUser(results.driver);
-           this.router.navigate(['driver-view']);
+           this.router.navigate(['driver-render-view']);
          } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
          }
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveToken(results.accessToken);
          this.userService.setCurrentUser(results);
          if(Object.keys(results).length) {
-           this.router.navigate(['driver-view']);
+           this.router.navigate(['']);
            console.log('success')
          } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
@@ -91,19 +91,6 @@ export class LoginComponent implements OnInit {
   //   );
   // }
 
-
-
-   changeView(option) {
-     this.view = option;
-   }
- 
-   signUp(){
-     this.router.navigate(['/register'])
-   }
-
-   reloadPage(): void {
-    window.location.reload();
-  }
 
  }
 

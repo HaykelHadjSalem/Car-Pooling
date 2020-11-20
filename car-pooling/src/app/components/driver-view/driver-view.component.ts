@@ -16,10 +16,10 @@ export class DriverViewComponent implements OnInit {
   constructor(private tokenStorage: TokenStorageService, private router : Router) { }
 
   ngOnInit(): void {
-    console.log(this.tokenStorage.getUser())
-    if (this.tokenStorage.getUser()) {
-      this.verfy = true;
-    }
+    // console.log(this.tokenStorage.getUser())
+    // if (this.tokenStorage.getUser()) {
+    //   this.verfy = true;
+    // }
   }
   addRide() {
     //modify ride service to send a post request with information collected from the form to be added in the template 

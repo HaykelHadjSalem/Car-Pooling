@@ -14,12 +14,12 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DriverComponent } from './components/driver/driver.component';
 import { DriverViewComponent } from './components/driver-view/driver-view.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { authInterceptorProviders } from './components/_helper/auth.interceptor';
 import { CarComponent } from './components/car/car.component';
+import { DriverRenderViewComponent } from './components/driver-render-view/driver-render-view.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +29,11 @@ import { CarComponent } from './components/car/car.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    DriverComponent,
-    DriverViewComponent,
     ContactComponent,
     HomeComponent,
-    CarComponent
-   
+    CarComponent,
+    DriverViewComponent,
+    DriverRenderViewComponent
     
   ],
   imports: [
