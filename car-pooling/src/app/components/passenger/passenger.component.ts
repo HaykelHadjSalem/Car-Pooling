@@ -13,6 +13,7 @@ export class PassengerComponent implements OnInit {
   user: any;
   searchForm: FormGroup;
   results: any[];
+  activateResults: boolean = false;
   constructor(private tokenStorage: TokenStorageService, private router: Router, private formBuilder: FormBuilder, private rideservice: RideService) {
     this.searchForm = this.formBuilder.group({
       departure: '',
@@ -33,6 +34,7 @@ export class PassengerComponent implements OnInit {
     this.rideservice.getSearchedRides(query).subscribe(results => {
       console.log(results)
       this.results = results;
+      this.activateResults = true;
     })
   }
 

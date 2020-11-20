@@ -31,5 +31,8 @@
   </form>
   <!-- Default column sizing form -->
 </div>
-<app-feed [rides]="results" [user]="user"></app-feed>
+<div *ngIf = "activateResults">
+  <app-feed [rides]="results" [user]="user"></app-feed>
+</div>
+
 
