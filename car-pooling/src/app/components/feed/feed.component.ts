@@ -35,7 +35,10 @@ export class FeedComponent implements OnInit {
     // })
   }
   reserve(rideId) {
-    console.log(rideId, this.user)
+    this.rideService.reserveRide({rideId: rideId, passengerId: this.user.id}).subscribe(results => {
+    console.log(results);
+    this.router.navigate(['home'])
+    })
   }
 }
 

@@ -41,4 +41,8 @@ export class RideService {
     return this.http.post(AUTH_Rides + 'search', query);
   }
 
+  reserveRide(ridePassenger: any): Observable<any>{
+    return this.http.post(AUTH_Rides + 'reserve', ridePassenger);
+  }
+
 }
