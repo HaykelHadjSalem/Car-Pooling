@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RideService } from 'src/app/services/ride.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -9,7 +11,13 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class PassengerComponent implements OnInit {
   user: any;
-  constructor(private tokenStorage: TokenStorageService, private router: Router) { }
+  searchForm: FormGroup;
+  constructor(private tokenStorage: TokenStorageService, private router: Router, private formBuilder: FormBuilder, private rideservice: RideService) {
+    this.searchForm = this.formBuilder.group({
+      departure: '',
+      destination: '' 
+    });
+  }
 
   ngOnInit(): void {
     if(this.tokenStorage.getUser() && this.tokenStorage.getUser().type === 'passenger') {
@@ -18,6 +26,10 @@ export class PassengerComponent implements OnInit {
       this.router.navigate(['home']);
     }
     console.log(this.user)
+  }
+  onSubmit(query): void {
+    console.log(query);
+    this.rideservice
   }
 
 }
