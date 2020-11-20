@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
 import {Router} from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -10,8 +10,9 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  checkedPassword: string = ''
   signupForm;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private authService: AuthService) { 
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { 
     this.signupForm = this.formBuilder.group({
       firstName : "",
       lastName : "",
@@ -19,9 +20,9 @@ export class RegisterComponent implements OnInit {
       password : "",
       confirmPassword : "",
       address : "",
-      phoneNumber : 0,
-      idCard : 0,
-      driverLicense : 0,
+      phoneNumber : null,
+      idCard : null,
+      driverLicense : null,
       type : "driver"
     })
   }
@@ -31,9 +32,19 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
 
  }
+
+ checkPassword($event) {
+  //  console.log(this.signupForm)
+if(this.signupForm.value.password !== this.signupForm.value.confirmPassword) {
+    this.checkedPassword = 'Passwords must match';
+  } else {
+    this.checkedPassword = '';
+  }
+ }
  
 onSubmit(userInfo){
   console.log(userInfo);
+  if(this.checkedPassword === 'Passwords must match') return;
   const driverInfo = {
     type : userInfo.type,
     firstName : userInfo.firstName,
@@ -58,20 +69,28 @@ onSubmit(userInfo){
   }
 
   if(userInfo.type === "driver") {
-    this.authService.register(driverInfo).subscribe((driver : any)=>{
-      if(driver.message){
-        alert(driver.message)
+    this.authService.registerDriver(driverInfo).subscribe((results : any)=>{
+      if(results.message){
+        alert(results.message)
         return;
       }
-      console.log("account successfully created", driver);
+      console.log("account successfully created", results);
+      results.driver.type = 'driver';
+      this.tokenStorage.saveToken(results.accessToken);
+      this.tokenStorage.saveUser(results.driver);
+      this.router.navigate(['driver']);
     })
   }else{
-    this.userService.register(passengerInfo).subscribe((passenger:any)=>{
-      if(passenger.message){
-        alert(passenger.message)
+    this.authService.registerPassenger(passengerInfo).subscribe((results:any)=>{
+      if(results.message){
+        alert(results.message)
       return;
     } 
-     console.log("account successfully created", passenger);
+     console.log("account successfully created", results);
+     results.passenger.type = 'passenger';
+     this.tokenStorage.saveToken(results.accessToken);
+     this.tokenStorage.saveUser(results.passenger);
+     this.router.navigate(['passenger']);
     })
   }
 }

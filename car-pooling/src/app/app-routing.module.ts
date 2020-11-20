@@ -8,6 +8,8 @@ import { DriverViewComponent } from './components/driver-view/driver-view.compon
 import { DriverComponent } from './components/driver/driver.component';
 import {DriverRenderViewComponent} from './components/driver-render-view/driver-render-view.component';
 
+import { PassengerComponent } from './components/passenger/passenger.component';
+import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 
 const routes: Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,9 +17,12 @@ const routes: Routes = [
 {path:'register',component: RegisterComponent},
 {path:'contact', component: ContactComponent},
 {path:'home', component: HomeComponent},
-{path:'driver-view', component:  DriverViewComponent},
+{path:'driver/profile', component:  DriverViewComponent},
 {path:'driver-render-view', component: DriverRenderViewComponent},
-{ path: 'driver', component: DriverComponent }
+{ path: 'driver', component: DriverComponent },
+{path:'passenger', component:  PassengerComponent},
+{path:'passenger/profile', component:  PassengerProfileComponent}
+
 ];
 
 @NgModule({
