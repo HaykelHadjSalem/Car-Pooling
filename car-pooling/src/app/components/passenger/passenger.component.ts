@@ -12,6 +12,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class PassengerComponent implements OnInit {
   user: any;
   searchForm: FormGroup;
+  results: any[];
   constructor(private tokenStorage: TokenStorageService, private router: Router, private formBuilder: FormBuilder, private rideservice: RideService) {
     this.searchForm = this.formBuilder.group({
       departure: '',
@@ -31,6 +32,7 @@ export class PassengerComponent implements OnInit {
     console.log(query);
     this.rideservice.getSearchedRides(query).subscribe(results => {
       console.log(results)
+      this.results = results;
     })
   }
 

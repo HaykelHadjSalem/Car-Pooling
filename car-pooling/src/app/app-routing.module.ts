@@ -20,10 +20,9 @@ const routes: Routes = [
 {path :'rides', component: RidesComponent},
 {path:'driver/profile', component:  DriverViewComponent},
 {path:'driver-render-view', component: DriverRenderViewComponent},
-{ path: 'driver', component: DriverComponent },
+{path: 'driver', component: DriverComponent },
 {path:'passenger', component:  PassengerComponent},
 {path:'passenger/profile', component:  PassengerProfileComponent}
-
 ];
 
 @NgModule({
