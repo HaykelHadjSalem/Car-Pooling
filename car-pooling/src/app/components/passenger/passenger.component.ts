@@ -29,7 +29,9 @@ export class PassengerComponent implements OnInit {
   }
   onSubmit(query): void {
     console.log(query);
-    this.rideservice
+    this.rideservice.getSearchedRides(query).subscribe(results => {
+      console.log(results)
+    })
   }
 
 }
