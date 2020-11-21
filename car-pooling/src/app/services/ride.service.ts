@@ -22,6 +22,11 @@ export class RideService {
  getAllRides() {
    return this.http.get(AUTH_Rides)
   }
+
+  getDriverRides(driverId): Observable<any> {
+    console.log(driverId)
+    return this.http.get(AUTH_Rides + driverId , httpOptions);
+  }
   
   addRide(ride): Observable<any> {
     return this.http.post(AUTH_Rides + 'create', {
@@ -37,6 +42,12 @@ export class RideService {
       stop3: ride.stop3
     });
   }
+  getSearchedRides(query: any): Observable<any>{
+    return this.http.post(AUTH_Rides + 'search', query);
+  }
 
+  reserveRide(ridePassenger: any): Observable<any>{
+    return this.http.post(AUTH_Rides + 'reserve', ridePassenger);
+  }
 
 }

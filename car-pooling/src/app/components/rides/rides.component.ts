@@ -14,6 +14,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RidesComponent implements OnInit {
   data:any;
+  rideData:any;
   obj = {
     departure:"",
   destination :"", 
@@ -23,6 +24,9 @@ export class RidesComponent implements OnInit {
   ngOnInit(): void {
     this.data = this.tokenStorage.getUser();
     console.log(this.data)
+    this.rideService.getDriverRides(this.data.id).subscribe(ride => {console.log(ride) 
+      this.rideData = ride})
+console.log(this.rideData)
   }
 
 
@@ -31,7 +35,7 @@ export class RidesComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log(this.obj)
     this.obj.departure= form.value['departure'];
-    this.obj.destination = form.value['departure'];
+    this.obj.destination = form.value['destination'];
     this.obj.date = form.value['date'];
     this.obj.seats= form.value['seats'];
     this.obj.time = form.value['time']
