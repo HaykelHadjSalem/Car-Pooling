@@ -15,7 +15,7 @@ export class CarComponent implements OnInit {
     model:"",
   fuelType :"", 
   color :"", maxSeats: 0, VKT : 0, VIN : 0, driverId : 0};
-  constructor(private tokenStorage: TokenStorageService,  private userService:UserService) { }
+  constructor(private tokenStorage: TokenStorageService,  private userService:UserService, private router : Router) { }
 
   ngOnInit(): void {
     this.data = this.tokenStorage.getUser();
@@ -31,6 +31,7 @@ export class CarComponent implements OnInit {
     this.obj.maxSeats = form.value['seats'];
     this.obj.driverId = this.data.id
     this.userService.addCar(this.obj).subscribe(data => {console.log(data)})
+    this.router.navigate(['rides']);
 }
  
 }
