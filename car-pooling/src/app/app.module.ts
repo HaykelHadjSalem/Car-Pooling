@@ -10,7 +10,7 @@ import { FeedComponent } from '../app/components/feed/feed.component';
 import { PostComponent } from '../app/components/post/post.component';
 import { RouterModule } from '@angular/router';
 
-
+import {AuthGuard} from './components/_helper/auth.guard'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -55,7 +55,7 @@ import { DriverComponent } from './components/driver/driver.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

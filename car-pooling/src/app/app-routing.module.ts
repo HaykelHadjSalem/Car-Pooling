@@ -11,6 +11,7 @@ import { RidesComponent} from './components/rides/rides.component';
 import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 import {CarComponent} from './components/car/car.component';
+import { AuthGuard } from './components/_helper/auth.guard';
 
 const routes: Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,10 +19,10 @@ const routes: Routes = [
 {path:'register',component: RegisterComponent},
 {path:'contact', component: ContactComponent},
 {path:'home', component: HomeComponent},
-{path :'car', component: CarComponent},
-{path :'rides', component: RidesComponent},
-{path:'driver/profile', component: DriverRenderViewComponent},
-{path: 'driver', component: DriverComponent },
+{path :'car', component: CarComponent , canActivate : [AuthGuard]},
+{path :'rides', component: RidesComponent , canActivate : [AuthGuard]},
+{path:'driver/profile', component: DriverRenderViewComponent, canActivate : [AuthGuard]},
+{path: 'driver', component: DriverComponent , canActivate : [AuthGuard] },
 {path:'passenger', component:  PassengerComponent},
 {path:'passenger/profile', component:  PassengerProfileComponent}
 ];
