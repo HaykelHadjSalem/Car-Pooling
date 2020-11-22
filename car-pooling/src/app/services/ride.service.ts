@@ -42,6 +42,10 @@ export class RideService {
       stop3: ride.stop3
     });
   }
+
+  getPassengerRides(passengerId) {
+    return this.http.get(AUTH_Rides + passengerId)
+  }
   getSearchedRides(query: any): Observable<any>{
     return this.http.post(AUTH_Rides + 'search', query);
   }
