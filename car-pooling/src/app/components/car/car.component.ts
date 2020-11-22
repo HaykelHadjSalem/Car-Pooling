@@ -30,8 +30,9 @@ export class CarComponent implements OnInit {
     this.obj.VIN = form.value['VIN']
     this.obj.maxSeats = form.value['seats'];
     this.obj.driverId = this.data.id
+    console.log(this.obj)
     this.userService.addCar(this.obj).subscribe(data => {console.log(data)})
-    this.router.navigate(['rides']);
+    // this.router.navigate(['rides']);
 }
  
 }

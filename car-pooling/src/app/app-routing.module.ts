@@ -20,8 +20,8 @@ const routes: Routes = [
 {path:'home', component: HomeComponent},
 {path :'car', component: CarComponent},
 {path :'rides', component: RidesComponent},
-{path:'driver-render-view', component: DriverRenderViewComponent},
-{path: 'driver/profile', component: DriverComponent },
+{path:'driver/profile', component: DriverRenderViewComponent},
+{path: 'driver', component: DriverComponent },
 {path:'passenger', component:  PassengerComponent},
 {path:'passenger/profile', component:  PassengerProfileComponent}
 ];
