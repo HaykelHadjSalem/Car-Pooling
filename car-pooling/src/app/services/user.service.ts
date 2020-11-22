@@ -26,7 +26,6 @@ const httpOptions = {
         model: car.model,
         color : car.color,
         fuelType: car.fuelType,
-        ICN : car.ICN,
         maxSeats: car.maxSeats,
         VKT: car.VKT,
         VIN: car.VIN,
