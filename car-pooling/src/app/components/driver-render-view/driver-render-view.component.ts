@@ -21,7 +21,6 @@ export class DriverRenderViewComponent implements OnInit {
   this.driver= this.tokenStorage.getUser();
 this.driverService.getOneCar(this.driver.id).subscribe((car:any) => {  console.log(car) 
   this.carData = car})
-
 }
 
 logout() {
