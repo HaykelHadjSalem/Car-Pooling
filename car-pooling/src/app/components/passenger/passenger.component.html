@@ -1,0 +1,38 @@
+
+<app-navbar></app-navbar>
+<div class=" container mt-5">
+
+    <!-- Default column sizing form -->
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+    <!-- Grid row -->
+    <div class="form-row">
+      <!-- Grid column -->
+      <div class="col-auto">
+        <!-- Default input -->
+        <input mdbInput type="text" class="form-control" placeholder="Departure" formControlName="departure">
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col-auto">
+        <!-- Default input -->
+        <input mdbInput type="text" class="form-control" placeholder="Destination" formControlName="destination">
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-auto">
+        <!-- Default input -->
+        <!-- <i class="fas fa-search"></i> -->
+        <button mdbBtn color="info" size="sm" type="submit">Search</button>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </form>
+  <!-- Default column sizing form -->
+</div>
+<div *ngIf = "activateResults">
+  <app-feed [rides]="results" [user]="user"></app-feed>
+</div>
+
+

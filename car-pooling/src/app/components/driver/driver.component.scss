@@ -1,3 +1,39 @@
-.profile-page{
-    margin-top: 25px;
+.container {
+  margin-top: 55px;
+}
+
+img {
+  //   width: 11em;
+  //   position: relative;
+  //   right: -43em;
+  //   bottom: 31em;
+  width: 25em;
+  position: relative;
+  right: -35em;
+  opacity: 0.25;
+  bottom: 33em;
+}
+
+h2 {
+  font-weight: bolder;
+  font-size: 2em;
+  font-family: "Galada", cursive;
+  color: rgb(0, 0, 204) !important;
+  font-weight: bold;
+  font-family: fantasy;
+}
+
+h3 {
+  font-weight: bolder;
+  font-size: 2em;
+  font-family: "Galada", cursive;
+  color: rgb(0, 0, 81) !important;
+  font-weight: bold;
+  font-family: fantasy;
+}
+
+.px-4 {
+  background-image: url("https://jopwijk.be/wp-content/uploads/2020/02/car-1149997_1920-1140x641.jpg");
+  background-color: red;
+  opacity: 0.8;
 }

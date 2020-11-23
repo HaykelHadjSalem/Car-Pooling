@@ -1,73 +1,42 @@
-<!-- <div>
-    
-        
-            <div class="row" id="co">
-                <div class="col"> destination </div>
-                <div class="col"> deparature </div>
-                 
-                <div class="col"> time </div>
-                <div class="col"> date </div>
-                <div class="col"> price </div>
-            </div>
-        
 
-    
-</div> -->
 
-<!-- <div *ngFor= "let ride of allRides">
-    <div class="row"> 
-      <div class="col">{{ride.destination}}</div> 
-      <div class="col">{{ride.deparature}}</div>
-      
-      <div class="col">{{ride.time}}</div>
-      <div class="col">{{ride.date}}</div>
-      <div class="col">{{ride.price}}</div>
-      <div><button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
-        (click)="frame.show()" mdbWavesEffect> Reservation </button></div>
-    </div> 
-  </div> 
-  <br><br> -->
 
   <table Table>
     <thead>
       <tr>
         <th> Name of Driver </th>  
+        <th> Ride </th>
+        <th> Departure </th>
         <th> Destination </th>
-        <th> Deparature </th>
         <th> Time </th>
         <th> Date </th>
         <th> Price </th>
         <th> Seats </th>
-        <th> Ride </th>
+        <th> Reservation </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ride of allRides">
-        <td>{{ride.name}}</td>  
-        <td>{{ride.deparature}}</td>
+      <tr *ngFor="let ride of rides">
+        <td>{{ride.Driver.firstName}} {{ride.Driver.lastName}}</td>
+        <td><span id ="1" class="fa fa-star checked"></span>
+          <span id="2" class="fa fa-star checked"></span>
+          <span id="3" class="fa fa-star checked"></span>
+          <span id="4" class="fa fa-star"></span>
+          <span id="5" class="fa fa-star"></span>
+        </td>  
+        <td>{{ride.departure}}</td>
         <td>{{ride.destination}}</td>
         <td>{{ride.time}}</td>
         <td>{{ride.date}}</td>
         <td>{{ride.price}}</td>
         <td>{{ride.seats}}</td>
-        <td><span id ="1" class="fa fa-star checked"></span>
-            <span id="2" class="fa fa-star checked"></span>
-            <span id="3" class="fa fa-star"></span>
-            <span id="4" class="fa fa-star"></span>
-            <span id="5" class="fa fa-star"></span></td>
-      </tr>
-    </tbody>
-  </table>
+        <td>
+          <button type="button" mdbBtn color="warning" class="waves-light" data-toggle="modal" data-target="rides"
+          (click)="frame.show()" mdbWavesEffect> Reserve </button>
 
-
-  
-
-  
-
-
-<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+          <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-primary" role="document">
+  <div class="modal-dialog modal-sm modal-notify modal-warning" role="document">
     <!--Content-->
     <div class="modal-content text-center">
       <!--Header-->
@@ -82,13 +51,26 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a href="https://google.com" mdbBtn color="primary" outline="true" class="waves-effect"
+        <a mdbBtn color="warning" outline="true" class="waves-effect" (click)="reserve(ride.id)"
           mdbWavesEffect>Yes</a>
-        <a type="button" mdbBtn color="primary" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+        <a type="button" mdbBtn color="warning" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
       </div>
     </div>
     <!--/.Content-->
   </div>
 </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  
+
+
+ 
+
 
 
