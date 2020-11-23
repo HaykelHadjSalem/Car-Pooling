@@ -4,20 +4,27 @@ import { RideService } from 'src/app/services/ride.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 //adding the ngx lib dropZone (cloudinary)
 import { NgxDropzoneModule } from 'ngx-dropzone';
+//Services
+import { UploadService } from 'src/app/services/uploadService';
 
 @Component({
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
-  styleUrls: ['./passenger-profile.component.scss']
+  styleUrls: ['./passenger-profile.component.scss'],
+  providers: [UploadService],
 })
 export class PassengerProfileComponent implements OnInit {
   passenger: any;
   rides: any[];
   hasRides: boolean = false;
 
-  //two functions implement cloudinary
 
+  //cloudinary file name
+  title : 'Car-Pooling';
+  //two functions implement cloudinary
+  constructor(private tokenStorage: TokenStorageService, private router: Router, private rideService: RideService,  private _uploadService: UploadService) { }
   files: File[] = [];
+ 
  
 onSelect(event) {
   console.log(event);
@@ -49,7 +56,7 @@ onUpload() {
 }
 
 
-  constructor(private tokenStorage: TokenStorageService, private router: Router, private rideService: RideService) { }
+
 
   ngOnInit(): void {
     if(this.tokenStorage.getUser() && this.tokenStorage.getUser().type === 'passenger') {

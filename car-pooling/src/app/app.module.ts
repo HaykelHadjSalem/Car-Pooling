@@ -28,6 +28,7 @@ import { DriverComponent } from './components/driver/driver.component';
 //adding the ngx lib dropZone (cloudinary)
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
+
 @NgModule({
   declarations: [
     AppComponent,
