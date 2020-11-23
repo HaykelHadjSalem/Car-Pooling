@@ -27,6 +27,8 @@ import { DriverComponent } from './components/driver/driver.component';
 
 //adding the ngx lib dropZone (cloudinary)
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     DriverRenderViewComponent,
     PassengerComponent,
     PassengerProfileComponent,
-    RidesComponent
+    RidesComponent,
+    AboutUsComponent
+    
    
     
   ],
@@ -58,7 +62,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxDropzoneModule 
+    NgxDropzoneModule,
   ],
   providers: [authInterceptorProviders, AuthGuard],
   bootstrap: [AppComponent]

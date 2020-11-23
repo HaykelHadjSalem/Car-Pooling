@@ -12,6 +12,7 @@ import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 import {CarComponent} from './components/car/car.component';
 import { AuthGuard } from './components/_helper/auth.guard';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
 {path:'driver/profile', component: DriverRenderViewComponent, canActivate : [AuthGuard]},
 {path: 'driver', component: DriverComponent , canActivate : [AuthGuard] },
 {path:'passenger', component:  PassengerComponent},
-{path:'passenger/profile', component:  PassengerProfileComponent}
+{path:'passenger/profile', component:  PassengerProfileComponent},
+{path: 'aboutUs', component: AboutUsComponent}
 ];
 
 @NgModule({

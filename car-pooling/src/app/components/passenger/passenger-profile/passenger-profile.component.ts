@@ -5,13 +5,14 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 //adding the ngx lib dropZone (cloudinary)
 import { NgxDropzoneModule } from 'ngx-dropzone';
 //Services
-import { UploadService } from 'src/app/services/uploadService';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
   styleUrls: ['./passenger-profile.component.scss'],
   providers: [UploadService],
+  
 })
 export class PassengerProfileComponent implements OnInit {
   passenger: any;
@@ -20,7 +21,7 @@ export class PassengerProfileComponent implements OnInit {
 
 
   //cloudinary file name
-  title : 'Car-Pooling';
+  title = 'Car-Pooling';
   //two functions implement cloudinary
   constructor(private tokenStorage: TokenStorageService, private router: Router, private rideService: RideService,  private _uploadService: UploadService) { }
   files: File[] = [];
@@ -47,7 +48,7 @@ onUpload() {
   data.append('file', file_data);
   data.append('upload_preset', 'Car-Pooling');
   data.append('cloud_name', 'rebootkamp');
-
+   
   this._uploadService.uploadImage(data).subscribe((response) => {
     if (response) {
       console.log(response);

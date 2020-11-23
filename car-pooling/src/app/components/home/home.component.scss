@@ -1,76 +1,22 @@
 
   
 .login{
-  // position: absolute;
-  // top: 65%;
-  // left: 25%;
-  // transform: translate(-50%, -50%);
-  // height: 820px;
+  
+  height: 700px;
   background-color: rgba(56, 33, 4, 0.231);
   width: 700px;
   align-items: center;
   text-align: center;
   color: white;
+  
 }
 
-// body{
-//   margin: 0;
-//   padding: 0;
 
-
-// }
-// .box{
-//   width: 450px;
-//   background: rgba(0, 0, 0, 0.4);
-//   padding: 40px;
-//   text-align: center;
-//   margin: auto;
-//   margin-top: 5%;
-//   color: white;
-//   font-family: 'Century Gothic',sans-serif;
-// }
- .box-img{
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-}
-// .box h1{
-//   font-size: 40px;
-//   letter-spacing: 4px;
-//   font-weight: 100;
-// }
-// .box h5{
-//   font-size: 20px;
-//   letter-spacing: 3px;
-//   font-weight: 100;
-// }
-// .box p{
-//   text-align: justify;
-// }
-// ul{
-//   margin: 0;
-//   padding: 0;
-//   background: pink;
-// }
-// .box li{
-//   display: inline-block;
-//   margin: 6px;
-//   list-style: none;
-// }
-// .box li a{
-//   color: white;
-//   text-decoration: none;
-//   font-size: 60px;
-//   transition: all ease-in-out 250ms;
-// }
-// .box li a:hover{
-//   color: #b9b9b9;
-// }
 
 /*icons*/
 .social-menu ul {
   position: absolute;
-  top: 80%;
+  top: 97%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0;
@@ -94,7 +40,7 @@
   position: relative;
   display: block;
   width: 50px;
-  height: 50px;
+  height: 30px;
   border-radius: 50%;
   background-color: #df8a4e;
   text-align: center;
