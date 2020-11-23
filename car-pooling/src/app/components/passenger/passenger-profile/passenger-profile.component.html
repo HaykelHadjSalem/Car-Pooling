@@ -34,5 +34,33 @@
 </mdb-card-body>
 </mdb-card>
 </div>
+<div class="col-6">
+  <h4 *ngIf="!rides">You don't have current rides</h4>
+  <div *ngFor="let ride of rides">
+    <mdb-card class="blue-gradient mt-5">
+    <mdb-card-body>
+      <mdb-card cascade="true" wider="true">
+      
+        <div class="view view-cascade gradient-card-header blue-gradient">
+          <div class="white-text ml-4">
+          <h2 class="card-header-title text-uppercase mt-4 mb-4">From {{ride.departure}} To {{ride.destination}}</h2>
+          
+        </div>
+        </div>
+      
+        <mdb-card-body cascade="true">
+      
+          <mdb-card-text class="indigo-text">
+            <p class="lead font-weight-bold">Price: {{ride.price}}</p>
+          <p class="lead font-weight-bold">Date: {{ride.date}}</p>
+          <p class="lead font-weight-bold">Time: {{ride.time}}</p>
+          </mdb-card-text>
+      
+        </mdb-card-body>
+      </mdb-card>
+      </mdb-card-body>
+      </mdb-card>
+  </div>
+</div>
 </div>
 </div>

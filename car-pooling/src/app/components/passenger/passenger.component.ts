@@ -30,6 +30,7 @@ export class PassengerComponent implements OnInit {
     console.log(this.user)
   }
   onSubmit(query): void {
+    query.passengerId = this.user.id;
     console.log(query);
     this.rideservice.getSearchedRides(query).subscribe(results => {
       console.log(results)

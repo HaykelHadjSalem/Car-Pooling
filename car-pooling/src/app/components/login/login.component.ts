@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
            results.driver.type = 'driver';
            this.tokenStorage.saveToken(results.accessToken);
            this.tokenStorage.saveUser(results.driver);
-           this.router.navigate(['driver/profile']);
+           this.router.navigate(['driver']);
          } else {
            alert("Please verify your email and/or password, and if you don't have an account please sign up!")
          }
