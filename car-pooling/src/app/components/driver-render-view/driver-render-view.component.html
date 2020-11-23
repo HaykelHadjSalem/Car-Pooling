@@ -33,7 +33,7 @@
   
   </mdb-navbar> -->
 <app-navbar></app-navbar>
-  <div class="container" ngIf="carData">
+  <div class="container" *ngIf="carData && carData.length > 0">
     <div class="row justify-content-lg-center">
         <div class="col-md-6">
 <form class="text-center border border-light p-5">
@@ -48,6 +48,6 @@
 </div>
 </div>
 </div>
-<!-- <app-car></app-car> -->
+<app-car *ngIf="carData && !carData.length"></app-car>
 
   
