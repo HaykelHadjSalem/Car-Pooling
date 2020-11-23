@@ -3,9 +3,9 @@
     <div class="row justify-content-lg-center">
         <div class="col-md-6">
 <form class="text-center border border-light p-5" (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <p class="h4 mb-4">Your car information :</p>
+    <p class="h4 mb-4">add a new ride :</p>
     <input type="text" name="departure" id="defaultContactFormName" mdbInput class="form-control mb-4" placeholder="Departure" ngModel>
-    <input type="text" name="destination" mdbInput class="form-control mb-4" placeholder="Desitination" ngModel>
+    <input type="text" name="destination" mdbInput class="form-control mb-4" placeholder="Price" ngModel>
     <input type="date" name="date"  mdbInput class="form-control mb-4"  ngModel>
     <input type="number" name="seats"  mdbInput class="form-control mb-4" placeholder="seats" ngModel>
     <input type="number" name="price"  mdbInput class="form-control mb-4" placeholder="price" ngModel>
@@ -15,6 +15,19 @@
     <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
       mdbWavesEffect type="submit" >Send</button>
   </form>
+</div>
+</div>
+</div>
+
+<div class="cont">
+  <div class="row justify-content-lg-center">
+      <div class="col-md-6">
+        Your previous rides
+        <div *ngFor="let ride of rideData">
+          <h1>Departure : {{ride.departure}}</h1>
+          <h1>Desitination :{{ride.destination}}</h1>
+          <h1>Date :{{ride.date}}</h1>
+          <div>
 </div>
 </div>
 </div>

@@ -22,6 +22,11 @@ export class RideService {
  getAllRides() {
    return this.http.get(AUTH_Rides)
   }
+
+  getDriverRides(driverId): Observable<any> {
+    console.log(driverId)
+    return this.http.get(AUTH_Rides + driverId , httpOptions);
+  }
   
   addRide(ride): Observable<any> {
     return this.http.post(AUTH_Rides + 'create', {

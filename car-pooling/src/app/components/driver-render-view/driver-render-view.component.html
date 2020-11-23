@@ -32,22 +32,22 @@
 
   
   </mdb-navbar> -->
-
-  <div class="container">
+<app-navbar></app-navbar>
+  <div class="container" *ngIf="carData && carData.length > 0">
     <div class="row justify-content-lg-center">
-        <div class="col-md-6" *ngIf="carData">
+        <div class="col-md-6">
 <form class="text-center border border-light p-5">
     <p class="h4 mb-4">Your car information :</p>
-    <div   id="defaultContactFormName"  class="form-control mb-4" >Model : {{carData.model}}</div>
-    <div class="form-control mb-4" > Type of fuel : {{carData.fuelType}} </div>
-    <div class="form-control mb-4">car color : {{carData.color}}</div>
-    <div class="form-control mb-4" >Kilometer traveled : {{carData.VKT}}</div>
-    <div class="form-control mb-4">Vehicule identification number : {{carData.VIN}}</div>
-    <div class="form-control mb-4">Capacity : {{carData.maxSeats}}</div>
+    <div   id="defaultContactFormName"  class="form-control mb-4" >Model : {{carData[0].model}}</div>
+    <div class="form-control mb-4" > Type of fuel : {{carData[0].fuelType}} </div>
+    <div class="form-control mb-4">car color : {{carData[0].color}}</div>
+    <div class="form-control mb-4" >Kilometer traveled : {{carData[0].VKT}}</div>
+    <div class="form-control mb-4">Vehicule identification number : {{carData[0].VIN}}</div>
+    <div class="form-control mb-4">Capacity : {{carData[0].maxSeats}}</div>
   </form>
 </div>
 </div>
 </div>
-
+<app-car *ngIf="carData && !carData.length"></app-car>
 
   
