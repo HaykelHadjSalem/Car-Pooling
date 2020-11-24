@@ -24,6 +24,7 @@ import { PassengerProfileComponent } from './components/passenger/passenger-prof
 import { DriverComponent } from './components/driver/driver.component';
 import { DriverProfileComponent } from './components/driver/driver-profile/driver-profile.component';
 import { FeedbackComponent } from './components/driver/feedback/feedback.component';
+import {DriverDetailComponent} from './components/passenger/driver-detail/driver-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,8 @@ import { FeedbackComponent } from './components/driver/feedback/feedback.compone
     PassengerProfileComponent,
     DriverProfileComponent,
     CarComponent,
-    FeedbackComponent
-    
+    FeedbackComponent,
+    DriverDetailComponent
   ],
   imports: [
     BrowserModule,

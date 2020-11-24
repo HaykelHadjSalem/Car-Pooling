@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 const carUrl = 'http://localhost:3000/car/';
+const DriverUrl = 'http://localhost:3000/driver'
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -36,4 +38,12 @@ public getOneCar(driverId): Observable<any> {
   console.log(driverId)
   return this.http.get(carUrl + driverId , httpOptions);
 }
+
+
+public getDriver(driverId): Observable<any> {
+  console.log(driverId)
+  return this.http.get('http://localhost:3000/driver/' + driverId , httpOptions);
+}
+
+
 }
