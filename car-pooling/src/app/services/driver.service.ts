@@ -18,7 +18,19 @@ export class DriverService {
    return  this.http.get<any[]>('http://localhost:3000/car')
      
 }
-getOneCar(driverId): Observable<any> {
+public addCar(car): Observable<any> {
+  return this.http.post(carUrl + 'create', {
+    model: car.model,
+    color : car.color,
+    fuelType: car.fuelType,
+    maxSeats: car.maxSeats,
+    VKT: car.VKT,
+    VIN: car.VIN,
+    driverId: car.driverId
+  }, httpOptions);
+}
+
+public getOneCar(driverId): Observable<any> {
   console.log(driverId)
   return this.http.get(carUrl + driverId , httpOptions);
 }

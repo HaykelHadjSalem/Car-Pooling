@@ -20,8 +20,13 @@
       <!-- Links -->
   
       <ul class="navbar-nav ml-auto nav-flex-icons">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link">1 <mdb-icon fas icon="envelope"></mdb-icon></a>
+        </li> -->
+        <li class="nav-item" *ngIf="user.type === 'driver'" >
+          <a class="nav-link" routerLink="/car">
+            <mdb-icon size="lg" fas icon="car" style="color: linen;" ></mdb-icon>
+          </a>
         </li>
         <li class="nav-item avatar dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
