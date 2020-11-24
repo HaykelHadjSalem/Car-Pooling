@@ -18,10 +18,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { authInterceptorProviders } from './components/_helper/auth.interceptor';
+import { CarComponent } from './components/driver/car/car.component';
 import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 import { DriverComponent } from './components/driver/driver.component';
-import { DriverDetailComponent } from './components/passenger/driver-detail/driver-detail.component';
+import { DriverProfileComponent } from './components/driver/driver-profile/driver-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { DriverDetailComponent } from './components/passenger/driver-detail/driv
     DriverComponent,
     PassengerComponent,
     PassengerProfileComponent,
-    DriverDetailComponent     
+    DriverProfileComponent,
+    CarComponent
+    
   ],
   imports: [
     BrowserModule,

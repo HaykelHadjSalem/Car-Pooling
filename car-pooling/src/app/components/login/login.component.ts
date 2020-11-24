@@ -10,7 +10,7 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm;
+  loginForm: FormGroup;
 
 
   isLoggedIn : boolean = false;
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         this.loginForm = this.formBuilder.group({
        email: '',
        password: '',
-       type: "driver" 
+       type: "passenger" 
      });
    }
   
