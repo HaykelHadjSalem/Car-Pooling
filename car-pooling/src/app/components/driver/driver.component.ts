@@ -15,6 +15,8 @@ export class DriverComponent implements OnInit {
   car:any;
   rides: any[];
   validatingForm: FormGroup;
+  headElements = ['Departure', 'Destination', 'Date', 'Time', 'Seats', ''];
+  now = Date.now();
   constructor(private tokenStorageService: TokenStorageService, private router : Router, private rideService: RideService,
               private driverService: DriverService
     ) { }
@@ -23,7 +25,10 @@ export class DriverComponent implements OnInit {
     this.driver = this.tokenStorageService.getUser();
     console.log(this.driver)
     this.rideService.getDriverRides(this.driver.id).subscribe((rides: any[]) => {
-      // console.log(rides) 
+      for(let i = 0; i < rides.length; i++) {
+        rides[i].Date = Date.parse(rides[i].date);
+      }
+      console.log(rides)
       this.rides = rides
     })
     this.driverService.getOneCar(this.driver.id).subscribe((car:any) => {  console.log(car) 
@@ -67,6 +72,10 @@ export class DriverComponent implements OnInit {
     console.log(this.validatingForm.value);
     this.rideService.addRide(this.validatingForm.value).subscribe(ride => {console.log(ride);})
     this.router.navigate(['driver/profile'])
+  }
+
+  giveFeedback(ride) {
+    
   }
 
 }
