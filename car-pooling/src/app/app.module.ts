@@ -14,16 +14,15 @@ import {AuthGuard} from './components/_helper/auth.guard'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DriverViewComponent } from './components/driver-view/driver-view.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { authInterceptorProviders } from './components/_helper/auth.interceptor';
-import { CarComponent } from './components/car/car.component';
-import { DriverRenderViewComponent } from './components/driver-render-view/driver-render-view.component';
+import { CarComponent } from './components/driver/car/car.component';
 import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 import { RidesComponent } from './components/rides/rides.component';
 import { DriverComponent } from './components/driver/driver.component';
+import { DriverProfileComponent } from './components/driver/driver-profile/driver-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +36,10 @@ import { DriverComponent } from './components/driver/driver.component';
     HomeComponent,
     CarComponent,
     DriverComponent,
-    DriverViewComponent,
-    DriverRenderViewComponent,
     PassengerComponent,
     PassengerProfileComponent,
-    RidesComponent
+    RidesComponent,
+    DriverProfileComponent
    
     
   ],

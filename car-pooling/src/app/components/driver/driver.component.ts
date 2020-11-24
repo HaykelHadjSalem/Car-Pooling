@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../services/token-storage.service';
 import {Router} from '@angular/router';
-
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { RideService } from 'src/app/services/ride.service';
 
 @Component({
   selector: 'app-driver',
@@ -9,23 +10,49 @@ import {Router} from '@angular/router';
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent implements OnInit {
-  data:any;
-selectedFile: File = null ;
-  constructor(private tokenStorage: TokenStorageService, private router : Router) { }
+  driver: any;
+  rides: any[];
+  validatingForm: FormGroup;
+  constructor(private tokenStorageService: TokenStorageService, private router : Router, private rideService: RideService) { }
 
   ngOnInit(): void {
-this.data = this.tokenStorage.getUser();
-console.log(this.data.firstName)
+    this.driver = this.tokenStorageService.getUser();
+    console.log(this.driver)
+    this.rideService.getDriverRides(this.driver.id).subscribe(rides => {console.log(rides) 
+      this.rides = rides})
+console.log(this.rides)
+    this.validatingForm = new FormGroup({
+      rideFormModalDeparture: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      rideFormModalDestination: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      rideFormModalDate: new FormControl('', Validators.required),
+      rideFormModalTime: new FormControl('', Validators.required),
+      rideFormModalSeats: new FormControl('', Validators.required),
+      rideFormModalPrice: new FormControl('', Validators.required),
+    });
 
   }
 
-  onFileselected(event){
-    this.selectedFile = <File>event.target.files[0];
+  get rideFormModalDeparture() {
+    return this.validatingForm.get('rideFormModalDeparture');
   }
 
-  logout() {
-    this.tokenStorage.signOut()
-    this.router.navigate(['home']);
+  get rideFormModalDestination() {
+    return this.validatingForm.get('rideFormModalDestination');
+  }
+
+  get rideFormModalDate() {
+    return this.validatingForm.get('rideFormModalDate');
+  }
+
+  get rideFormModalTime() {
+    return this.validatingForm.get('rideFormModalTime');
+  }
+  get rideFormModalSeats() {
+    return this.validatingForm.get('rideFormModalSeats');
+  }
+
+  get rideFormModalPrice() {
+    return this.validatingForm.get('rideFormModalPrice');
   }
 
 }
