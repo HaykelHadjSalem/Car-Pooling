@@ -10,8 +10,10 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class DriverService {
 
+  currentDriver : any
   constructor(private http: HttpClient) { }
   
   public getCar() : Observable<any[]> {
