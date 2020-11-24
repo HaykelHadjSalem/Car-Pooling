@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeedComponent } from '../app/components/feed/feed.component';
-import { PostComponent } from '../app/components/post/post.component';
 import { RouterModule } from '@angular/router';
 
 import {AuthGuard} from './components/_helper/auth.guard'
@@ -20,7 +19,6 @@ import { authInterceptorProviders } from './components/_helper/auth.interceptor'
 import { CarComponent } from './components/driver/car/car.component';
 import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
-import { RidesComponent } from './components/rides/rides.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { DriverProfileComponent } from './components/driver/driver-profile/driver-profile.component';
 
@@ -28,7 +26,6 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
   declarations: [
     AppComponent,
     FeedComponent,
-    PostComponent,
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
@@ -38,7 +35,6 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
     DriverComponent,
     PassengerComponent,
     PassengerProfileComponent,
-    RidesComponent,
     DriverProfileComponent
    
     
