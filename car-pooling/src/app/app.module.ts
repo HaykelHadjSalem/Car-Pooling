@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { FeedComponent } from '../app/components/feed/feed.component';
 import { RouterModule } from '@angular/router';
 
+
+import {AuthPassengerGuard} from './components/_helper/auth.passenger.guard'
 import {AuthGuard} from './components/_helper/auth.guard'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -31,12 +33,11 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
     NavbarComponent,
     ContactComponent,
     HomeComponent,
-    CarComponent,
     DriverComponent,
     PassengerComponent,
     PassengerProfileComponent,
-    DriverProfileComponent
-   
+    DriverProfileComponent,
+    CarComponent
     
   ],
   imports: [
@@ -49,7 +50,7 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [authInterceptorProviders, AuthGuard],
+  providers: [authInterceptorProviders, AuthPassengerGuard, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
