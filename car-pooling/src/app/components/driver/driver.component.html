@@ -130,7 +130,7 @@
         <td>{{ride.time}}</td>
         <td>{{ride.seats}}</td>
         <td *ngIf="ride.checkedStatus === true && now - ride.Date > 86400000">
-          <button type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride)">Feedback</button>
+          <button type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
         </td>
       </tr>
     </tbody>

@@ -74,8 +74,8 @@ export class DriverComponent implements OnInit {
     this.router.navigate(['driver/profile'])
   }
 
-  giveFeedback(ride) {
-    
+  giveFeedback(rideId) {
+    this.router.navigate([`driver/feedback/${rideId}`]);
   }
 
 }

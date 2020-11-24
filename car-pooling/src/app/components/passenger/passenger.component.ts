@@ -33,7 +33,7 @@ export class PassengerComponent implements OnInit {
     query.passengerId = this.user.id;
     console.log(query);
     this.rideservice.getSearchedRides(query).subscribe(results => {
-      console.log(results[0].Driver)
+      // console.log(results[0].Driver)
       this.results = results;
       this.activateResults = true;
     })
