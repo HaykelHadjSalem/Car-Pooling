@@ -28,7 +28,7 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
   declarations: [
     AppComponent,
     FeedComponent,
-      LoginComponent,
+    LoginComponent,
     RegisterComponent,
     NavbarComponent,
     ContactComponent,

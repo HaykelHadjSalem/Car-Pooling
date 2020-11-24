@@ -3,6 +3,7 @@ import { TokenStorageService } from '../../services/token-storage.service';
 import {Router} from '@angular/router';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { RideService } from 'src/app/services/ride.service';
+import { DriverService } from 'src/app/services/driver.service';
 
 @Component({
   selector: 'app-driver',
@@ -11,48 +12,61 @@ import { RideService } from 'src/app/services/ride.service';
 })
 export class DriverComponent implements OnInit {
   driver: any;
+  car:any;
   rides: any[];
   validatingForm: FormGroup;
-  constructor(private tokenStorageService: TokenStorageService, private router : Router, private rideService: RideService) { }
+  constructor(private tokenStorageService: TokenStorageService, private router : Router, private rideService: RideService,
+              private driverService: DriverService
+    ) { }
 
   ngOnInit(): void {
     this.driver = this.tokenStorageService.getUser();
     console.log(this.driver)
-    this.rideService.getDriverRides(this.driver.id).subscribe(rides => {console.log(rides) 
-      this.rides = rides})
-console.log(this.rides)
+    this.rideService.getDriverRides(this.driver.id).subscribe((rides: any[]) => {
+      // console.log(rides) 
+      this.rides = rides
+    })
+    this.driverService.getOneCar(this.driver.id).subscribe((car:any) => {  console.log(car) 
+      this.car= car})
     this.validatingForm = new FormGroup({
-      rideFormModalDeparture: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      rideFormModalDestination: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      rideFormModalDate: new FormControl('', Validators.required),
-      rideFormModalTime: new FormControl('', Validators.required),
-      rideFormModalSeats: new FormControl('', Validators.required),
-      rideFormModalPrice: new FormControl('', Validators.required),
+      departure: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      destination: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      date: new FormControl('', Validators.required),
+      time: new FormControl('', Validators.required),
+      seats: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
     });
 
   }
 
-  get rideFormModalDeparture() {
-    return this.validatingForm.get('rideFormModalDeparture');
+  get departure() {
+    return this.validatingForm.get('departure');
   }
 
-  get rideFormModalDestination() {
-    return this.validatingForm.get('rideFormModalDestination');
+  get destination() {
+    return this.validatingForm.get('destination');
   }
 
-  get rideFormModalDate() {
-    return this.validatingForm.get('rideFormModalDate');
+  get date() {
+    return this.validatingForm.get('date');
   }
 
-  get rideFormModalTime() {
-    return this.validatingForm.get('rideFormModalTime');
+  get time() {
+    return this.validatingForm.get('time');
   }
-  get rideFormModalSeats() {
-    return this.validatingForm.get('rideFormModalSeats');
+  get seats() {
+    return this.validatingForm.get('seats');
   }
 
-  get rideFormModalPrice() {
-    return this.validatingForm.get('rideFormModalPrice');
+  get price() {
+    return this.validatingForm.get('price');
+  }
+
+  addRide() {
+    this.validatingForm.value.driverId = this.driver.id;
+    console.log(this.validatingForm.value);
+    this.rideService.addRide(this.validatingForm.value).subscribe(ride => {console.log(ride);})
+    this.router.navigate(['driver/profile'])
   }
 
 }
