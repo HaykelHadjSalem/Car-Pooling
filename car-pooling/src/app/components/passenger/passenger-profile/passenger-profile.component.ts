@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RideService } from 'src/app/services/ride.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
+
 @Component({
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
@@ -15,6 +16,7 @@ export class PassengerProfileComponent implements OnInit {
   constructor(private tokenStorage: TokenStorageService, private router: Router, private rideService: RideService) { }
 
   ngOnInit(): void {
+    
     if(this.tokenStorage.getUser() && this.tokenStorage.getUser().type === 'passenger') {
       this.passenger = this.tokenStorage.getUser();
       this.rideService.getPassengerRides(this.passenger.id).subscribe((results:any[]) => {
