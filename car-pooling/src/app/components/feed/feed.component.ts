@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RideService } from '../../services/ride.service';
+import { DriverService} from '../../services/driver.service';
+
 interface Feed {destination: string; 
                 departure: string;
                 date: String;
@@ -20,13 +22,8 @@ export class FeedComponent implements OnInit {
   @Input() rides: any[];
   @Input() user: any;
 
-  constructor( private router: Router, private rideService: RideService) {}
-
-
-
-  
-  
-  
+  constructor( private router: Router, private rideService: RideService, private driverService: DriverService) {}
+   
   ngOnInit() {
 
     //    this.rideService.getAllRides().subscribe(rides=>{
@@ -35,8 +32,7 @@ export class FeedComponent implements OnInit {
      
     // })
   }
-  reserve() {
-   const rideId = this.rides[0].id
+  reserve(rideId) {
     console.log(this.user)
     this.rideService.reserveRide({rideId: rideId, passengerId: this.user.id}).subscribe(results => {
     console.log(results);
@@ -44,8 +40,10 @@ export class FeedComponent implements OnInit {
     })
   }
 
-  viewPorifile(){
-    this.router.navigate([''])
+  viewProfile(){
+this.driverService.currentDriver = this.rides[0].Driver
+   console.log(this.driverService.currentDriver);
+    // this.router.navigate(['passenger/profile'])
   }
 
 }
