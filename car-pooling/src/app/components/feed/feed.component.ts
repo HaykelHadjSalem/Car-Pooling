@@ -19,6 +19,7 @@ export class FeedComponent implements OnInit {
 
   @Input() rides: any[];
   @Input() user: any;
+
   constructor( private router: Router, private rideService: RideService) {}
 
 
@@ -34,12 +35,19 @@ export class FeedComponent implements OnInit {
      
     // })
   }
-  reserve(rideId) {
+  reserve() {
+   const rideId = this.rides[0].id
+    console.log(this.user)
     this.rideService.reserveRide({rideId: rideId, passengerId: this.user.id}).subscribe(results => {
     console.log(results);
     this.router.navigate(['passenger/profile'])
     })
   }
+
+  viewPorifile(){
+    this.router.navigate([''])
+  }
+
 }
 
 

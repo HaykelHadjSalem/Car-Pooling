@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let ride of rides">
-        <td>{{ride.Driver.firstName}} {{ride.Driver.lastName}}</td>
+        <td (click)="viewProfile()">{{ride.Driver.firstName}} {{ride.Driver.lastName}}</td>
         <td><span id ="1" class="fa fa-star checked"></span>
           <span id="2" class="fa fa-star checked"></span>
           <span id="3" class="fa fa-star checked"></span>
@@ -51,7 +51,7 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a mdbBtn color="warning" outline="true" class="waves-effect" (click)="reserve(ride.id)"
+        <a mdbBtn color="warning" outline="true" class="waves-effect" (click)="reserve()"
           mdbWavesEffect>Yes</a>
         <a type="button" mdbBtn color="warning" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
       </div>
