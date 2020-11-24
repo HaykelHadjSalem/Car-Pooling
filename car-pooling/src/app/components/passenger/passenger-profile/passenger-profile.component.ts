@@ -11,7 +11,7 @@ import { UploadService } from 'src/app/services/upload.service';
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
   styleUrls: ['./passenger-profile.component.scss'],
-  providers: [UploadService],
+  providers: [UploadService]
   
 })
 export class PassengerProfileComponent implements OnInit {
@@ -38,7 +38,7 @@ onRemove(event) {
 }
 
 onUpload() {
-  //Scape empty array
+  // empty array (if there is no photo send an alert)
   if (!this.files[0]) {
     alert('Upload an image first, please');
   }

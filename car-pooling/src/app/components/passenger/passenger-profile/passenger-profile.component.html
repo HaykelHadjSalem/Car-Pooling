@@ -63,21 +63,21 @@
   </div>
 </div>
 </div>
-</div>
+</div><br/><br/>
 <!--adding the uploading image dropZone-->
 <div class="terminal">
-<ngx-dropzone (change)="onSelect($event)" style="margin: 20px;">
-  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+<ngx-dropzone (change)="onSelect($event)" style="width: 240px; height: 180px; margin-left: 200px;">
+  <ngx-dropzone-label>Upload Your image here !</ngx-dropzone-label>
   <ngx-dropzone-image-preview
    ngProjectAs="ngx-dropzone-preview" 
    *ngFor="let f of files" 
    [file]="f" 
    [removable]="true" 
    (removed)="onRemove(f)">
-    <ngx-dropzone-label>({{f.type}}) </ngx-dropzone-label>
+    <ngx-dropzone-label></ngx-dropzone-label>
   </ngx-dropzone-image-preview>
-</ngx-dropzone>
+</ngx-dropzone><br/>
 <div>
-  <button (click)="onUpload()">Upload</button>
+  <button style="margin-left: 200px; margin-bottom: 20px;" (click)="onUpload()">Upload</button>
 </div>
 </div>

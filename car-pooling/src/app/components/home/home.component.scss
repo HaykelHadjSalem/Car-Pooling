@@ -1,16 +1,33 @@
 
   
 .login{
-  
-  height: 700px;
+  // position: absolute;
+  // top: 65%;
+  // left: 25%;
+  // transform: translate(-50%, -50%);
+  // height: 500px;
   background-color: rgba(56, 33, 4, 0.231);
   width: 700px;
   align-items: center;
   text-align: center;
   color: white;
+ font-family: 'Galada',cursive;
   
 }
 
+h1{
+  font-family: monospace;
+}
+
+
+
+
+ .box-img{
+  border-radius: 50%;
+  width: 200px;
+  height: 170px;
+  margin-top: -45px;
+}
 
 
 /*icons*/
