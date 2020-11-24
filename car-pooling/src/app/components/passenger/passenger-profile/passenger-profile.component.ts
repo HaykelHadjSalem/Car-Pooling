@@ -9,7 +9,9 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   templateUrl: './passenger-profile.component.html',
   styleUrls: ['./passenger-profile.component.scss']
 })
+
 export class PassengerProfileComponent implements OnInit {
+  obj:any;
   passenger: any;
   rides: any[];
   hasRides: boolean = false;
@@ -26,5 +28,11 @@ export class PassengerProfileComponent implements OnInit {
       });
     }
   }
+
+submitFeedback(driverId, rideId){
+this.obj.driverId = driverId;
+this.obj.rideId = rideId;
+this.obj.passengerId = this.passenger.id
+}  
 
 }

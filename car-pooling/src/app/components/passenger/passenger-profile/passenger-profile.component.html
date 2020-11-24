@@ -54,8 +54,10 @@
             <p class="lead font-weight-bold">Price: {{ride.price}}</p>
           <p class="lead font-weight-bold">Date: {{ride.date}}</p>
           <p class="lead font-weight-bold">Time: {{ride.time}}</p>
-          </mdb-card-text>
-      
+          <div *ngIf="ride.checkedStatus === true && now - ride.Date > 86400000">
+            <button type="button" mdbBtn color="info" size="sm" mdbWavesEffect>Feedback</button>
+          </div>
+          </mdb-card-text> 
         </mdb-card-body>
       </mdb-card>
       </mdb-card-body>
