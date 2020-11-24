@@ -24,7 +24,7 @@ export class RideService {
   }
 
   getDriverRides(driverId): Observable<any> {
-    console.log(driverId)
+//     console.log(driverId)
     return this.http.get(AUTH_Rides +'driver/' + driverId , httpOptions);
   }
   
