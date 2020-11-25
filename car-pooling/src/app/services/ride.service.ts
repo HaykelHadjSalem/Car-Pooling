@@ -54,4 +54,8 @@ export class RideService {
     return this.http.post(AUTH_Rides + 'reserve', ridePassenger);
   }
 
+  getRidePassengers(rideId: any): Observable<any>{
+    return this.http.get(AUTH_Rides + 'passengers/' + rideId, httpOptions);
+  }
+
 }

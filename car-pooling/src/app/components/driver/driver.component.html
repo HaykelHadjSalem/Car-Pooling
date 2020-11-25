@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-lg-center">
-        <div class="col-md-6">
+        <div class="col-md-4" *ngIf="car">
 
           <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
           (click)="frame.show()" mdbWavesEffect>Add a ride
@@ -20,14 +20,14 @@
         <div class="modal-body mx-3">
           <div class="md-form">
             <mdb-icon fas icon="car-side" class="prefix grey-text"></mdb-icon>
-            <input type="text" id="form1" class="form-control" mdbInput mdbValidate [formControl]="rideFormModalDeparture">
+            <input type="text" id="form1" class="form-control" mdbInput mdbValidate [formControl]="departure">
             <label for="form1">Departure</label>
             <mdb-error
-              *ngIf="rideFormModalDeparture.invalid && (rideFormModalDeparture.dirty || rideFormModalDeparture.touched)">Input
+              *ngIf="departure.invalid && (departure.dirty || departure.touched)">Input
               invalid
             </mdb-error>
             <mdb-success
-              *ngIf="rideFormModalDeparture.valid && (rideFormModalDeparture.dirty || rideFormModalDeparture.touched)">Input
+              *ngIf="departure.valid && (departure.dirty || departure.touched)">Input
               valid
             </mdb-success>
           </div>
@@ -35,14 +35,14 @@
           <div class="md-form">
             <mdb-icon fas icon="car-alt" class="prefix grey-text"></mdb-icon>
             <input type="text" id="form2" class="form-control" mdbInput mdbValidate
-                   [formControl]="rideFormModalDestination">
+                   [formControl]="destination">
             <label for="form2">Your Destination</label>
             <mdb-error
-              *ngIf="rideFormModalDestination.invalid && (rideFormModalDestination.dirty || rideFormModalDestination.touched)">
+              *ngIf="destination.invalid && (destination.dirty || destination.touched)">
               Input invalid
             </mdb-error>
             <mdb-success
-              *ngIf="rideFormModalDestination.valid && (rideFormModalDestination.dirty || rideFormModalDestination.touched)">Input
+              *ngIf="destination.valid && (destination.dirty || destination.touched)">Input
               valid
             </mdb-success>
           </div>
@@ -50,14 +50,14 @@
           <div class="md-form">
             <mdb-icon fas icon="calendar-check" class="prefix grey-text"></mdb-icon>
             <input type="date" id="form3" class="form-control" mdbInput mdbValidate
-                   [formControl]="rideFormModalDate">
+                   [formControl]="date">
             <label for="form3">Date</label>
             <mdb-error
-              *ngIf="rideFormModalDate.invalid && (rideFormModalDate.dirty || rideFormModalDate.touched)">
+              *ngIf="date.invalid && (date.dirty || date.touched)">
               Input invalid
             </mdb-error>
             <mdb-success
-              *ngIf="rideFormModalDate.valid && (rideFormModalDate.dirty || rideFormModalDate.touched)">
+              *ngIf="date.valid && (date.dirty || date.touched)">
               Input valid
             </mdb-success>
           </div>
@@ -65,82 +65,77 @@
           <div class="md-form">
             <mdb-icon fas icon="clock" class="prefix grey-text"></mdb-icon>
             <input type="time" id="form4" class="form-control" mdbInput mdbValidate
-                      [formControl]="rideFormModalTime">
+                      [formControl]="time">
             <label for="form4">Time</label>
             <mdb-error
-              *ngIf="rideFormModalTime.invalid && (rideFormModalTime.dirty || rideFormModalTime.touched)">
+              *ngIf="time.invalid && (time.dirty || time.touched)">
               Input invalid
             </mdb-error>
             <mdb-success
-              *ngIf="rideFormModalTime.valid && (rideFormModalTime.dirty || rideFormModalTime.touched)">
+              *ngIf="time.valid && (time.dirty || time.touched)">
               Input valid
             </mdb-success>
           </div>
           <div class="md-form">
             <mdb-icon fas icon="users" class="prefix grey-text"></mdb-icon>
             <input type="number" id="form5" class="form-control" mdbInput mdbValidate
-                      [formControl]="rideFormModalSeats">
+                      [formControl]="seats">
             <label for="form5">Seats</label>
             <mdb-error
-              *ngIf="rideFormModalSeats.invalid && (rideFormModalSeats.dirty || rideFormModalSeats.touched)">
+              *ngIf="seats.invalid && (seats.dirty || seats.touched)">
               Input invalid
             </mdb-error>
             <mdb-success
-              *ngIf="rideFormModalSeats.valid && (rideFormModalSeats.dirty || rideFormModalSeats.touched)">
+              *ngIf="seats.valid && (seats.dirty || seats.touched)">
               Input valid
             </mdb-success>
           </div>
           <div class="md-form">
             <mdb-icon fas icon="hand-holding-usd" class="prefix grey-text"></mdb-icon>
             <input type="number" id="form6" class="form-control" mdbInput mdbValidate
-                      [formControl]="rideFormModalPrice">
+                      [formControl]="price">
             <label for="form6">Price</label>
             <mdb-error
-              *ngIf="rideFormModalPrice.invalid && (rideFormModalPrice.dirty || rideFormModalPrice.touched)">
+              *ngIf="price.invalid && (price.dirty || price.touched)">
               Input invalid
             </mdb-error>
             <mdb-success
-              *ngIf="rideFormModalPrice.valid && (rideFormModalPrice.dirty || rideFormModalPrice.touched)">
+              *ngIf="price.valid && (price.dirty || price.touched)">
               Input valid
             </mdb-success>
           </div>
   
         </div>
         <div class="d-flex justify-content-center">
-          <button mdbBtn color="unique" class="waves-light" mdbWavesEffect>Send
+          <button mdbBtn color="unique" class="waves-light" mdbWavesEffect (click)="addRide()">Send
             <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
           </button>
         </div>
       </div>
     </div>
   </div>
-          
-<!-- <form class="text-center border border-light p-5" (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <p class="h4 mb-4">add a new ride :</p>
-    <input type="text" name="departure" id="defaultContactFormName" mdbInput class="form-control mb-4" placeholder="Departure" ngModel>
-    <input type="text" name="destination" mdbInput class="form-control mb-4" placeholder="Price" ngModel>
-    <input type="date" name="date"  mdbInput class="form-control mb-4"  ngModel>
-    <input type="number" name="seats"  mdbInput class="form-control mb-4" placeholder="seats" ngModel>
-    <input type="number" name="price"  mdbInput class="form-control mb-4" placeholder="price" ngModel>
-    <input type="time" name="time" mdbInput class="form-control mb-4" placeholder="Number of seats" ngModel>
-    <label>first stopp1 <span>optionale</span></label>
-    <input type="text" name="stop1" mdbInput class="form-control mb-4" placeholder="stop1" ngModel>
-    <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
-      mdbWavesEffect type="submit" >Send</button>
-  </form> -->
+</div>
+<div class="col-md-8" *ngIf="rides">
+  <table mdbTable>
+    <thead class="black white-text">
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let ride of rides" style="color: white; height: 5em;">
+        <td scope="row">{{ride.departure}}</td>
+        <td>{{ride.destination}}</td>
+        <td>{{ride.date}}</td>
+        <td>{{ride.time}}</td>
+        <td>{{ride.seats}}</td>
+        <td *ngIf="ride.checkedStatus === true && now - ride.Date > 86400000">
+          <button type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
 </div>
 </div>
 </div>
-
-<!-- <div class="cont">
-  <div class="row justify-content-lg-center">
-      <div class="col-md-6">
-        Your previous rides
-        <div *ngFor="let ride of rideData">
-          <h1>Departure : {{ride.departure}}</h1>
-          <h1>Desitination :{{ride.destination}}</h1>
-          <h1>Date :{{ride.date}}</h1>
-          <div>
-</div>
-</div>
-</div> -->

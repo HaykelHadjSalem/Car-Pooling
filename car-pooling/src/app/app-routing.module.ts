@@ -11,6 +11,7 @@ import {CarComponent} from './components/driver/car/car.component';
 import { AuthGuard } from './components/_helper/auth.guard';
 import { DriverProfileComponent } from './components/driver/driver-profile/driver-profile.component';
 import { AuthPassengerGuard } from './components/_helper/auth.passenger.guard';
+import { FeedbackComponent } from './components/driver/feedback/feedback.component';
 import {DriverDetailComponent} from './components/passenger/driver-detail/driver-detail.component';
 
 
@@ -25,7 +26,8 @@ const routes: Routes = [
 {path:'driver/profile', component: DriverProfileComponent, canActivate : [AuthGuard]},
 {path: 'driver', component: DriverComponent , canActivate : [AuthGuard] },
 {path:'passenger', component:  PassengerComponent, canActivate : [AuthPassengerGuard]},
-{path:'passenger/profile', component:  PassengerProfileComponent, canActivate : [AuthPassengerGuard]}
+{path:'passenger/profile', component:  PassengerProfileComponent, canActivate : [AuthPassengerGuard]},
+{path:'driver/feedback/:id', component:  FeedbackComponent, canActivate : [AuthGuard]}
 ];
 
 @NgModule({

@@ -23,14 +23,14 @@ import { PassengerComponent } from './components/passenger/passenger.component';
 import { PassengerProfileComponent } from './components/passenger/passenger-profile/passenger-profile.component';
 import { DriverComponent } from './components/driver/driver.component';
 import { DriverProfileComponent } from './components/driver/driver-profile/driver-profile.component';
+import { FeedbackComponent } from './components/driver/feedback/feedback.component';
 import {DriverDetailComponent} from './components/passenger/driver-detail/driver-detail.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     FeedComponent,
-      LoginComponent,
+    LoginComponent,
     RegisterComponent,
     NavbarComponent,
     ContactComponent,
@@ -40,6 +40,7 @@ import {DriverDetailComponent} from './components/passenger/driver-detail/driver
     PassengerProfileComponent,
     DriverProfileComponent,
     CarComponent,
+    FeedbackComponent,
     DriverDetailComponent
   ],
   imports: [
