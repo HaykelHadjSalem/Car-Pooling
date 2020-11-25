@@ -24,7 +24,7 @@
         </div>
   
         <div class="md-form">
-          <textarea type="text" id="form103" class="md-textarea form-control" rows="5" mdbInput></textarea>
+          <textarea type="text" id="form103" class="md-textarea form-control" rows="5" mdbInput [(ngModel)]="message"></textarea>
           <label for="form103">Your message</label>
         </div>
   
@@ -33,7 +33,7 @@
   
           <!--Grid column-->
           <div class="text-center col-md-12">
-            <button type="button" mdbBtn color="success" rounded="true" block="true" class="z-depth-1">Send</button>
+            <button type="button" mdbBtn color="success" rounded="true" block="true" class="z-depth-1" (click)="sendFeedback(passenger.id)">Send</button>
           </div>
           <!--Grid column-->
         </div>
