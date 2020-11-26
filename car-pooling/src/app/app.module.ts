@@ -22,6 +22,8 @@ import { DriverComponent } from './components/driver/driver.component';
 //adding the ngx lib dropZone (cloudinary)
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 
@@ -38,7 +40,9 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
   
     PassengerComponent,
     PassengerProfileComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    FooterComponent,
+   
     
    
     

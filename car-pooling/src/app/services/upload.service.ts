@@ -6,12 +6,11 @@ import { Observable } from 'rxjs';
 export class UploadService {
   constructor(private _http: HttpClient) {}
 
-  uploadImage(vals): Observable<any> {
-    let data = vals;
-
+  uploadImage(data : any): Observable<any> {
+    console.log(data, "in the service");
     return this._http.post(
-      'https://api.cloudinary.com/v1_1/rebootkamp/image/upload',
-      data
+      'https://api.cloudinary.com/v1_1/rebootKamp/image/upload', data
     );
   }
+  
 }

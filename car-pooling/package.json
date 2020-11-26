@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "angular-bootstrap-md": "10.0.0",
     "chart.js": "^2.9.4",
+    "cloudinary": "^1.23.0",
     "hammerjs": "^2.0.8",
     "ngx-dropzone": "^2.3.0",
     "rxjs": "~6.6.0",

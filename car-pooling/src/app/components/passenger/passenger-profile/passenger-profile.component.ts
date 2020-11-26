@@ -18,7 +18,7 @@ export class PassengerProfileComponent implements OnInit {
   passenger: any;
   rides: any[];
   hasRides: boolean = false;
-
+  imageCloud: any;
 
   //cloudinary file name
   title = 'Car-Pooling';
@@ -27,9 +27,22 @@ export class PassengerProfileComponent implements OnInit {
   files: File[] = [];
  
  
-onSelect(event) {
-  console.log(event);
+onSelect(event: any) {
+  console.log(event)
   this.files.push(...event.addedFiles);
+  console.log(this.files)
+  const file_data = this.files[0];
+  const data = new FormData();
+  
+  data.append('file', file_data);
+  data.append('upload_preset', 'Car-Pooling');
+  data.append('cloud_name', 'rebootkamp');
+  console.log('basma',data);
+  this._uploadService.uploadImage(data).subscribe((response) => {
+  console.log(response);
+  
+});
+  // this.imageCloud = data
 }
  
 onRemove(event) {
@@ -38,21 +51,17 @@ onRemove(event) {
 }
 
 onUpload() {
-  // empty array (if there is no photo send an alert)
-  if (!this.files[0]) {
-    alert('Upload an image first, please');
-  }
+  // empty array (if there is no photo)
+  // if (!this.files[0]) {
+  //   alert('Upload an image first, please');
+  // }
   //Upload my image to cloudinary
-  const file_data = this.files[0];
-  const data = new FormData();
-  data.append('file', file_data);
-  data.append('upload_preset', 'Car-Pooling');
-  data.append('cloud_name', 'rebootkamp');
-   
-  this._uploadService.uploadImage(data).subscribe((response) => {
-    if (response) {
-      console.log(response);
-    }
+
+  //  console.log(data)
+  this._uploadService.uploadImage(this.imageCloud).subscribe((response) => {
+ 
+      console.log(response.url);
+    
   });
 }
 

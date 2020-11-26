@@ -16,13 +16,14 @@ body{
     background-color: #fdfdfd;
     overflow: hidden;
     padding: 80px 0;
+    position: relative;
 }
 .inner-section{
     width: 55%;
     float: right;
     background-color: #fdfdfd;
     padding: 140px;
-    box-shadow: 10px 10px 8px rgba(0,0,0,0.3);
+    box-shadow: 5px 10px 8px 10px #888888;
 }
 .inner-section h1{
     margin-bottom: 30px;
@@ -85,18 +86,22 @@ body{
 }
 
 body {
-    background: #222 url("https://25.media.tumblr.com/a408ad9af259cf827ed4599d60bcb0a9/tumblr_myebwtELvb1st5lhmo1_1280.jpg") no-repeat fixed center;
+    // background: #222 url("https://25.media.tumblr.com/a408ad9af259cf827ed4599d60bcb0a9/tumblr_myebwtELvb1st5lhmo1_1280.jpg") no-repeat fixed center;
     background-size: cover;
     overflow: hidden;
   }
   
+  
   .social {
     position: absolute;
-    width: 100%;
+    width: 30%;
     top: 88%;
-    left: 25%;
+    left: 70%;
     text-align: center;
     transform: translateY(-50%);
+    // background: rgba(128, 128, 128, 0.116);
+    border-radius: 5%;
+    position: fixed;
   }
   
   .social .link {
