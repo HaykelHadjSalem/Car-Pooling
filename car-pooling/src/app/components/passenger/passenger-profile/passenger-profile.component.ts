@@ -22,16 +22,13 @@ export class PassengerProfileComponent implements OnInit {
      private feedbackService: FeedbackService,
       private rideService: RideService) { }
 
-  ngOnInit(): void {
-    
-    if(this.tokenStorage.getUser() && this.tokenStorage.getUser().type === 'passenger') {
+  ngOnInit(): void {   
       this.passenger = this.tokenStorage.getUser();
       this.rideService.getPassengerRides(this.passenger.id).subscribe((results:any[]) => {
         console.log(results);
         this.rides = results;
         this.hasRides = true;
       });
-    }
   }
 
   onSubmit(form: NgForm, rideId, driverId){
@@ -39,16 +36,12 @@ export class PassengerProfileComponent implements OnInit {
 this.obj.driverId = driverId;
 this.obj.rideId = rideId;
 this.obj.passengerId = this.passenger.id
-// this.rating= [...form.value['rating1'],...form.value['rating2'],...form.value['rating3'],...form.value['rating4'],...form.value['rating5']];
-// for(var i=0; i < this.rating.length ; i++){
-//   if(this.rating[i] !== ''){
-//     this.obj.rating = this.rating[i]
-//   }
-// }
-for(var i = 0; i < 5 ; i++){}
-  if(form.value[`rating${i}`] !== ''){
-    this.obj.rating = i
+this.rating= [...form.value['rating1'],...form.value['rating2'],...form.value['rating3'],...form.value['rating4'],...form.value['rating5']];
+for(var i=0; i < this.rating.length ; i++){
+  if(this.rating[i] !== ''){
+    this.obj.rating = this.rating[i]
   }
+}
   console.log(this.obj)
 }  
 
