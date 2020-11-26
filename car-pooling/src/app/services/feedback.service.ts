@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
+
 const PassengerUrl = 'http://localhost:3000/passenger'
 const FeedbackUrl = 'http://localhost:3000/feedback/'
 
@@ -20,6 +21,11 @@ export class FeedbackService {
 
   public addFeedback(Feedback): Observable<any> {
     return this.http.post(FeedbackUrl + 'create', Feedback, httpOptions);
+  }
+
+
+  getFeedbackDriver(driverId: any): Observable<any>{
+    return this.http.get(FeedbackUrl + 'driver/' + driverId, httpOptions);
   }
 
 }
