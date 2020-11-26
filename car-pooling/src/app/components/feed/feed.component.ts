@@ -2,15 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RideService } from '../../services/ride.service';
 import { DriverService} from '../../services/driver.service';
-
-interface Feed {destination: string; 
-                departure: string;
-                date: String;
-                time: String;
-                price: Number;
-                seats: Number } 
-
-// const FEED: Feed[] = [{destination:'Tunis', deparature:'Sousse', date: '02/02/2023', time: '22:45' ,seats: 3, price: 25}];
+ 
 
 @Component({
   selector: 'app-feed',
