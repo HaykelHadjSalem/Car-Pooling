@@ -3,6 +3,7 @@ import { ActivatedRoute, Router  } from '@angular/router';
 import { DriverService } from 'src/app/services/driver.service';
 import { Location } from '@angular/common';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import {FeedbackService} from 'src/app/services/feedback.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -12,11 +13,13 @@ import {NgForm} from '@angular/forms';
 })
 export class DriverDetailComponent implements OnInit {
 Driver : any;
+feedback:any;
 passenger : any;
   constructor(private driverService : DriverService, 
     private route: ActivatedRoute, 
     private router: Router, 
     private location: Location, 
+    private feedbackService: FeedbackService,
     private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
@@ -27,8 +30,8 @@ this.passenger = this.tokenStorage.getUser()
 getDriver(){
   const id = +this.route.snapshot.paramMap.get('id');
   console.log(id)
-  this.driverService.getDriver(id).subscribe(hero =>  this.Driver = hero);
-
+  this.driverService.getDriver(id).subscribe(driver =>  this.Driver = driver);
+this.feedbackService.getFeedbackDriver(id).subscribe(feedback => this.feedback = feedback );
 }
 
 goBack(): void {
