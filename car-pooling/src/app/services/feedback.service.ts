@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 
 
-const PassengerUrl = 'http://localhost:3000/passenger'
 const FeedbackUrl = 'http://localhost:3000/feedback/'
 
 const httpOptions = {

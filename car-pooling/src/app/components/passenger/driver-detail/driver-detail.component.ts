@@ -13,7 +13,7 @@ import {NgForm} from '@angular/forms';
 })
 export class DriverDetailComponent implements OnInit {
 Driver : any;
-feedback:any;
+feedBack:any;
 passenger : any;
   constructor(private driverService : DriverService, 
     private route: ActivatedRoute, 
@@ -31,7 +31,7 @@ getDriver(){
   const id = +this.route.snapshot.paramMap.get('id');
   console.log(id)
   this.driverService.getDriver(id).subscribe(driver =>  this.Driver = driver);
-this.feedbackService.getFeedbackDriver(id).subscribe(feedback => this.feedback = feedback );
+this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  this.feedBack = feedback);
 }
 
 goBack(): void {
