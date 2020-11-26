@@ -4,8 +4,7 @@
   <table Table>
     <thead>
       <tr>
-        <th> Name of Driver </th>  
-        <th> Ride </th>
+        <th> Name of Driver </th>
         <th> Departure </th>
         <th> Destination </th>
         <th> Time </th>
@@ -17,13 +16,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let ride of rides">
-        <td routerLink="detail/{{ride.Driver.id}}">{{ride.Driver.firstName}} {{ride.Driver.lastName}}</td>
-        <td><span id ="1" class="fa fa-star checked"></span>
-          <span id="2" class="fa fa-star checked"></span>
-          <span id="3" class="fa fa-star checked"></span>
-          <span id="4" class="fa fa-star"></span>
-          <span id="5" class="fa fa-star"></span>
-        </td>  
+        <td routerLink="detail/{{ride.Driver.id}}">{{ride.Driver.firstName}} {{ride.Driver.lastName}}
+          <i *ngFor="let i of [1,2,3,4,5]">
+            <mdb-icon fas icon="star" [ngClass]="{'checked': ride.Driver.rating >= i}"></mdb-icon>
+            </i>
+        </td>
         <td>{{ride.departure}}</td>
         <td>{{ride.destination}}</td>
         <td>{{ride.time}}</td>
