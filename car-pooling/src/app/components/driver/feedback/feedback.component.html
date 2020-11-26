@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container mt-5">
     <div class="row">
-        <div class="col-md-4" *ngFor="let passenger of passengers">
+        <div class="col-md-4" *ngFor="let passenger of passengers let i = index">
   <section class="form-dark">
   
     <!--Form without header-->
@@ -19,13 +19,13 @@
         </div>
   
         <div class="md-form">
-          <input type="text" id="form100" class="form-control" mdbInput>
-          <label for="form100" >Your name</label>
+          <input type="text" id="name{{i}}" class="form-control" mdbInput>
+          <label for="name{{i}}" >Your name</label>
         </div>
   
         <div class="md-form">
-          <textarea type="text" id="form103" class="md-textarea form-control" rows="5" mdbInput [(ngModel)]="message"></textarea>
-          <label for="form103">Your message</label>
+          <textarea type="text" id="message{{i}}" class="md-textarea form-control" rows="5" mdbInput [(ngModel)]="message[i]"></textarea>
+          <label for="message{{i}}">Your message</label>
         </div>
   
         <!--Grid row-->
@@ -33,7 +33,7 @@
   
           <!--Grid column-->
           <div class="text-center col-md-12">
-            <button type="button" mdbBtn color="success" rounded="true" block="true" class="z-depth-1" (click)="sendFeedback(passenger.id)">Send</button>
+            <button type="button" mdbBtn color="success" rounded="true" block="true" class="z-depth-1" (click)="sendFeedback(passenger.id, i)">Send</button>
           </div>
           <!--Grid column-->
         </div>
