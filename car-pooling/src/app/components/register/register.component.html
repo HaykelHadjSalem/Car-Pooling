@@ -30,14 +30,32 @@
   </div>
 
   <!-- E-mail -->
-  <input type="email"  class="form-control mb-4" placeholder="E-mail" formControlName="email">
-
+  <div>
+  <input type="email"  class="form-control mb-4" mdbInput mdbValidate
+  [formControl]="email" placeholder="E-mail" formControlName="email">
+  <mdb-error
+              *ngIf="email.invalid && (email.dirty || email.touched)">
+      
+            </mdb-error>
+            <mdb-success
+              *ngIf="email.invalid && (email.dirty || email.touched)">
+            </mdb-success>
+</div>
   <!-- Password -->
-  <input type="password"  class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
+  <div>
+  <input type="password"  class="form-control" mdbInput mdbValidate
+  [formControl]="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    <mdb-error
+    *ngIf="password.invalid && (password.dirty || password.touched)">
+
+  </mdb-error>
+  <mdb-success
+    *ngIf="password.invalid && (password.dirty || password.touched)">
+  </mdb-success>
     At least 6 characters and 1 digit
   </small>
-   
+   </div>
    <!-- reconfirm Password -->
    <input (change)="checkPassword($event)" type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
    <small  class="form-text text-muted mb-4">
