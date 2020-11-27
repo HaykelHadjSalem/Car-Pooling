@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RideService } from 'src/app/services/ride.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import {FeedbackService} from 'src/app/services/feedback.service';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -11,65 +13,48 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
  
   
 })
+
 export class PassengerProfileComponent implements OnInit {
+  obj={message :"", driverId : 0, rideId : 0, passengerId : 0, sender : 'passenger', rating : 0}
   passenger: any;
+  headElements = ['Departure', 'Destination', 'Date', 'Time', 'Status'];
   rides: any[];
+  rating:any[];
+  now = Date.now() / 1000 / 3600;
   hasRides: boolean = false;
-  imageCloud: any;
+  constructor(private tokenStorage: TokenStorageService,
+     private router: Router,
+     private feedbackService: FeedbackService,
+      private rideService: RideService) { }
 
-  //cloudinary file name
-  title = 'Car-Pooling';
-  //two functions implement cloudinary
-  constructor(private tokenStorage: TokenStorageService, private router: Router, private rideService: RideService,) { }
-  
-// onSelect(event: any) {
-//   console.log(event)
-//   this.files.push(...event.addedFiles);
-//   console.log(this.files)
-//   const file_data = this.files[0];
-//   const data = new FormData();
-  
-//   data.append('file', file_data);
-//   data.append('upload_preset', 'Car-Pooling');
-//   data.append('cloud_name', 'rebootkamp');
-//   console.log('basma',data);
-//   this._uploadService.uploadImage(data).subscribe((response) => {
-//   console.log(response);
-  
-// });
-//   // this.imageCloud = data
-// }
- 
-// onRemove(event) {
-//   console.log(event);
-//   this.files.splice(this.files.indexOf(event), 1);
-// }
-
-// onUpload() {
-//   // empty array (if there is no photo)
-//   // if (!this.files[0]) {
-//   //   alert('Upload an image first, please');
-//   // }
-//   //Upload my image to cloudinary
-
-//   //  console.log(data)
-//   this._uploadService.uploadImage(this.imageCloud).subscribe((response) => {
- 
-//       console.log(response.url);
-    
-//   });
-// }
-
-
-  ngOnInit(): void {
-    if(this.tokenStorage.getUser() && this.tokenStorage.getUser().type === 'passenger') {
+  ngOnInit(): void {   
       this.passenger = this.tokenStorage.getUser();
-      this.rideService.getPassengerRides(this.passenger.id).subscribe((results:any[]) => {
-        console.log(results);
-        this.rides = results;
+      this.rideService.getPassengerRides(this.passenger.id).subscribe((rides:any[]) => {
+        for(var i = 0; i < rides.length; i++) {
+          let time = rides[i].time.split(':').reduce((acc,time) => (60 * acc) + +time);
+          rides[i].Date = ((Date.parse(rides[i].date) / 1000) + time) / 3600;
+        }
+        this.rides = rides.filter(ride => ride.RidePassengers.createdAt == ride.RidePassengers.updatedAt);
         this.hasRides = true;
       });
-    }
   }
+
+  onSubmit(form: NgForm, rideId, driverId){
+    this.obj.message = form.value['comment']
+this.obj.driverId = driverId;
+this.obj.rideId = rideId;
+this.obj.passengerId = this.passenger.id
+this.rating= [...form.value['rating1'],...form.value['rating2'],...form.value['rating3'],...form.value['rating4'],...form.value['rating5']];
+for(var i=0; i < this.rating.length ; i++){
+  if(this.rating[i] !== ''){
+    this.obj.rating = this.rating[i]
+  }
+this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
+  console.log(response)
+})
+}
+
+  console.log(this.obj)
+}  
 
 }

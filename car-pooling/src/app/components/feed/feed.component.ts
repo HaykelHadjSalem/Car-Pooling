@@ -1,14 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RideService } from '../../services/ride.service';
-interface Feed {destination: string; 
-                departure: string;
-                date: String;
-                time: String;
-                price: Number;
-                seats: Number } 
-
-// const FEED: Feed[] = [{destination:'Tunis', deparature:'Sousse', date: '02/02/2023', time: '22:45' ,seats: 3, price: 25}];
+import { DriverService} from '../../services/driver.service';
+ 
 
 @Component({
   selector: 'app-feed',
@@ -19,13 +13,9 @@ export class FeedComponent implements OnInit {
 
   @Input() rides: any[];
   @Input() user: any;
-  constructor( private router: Router, private rideService: RideService) {}
-
-
-
-  
-  
-  
+  @Input() driver: any[];
+  constructor( private router: Router, private rideService: RideService, private driverService: DriverService) {}
+   
   ngOnInit() {
 
     //    this.rideService.getAllRides().subscribe(rides=>{
@@ -35,11 +25,19 @@ export class FeedComponent implements OnInit {
     // })
   }
   reserve(rideId) {
+    console.log(this.user)
     this.rideService.reserveRide({rideId: rideId, passengerId: this.user.id}).subscribe(results => {
     console.log(results);
     this.router.navigate(['passenger/profile'])
+   
     })
   }
+
+//   viewProfile(){
+//  this.driverService.currentDriver = this.rides[0].driver
+//     this.router.navigate(['passenger/profile'])
+//   }
+
 }
 
 

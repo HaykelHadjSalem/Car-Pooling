@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let passenger of passengers let i = index">
+  <section class="form-dark">
+  
+    <!--Form without header-->
+    <mdb-card style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg')">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+  
+        <!--Header-->
+        <div class="text-center">
+          <h4 class="white-text font-weight-bold text-uppercase">
+            <strong>{{passenger.firstName}}</strong>
+            <a class="green-text font-weight-bold">
+              <strong> {{passenger.lastName}}</strong>
+            </a>
+          </h4>
+        </div>
+  
+        <div class="md-form">
+          <input type="text" id="name{{i}}" class="form-control" mdbInput>
+          <label for="name{{i}}" >Your name</label>
+        </div>
+  
+        <div class="md-form">
+          <textarea type="text" id="message{{i}}" class="md-textarea form-control" rows="5" mdbInput [(ngModel)]="message[i]"></textarea>
+          <label for="message{{i}}">Your message</label>
+        </div>
+  
+        <!--Grid row-->
+        <div class="row d-flex align-items-center">
+  
+          <!--Grid column-->
+          <div class="text-center col-md-12">
+            <button type="button" mdbBtn color="success" rounded="true" block="true" class="z-depth-1" (click)="sendFeedback(passenger.id, i)">Send</button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+  
+      </div>
+    </mdb-card>
+    <!--/Form without header-->
+  
+  </section>
+  <!-- Section: form dark -->
+
+        </div>
+    </div>
+</div>

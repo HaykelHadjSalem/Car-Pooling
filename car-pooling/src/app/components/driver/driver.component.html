@@ -1,27 +1,145 @@
 <app-navbar></app-navbar>
-<div class="container">
-            <div class="card card-profile shadow mt--300">
-              <div class="px-4">
-                
-                <div class="text-center mt-5">
-                  <h3>{{data.firstName}}, {{data.lastName}}
-                    <span class="font-weight-light"></span>
-                  </h3>
-                  <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i><h3>{{data.address}} , Tunisia</h3></div>
-                  <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i><h2>Experimented driver</h2></div>
-                  <div><i class="ni education_hat mr-2"></i> <h3>phoneNumber :  {{data.phoneNumber}} </h3></div>
-                  <h3><span class="font-weight-light"> National card :  {{data.ICN}}</span></h3>
-                </div>
-                <div class="mt-5 py-5 border-top text-center">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                      <a href="javascript:void(0)">Comments</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div class="container mt-5">
+    <div class="row justify-content-lg-center">
+      <h1 *ngIf="!car" style="color: white; cursor: pointer" routerLinkActive="active" [routerLink]="['/car']">Please Add your car information!</h1>
+        <div class="col-md-4" *ngIf="car">
+
+          <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+          (click)="frame.show()" mdbWavesEffect>Add a ride
+  </button>
+  
+  <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content mb-5">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Enter your ride information</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form">
+            <mdb-icon fas icon="car-side" class="prefix grey-text"></mdb-icon>
+            <input type="text" id="form1" class="form-control" mdbInput mdbValidate [formControl]="departure">
+            <label for="form1">Departure</label>
+            <mdb-error
+              *ngIf="departure.invalid && (departure.dirty || departure.touched)">Input
+              invalid
+            </mdb-error>
+            <mdb-success
+              *ngIf="departure.valid && (departure.dirty || departure.touched)">Input
+              valid
+            </mdb-success>
           </div>
-          <div><img id="img" src="https://cdn2.iconfinder.com/data/icons/circular-flat-ui/500/012-512.png" class="rounded-circle"></div>
-      
-    
+  
+          <div class="md-form">
+            <mdb-icon fas icon="car-alt" class="prefix grey-text"></mdb-icon>
+            <input type="text" id="form2" class="form-control" mdbInput mdbValidate
+                   [formControl]="destination">
+            <label for="form2">Your Destination</label>
+            <mdb-error
+              *ngIf="destination.invalid && (destination.dirty || destination.touched)">
+              Input invalid
+            </mdb-error>
+            <mdb-success
+              *ngIf="destination.valid && (destination.dirty || destination.touched)">Input
+              valid
+            </mdb-success>
+          </div>
+  
+          <div class="md-form">
+            <mdb-icon fas icon="calendar-check" class="prefix grey-text"></mdb-icon>
+            <input type="date" id="form3" class="form-control" mdbInput mdbValidate
+                   [formControl]="date">
+            <label for="form3">Date</label>
+            <mdb-error
+              *ngIf="date.invalid && (date.dirty || date.touched)">
+              Input invalid
+            </mdb-error>
+            <mdb-success
+              *ngIf="date.valid && (date.dirty || date.touched)">
+              Input valid
+            </mdb-success>
+          </div>
+  
+          <div class="md-form">
+            <mdb-icon fas icon="clock" class="prefix grey-text"></mdb-icon>
+            <input type="time" id="form4" class="form-control" mdbInput mdbValidate
+                      [formControl]="time">
+            <label for="form4">Time</label>
+            <mdb-error
+              *ngIf="time.invalid && (time.dirty || time.touched)">
+              Input invalid
+            </mdb-error>
+            <mdb-success
+              *ngIf="time.valid && (time.dirty || time.touched)">
+              Input valid
+            </mdb-success>
+          </div>
+          <div class="md-form">
+            <mdb-icon fas icon="users" class="prefix grey-text"></mdb-icon>
+            <input type="number" id="form5" class="form-control" mdbInput mdbValidate
+                      [formControl]="seats">
+            <label for="form5">Seats</label>
+            <mdb-error
+              *ngIf="seats.invalid && (seats.dirty || seats.touched)">
+              Input invalid
+            </mdb-error>
+            <mdb-success
+              *ngIf="seats.valid && (seats.dirty || seats.touched)">
+              Input valid
+            </mdb-success>
+          </div>
+          <div class="md-form">
+            <mdb-icon fas icon="hand-holding-usd" class="prefix grey-text"></mdb-icon>
+            <input type="number" id="form6" class="form-control" mdbInput mdbValidate
+                      [formControl]="price">
+            <label for="form6">Price</label>
+            <mdb-error
+              *ngIf="price.invalid && (price.dirty || price.touched)">
+              Input invalid
+            </mdb-error>
+            <mdb-success
+              *ngIf="price.valid && (price.dirty || price.touched)">
+              Input valid
+            </mdb-success>
+          </div>
+  
+        </div>
+        <div class="d-flex justify-content-center">
+          <button mdbBtn color="unique" class="waves-light" mdbWavesEffect (click)="addRide()">Send
+            <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-8" *ngIf="rides">
+  <table mdbTable>
+    <thead class="black white-text">
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let ride of rides" style="color: white; height: 5em;">
+        <td scope="row">{{ride.departure}}</td>
+        <td>{{ride.destination}}</td>
+        <td>{{ride.date}}</td>
+        <td>{{ride.time}}</td>
+        <td>{{ride.seats}}</td>
+        <td >
+          <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
+          <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
+          <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
+          <button *ngIf="ride.checkedStatus === true && now - ride.Date > 24" type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+</div>
+</div>
