@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container mt-5">
     <div class="row justify-content-lg-center">
-      <h1 *ngIf="!car" style="color: white; cursor: pointer" routerLinkActive="active" [routerLink]="['/car']">Please Add your car information!</h1>
-        <div class="col-md-4" *ngIf="car">
+      <div class="col-md-4" *ngIf="car">
 
           <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
           (click)="frame.show()" mdbWavesEffect>Add a ride
