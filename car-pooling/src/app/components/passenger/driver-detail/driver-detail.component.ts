@@ -4,7 +4,7 @@ import { DriverService } from 'src/app/services/driver.service';
 import { Location } from '@angular/common';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
-import {NgForm} from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-driver-detail',
@@ -31,7 +31,8 @@ getDriver(){
   const id = +this.route.snapshot.paramMap.get('id');
   console.log(id)
   this.driverService.getDriver(id).subscribe(driver =>  this.Driver = driver);
-this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  this.feedBack = feedback);
+this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  this.feedBack= feedback);
+this.feedBack = this.feedBack.sort({createdAt: -1})
 }
 
 goBack(): void {
