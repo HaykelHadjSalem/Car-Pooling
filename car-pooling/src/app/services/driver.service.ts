@@ -43,9 +43,9 @@ public sendImage(driverId , data){
   return  this.http.put(DriverUrl + driverId, data, httpOptions);
 }
 
-public uploadImage(driverId, pic): Observable<any> {
+public uploadImage(obj, pic): Observable<any> {
 let data = pic;
-return  this.http.put('http://localhost:3000/file/upload/' + driverId, data);
+return  this.http.put('http://localhost:3000/file/upload/' + obj.id, data);
 }
 
 public getDriver(driverId): Observable<any> {
