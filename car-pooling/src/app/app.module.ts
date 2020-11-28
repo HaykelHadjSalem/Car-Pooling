@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeedComponent } from '../app/components/feed/feed.component';
 import { RouterModule } from '@angular/router';
+
 import {AuthPassengerGuard} from './components/_helper/auth.passenger.guard'
 import {AuthGuard} from './components/_helper/auth.guard'
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -54,6 +55,7 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    NgxDropzoneModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

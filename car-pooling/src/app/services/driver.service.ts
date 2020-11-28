@@ -39,6 +39,14 @@ public getOneCar(driverId): Observable<any> {
   return this.http.get(carUrl + driverId , httpOptions);
 }
 
+public sendImage(data){ 
+  return  this.http.post(DriverUrl + "image", data, httpOptions);
+}
+
+public uploadImage(pic): Observable<any> {
+let data = pic;
+return  this.http.post('http://localhost:3000/file/upload', data);
+}
 
 public getDriver(driverId): Observable<any> {
   console.log(driverId)
