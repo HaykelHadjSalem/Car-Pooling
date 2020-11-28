@@ -30,18 +30,36 @@
   </div>
 
   <!-- E-mail -->
-  <input type="email"  class="form-control mb-4" placeholder="E-mail">
-
+  <div>
+  <input type="email"  class="form-control mb-4" mdbInput mdbValidate
+  [formControl]="email" placeholder="E-mail" formControlName="email">
+  <mdb-error
+              *ngIf="email.invalid && (email.dirty || email.touched)">
+      
+            </mdb-error>
+            <mdb-success
+              *ngIf="email.invalid && (email.dirty || email.touched)">
+            </mdb-success>
+</div>
   <!-- Password -->
-  <input type="password"  class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
+  <div>
+  <input type="password"  class="form-control" mdbInput mdbValidate
+  [formControl]="password" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="password">
   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    <mdb-error
+    *ngIf="password.invalid && (password.dirty || password.touched)">
+
+  </mdb-error>
+  <mdb-success
+    *ngIf="password.invalid && (password.dirty || password.touched)">
+  </mdb-success>
     At least 6 characters and 1 digit
   </small>
-   
+   </div>
    <!-- reconfirm Password -->
-   <input type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
+   <input (change)="checkPassword($event)" type="password"  class="form-control" placeholder=" Confirm your password" aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="confirmPassword">
    <small  class="form-text text-muted mb-4">
-  
+    {{checkedPassword}}
    </small>
 
    <!-- address -->
@@ -50,12 +68,12 @@
     
   </small>
   <!-- Phone number -->
-  <input type="text"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
+  <input type="number"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
   <small  class="form-text text-muted mb-4">
   </small>
 
     <!-- ID card of passenger and driver -->
-    <input type="text"  class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="idCard">
+    <input type="number"  class="form-control" placeholder="ID Card Number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="idCard">
     <small  class="form-text text-muted mb-4">
       
 
@@ -66,7 +84,7 @@
 
 
         <!-- Licence driver -->
-        <input  *ngIf="signupForm.value.type==='driver'" type="text"  class="form-control" placeholder="Driver Licence number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName=" driverLicense">
+        <input  *ngIf="signupForm.value.type==='driver'" type="number"  class="form-control" placeholder="Driver Licence number"  formControlName="driverLicense">
         <small  class="form-text text-muted mb-4">
           
         </small>
@@ -74,3 +92,4 @@
   <!-- Sign up button -->
   <br/><br/>
   <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
+</form>

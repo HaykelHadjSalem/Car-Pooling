@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div class="container">
+<div class="row justify-content-md-center mt-5">
+<div class="col-6">
+    <!-- <img src={user.imgUrl}/> -->
+    <mdb-card class="blue-gradient">
+        <mdb-card-body>
+<mdb-card cascade="true" wider="true">
+
+  <div class="view view-cascade gradient-card-header blue-gradient">
+    <div class="white-text ml-4">
+    <h2 class="card-header-title text-uppercase mt-4 mb-4">{{passenger.firstName}} {{passenger.lastName}}</h2>
+    <p class="lead font-weight-bold">
+      Welcome to your account</p>
+  </div>
+  </div>
+
+  <mdb-card-body cascade="true">
+
+    <mdb-card-text class="indigo-text">
+      <p class="lead font-weight-bold">Email address: {{passenger.email}}</p>
+    <p class="lead font-weight-bold">Phone number: {{passenger.phoneNumber}}</p>
+    <p class="lead font-weight-bold">Address: {{passenger.address}}</p>
+    </mdb-card-text>
+
+    <a routerLink='/home' class="indigo-text mt-1 d-flex flex-row-reverse">
+      <h5 class="waves-effect p-2" mdbWavesEffect>Check our rides
+        <mdb-icon fas icon="chevron-right"></mdb-icon>
+      </h5>
+    </a>
+
+  </mdb-card-body>
+</mdb-card>
+</mdb-card-body>
+</mdb-card>
+</div>
+</div>
+</div>
+
+<div class="col-md-8" *ngIf="rides">
+  <table mdbTable>
+    <thead class="black white-text">
+      <tr>
+        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let ride of rides" style="color: white; height: 5em;">
+        <td scope="row">{{ride.departure}}</td>
+        <td>{{ride.destination}}</td>
+        <td>{{ride.date}}</td>
+        <td>{{ride.time}}</td>
+        <td >
+          <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
+          <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
+          <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
+          <button  type="button" mdbBtn color="info" size="sm"  mdbWavesEffect (click)="frame.show()" *ngIf="ride.checkedStatus === true && now - ride.Date > 24" >Feedback</button>
+        </td>
+        <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel">
+             <form (ngSubmit)="onSubmit(f,ride.id,ride.driverId)" #f="ngForm">
+          <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
+          <div class="col-4 bg-white mt">
+              <div class="comment-box ml-2">
+                  <h4>Add a comment</h4>
+                  <div class="rating" > <input type="radio" name="rating5" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating4" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating3" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating2" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating1" value="1" id="1" ngModel><label for="1" >☆</label> </div>
+                  <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="what is your view?" rows="4" ngModel></textarea> </div>
+                  <div class="comment-btns mt-2">
+                      <div class="row">
+                          <div class="col-6">
+                              <div class="pull-right"> <button class="btn btn-success send btn-sm">Send <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </form>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
