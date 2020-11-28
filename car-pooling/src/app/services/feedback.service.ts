@@ -27,4 +27,8 @@ export class FeedbackService {
     return this.http.get(FeedbackUrl + 'driver/' + driverId, httpOptions);
   }
 
+  getFeedbackPassenger(passengerId: any): Observable<any>{
+    return this.http.get(FeedbackUrl + 'passenger/' + passengerId, httpOptions);
+  }
+
 }
