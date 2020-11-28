@@ -68,7 +68,9 @@ get driverLicense() { return this.signupForm.get('driverLicense');
 }
 get address() { return this.signupForm.get('address');
 }
-get type() { return this.signupForm.get('type');}
+get type() { return this.signupForm.get('type');
+}
+
 
 
 
