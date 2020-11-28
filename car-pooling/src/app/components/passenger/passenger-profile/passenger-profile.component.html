@@ -54,7 +54,7 @@
           <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
           <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
           <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
-          <button  type="button" mdbBtn color="info" size="sm"  mdbWavesEffect (click)="frame.show()">Feedback</button>
+          <button  type="button" mdbBtn color="info" size="sm"  mdbWavesEffect (click)="frame.show()" *ngIf="ride.checkedStatus === true && now - ride.Date > 24">Feedback</button>
         </td>
         <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel">
@@ -62,7 +62,8 @@
           <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
           <div class="col-4 bg-white mt">
               <div class="comment-box ml-2">
-                  <h4>Add a comment</h4>
+                  <h4>Add a comment for :</h4>
+                  <h3>{{ride.Driver.firstName}}</h3>
                   <div class="rating" > <input type="radio" name="rating5" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating4" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating3" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating2" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating1" value="1" id="1" ngModel><label for="1" >☆</label> </div>
                   <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="what is your view?" rows="4" ngModel></textarea> </div>
                   <div class="comment-btns mt-2">

@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { FeedComponent } from '../app/components/feed/feed.component';
 import { RouterModule } from '@angular/router';
 
-
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import {AuthPassengerGuard} from './components/_helper/auth.passenger.guard'
 import {AuthGuard} from './components/_helper/auth.guard'
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -45,6 +45,7 @@ import {DriverDetailComponent} from './components/passenger/driver-detail/driver
   ],
   imports: [
     BrowserModule,
+    NgxDropzoneModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
