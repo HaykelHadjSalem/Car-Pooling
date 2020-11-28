@@ -39,13 +39,13 @@ public getOneCar(driverId): Observable<any> {
   return this.http.get(carUrl + driverId , httpOptions);
 }
 
-public sendImage(data){ 
-  return  this.http.post(DriverUrl + "image", data, httpOptions);
+public sendImage(driverId , data){ 
+  return  this.http.put('http://localhost:3000/driver/' + driverId, data, httpOptions);
 }
 
-public uploadImage(pic): Observable<any> {
+public uploadImage(driverId, pic): Observable<any> {
 let data = pic;
-return  this.http.post('http://localhost:3000/file/upload', data);
+return  this.http.put('http://localhost:3000/file/upload/' + driverId, data);
 }
 
 public getDriver(driverId): Observable<any> {

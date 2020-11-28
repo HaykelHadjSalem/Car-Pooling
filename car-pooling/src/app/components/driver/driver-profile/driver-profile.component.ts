@@ -40,9 +40,11 @@ if (!this.files[0]) {
 const file_data = this.files[0];
 const data = new FormData();
 data.append('file', file_data);
+console.log(data)
 data.append('upload_preset', 'ml_default');
 data.append('cloud_name', 'dc36tjyia');
-this.driverService.uploadImage(data).subscribe(image => {
+this.driver.type = "driver"
+this.driverService.uploadImage(this.driver.id, data).subscribe(image => {
   console.log(image.result.url)
   this.downloadURL = image.result.url;
 })
@@ -55,9 +57,10 @@ onRemove(event) {
 
 
 onUpload(){
-this.driverService.sendImage(this.downloadURL).subscribe(image =>{
-  console.log(image, "saved in databse")
-})
+
+// this.driverService.sendImage(this.driver.id, this.downloadURL).subscribe(image =>{
+//   console.log(image, "saved in databse")
+// })
 }
 
 
