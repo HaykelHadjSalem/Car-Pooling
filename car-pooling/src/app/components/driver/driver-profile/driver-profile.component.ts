@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../../services/token-storage.service';
 import {Router} from '@angular/router';
-import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 import { DriverService } from 'src/app/services/driver.service';
 import { Observable } from 'rxjs';
 const uri = 'http://localhost:3000/file/upload';
@@ -18,7 +17,7 @@ export class DriverProfileComponent implements OnInit {
   files: File[] = [];
   downloadURL: Observable<string> | undefined;
   selectedFile: File = null;
-  uploader: FileUploader = new FileUploader({ url: uri });
+
   constructor(private tokenStorage: TokenStorageService, 
     private driverService: DriverService, 
     private router: Router) { } 
@@ -43,9 +42,9 @@ const data = new FormData();
 data.append('file', file_data);
 data.append('upload_preset', 'ml_default');
 data.append('cloud_name', 'dc36tjyia');
-this.driverService.addImage(data).subscribe(image => {
+this.driverService.uploadImage(data).subscribe(image => {
   console.log(image.result.url)
-  this.downloadURL = image;
+  this.downloadURL = image.result.url;
 })
 
 }
@@ -56,7 +55,9 @@ onRemove(event) {
 
 
 onUpload(){
-
+this.driverService.sendImage(this.downloadURL).subscribe(image =>{
+  console.log(image, "saved in databse")
+})
 }
 
 

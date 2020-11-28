@@ -5,10 +5,13 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
 import {NgForm} from '@angular/forms';
 
+
 @Component({
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
-  styleUrls: ['./passenger-profile.component.scss']
+  styleUrls: ['./passenger-profile.component.scss'],
+ 
+  
 })
 
 export class PassengerProfileComponent implements OnInit {
@@ -25,16 +28,13 @@ export class PassengerProfileComponent implements OnInit {
       private rideService: RideService) { }
 
   ngOnInit(): void {   
-    // *ngIf="ride.checkedStatus === true && now - ride.Date > 24"
       this.passenger = this.tokenStorage.getUser();
       this.rideService.getPassengerRides(this.passenger.id).subscribe((rides:any[]) => {
         for(var i = 0; i < rides.length; i++) {
           let time = rides[i].time.split(':').reduce((acc,time) => (60 * acc) + +time);
           rides[i].Date = ((Date.parse(rides[i].date) / 1000) + time) / 3600;
-          console.log(rides[i].Date, this.now)
         }
-        console.log(rides);
-        this.rides = rides;
+        this.rides = rides.filter(ride => ride.RidePassengers.createdAt == ride.RidePassengers.updatedAt);
         this.hasRides = true;
       });
   }

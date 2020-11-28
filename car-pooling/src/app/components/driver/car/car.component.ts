@@ -34,8 +34,13 @@ export class CarComponent implements OnInit {
 
   onSubmit(carInfo) {
     carInfo.driverId = this.driver.id;
-    this.driverService.addCar(carInfo).subscribe(data => {console.log(data)})
-    this.router.navigate(['driver']);
+    this.driverService.addCar(carInfo).subscribe(data => {
+      console.log(data)
+      if(data) {alert('your car was added successfully')
+      this.router.navigate(['driver']);}
+    })
+    
+    
 }
  
 }

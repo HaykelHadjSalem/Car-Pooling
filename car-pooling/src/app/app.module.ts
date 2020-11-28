@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { FeedComponent } from '../app/components/feed/feed.component';
 import { RouterModule } from '@angular/router';
 
-import { NgxDropzoneModule } from 'ngx-dropzone';
 import {AuthPassengerGuard} from './components/_helper/auth.passenger.guard'
 import {AuthGuard} from './components/_helper/auth.guard'
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -26,6 +25,15 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
 import { FeedbackComponent } from './components/driver/feedback/feedback.component';
 import {DriverDetailComponent} from './components/passenger/driver-detail/driver-detail.component';
 
+//adding the ngx lib dropZone (cloudinary)
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +49,9 @@ import {DriverDetailComponent} from './components/passenger/driver-detail/driver
     DriverProfileComponent,
     CarComponent,
     FeedbackComponent,
-    DriverDetailComponent
+    DriverDetailComponent,
+    AboutUsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +62,8 @@ import {DriverDetailComponent} from './components/passenger/driver-detail/driver
     MDBBootstrapModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDropzoneModule,
   ],
   providers: [authInterceptorProviders, AuthPassengerGuard, AuthGuard],
   bootstrap: [AppComponent]

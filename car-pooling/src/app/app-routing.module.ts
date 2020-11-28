@@ -13,7 +13,8 @@ import { DriverProfileComponent } from './components/driver/driver-profile/drive
 import { AuthPassengerGuard } from './components/_helper/auth.passenger.guard';
 import { FeedbackComponent } from './components/driver/feedback/feedback.component';
 import {DriverDetailComponent} from './components/passenger/driver-detail/driver-detail.component';
-
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -27,7 +28,9 @@ const routes: Routes = [
 {path: 'driver', component: DriverComponent , canActivate : [AuthGuard] },
 {path:'passenger', component:  PassengerComponent, canActivate : [AuthPassengerGuard]},
 {path:'passenger/profile', component:  PassengerProfileComponent, canActivate : [AuthPassengerGuard]},
-{path:'driver/feedback/:id', component:  FeedbackComponent, canActivate : [AuthGuard]}
+{path:'driver/feedback/:id', component:  FeedbackComponent, canActivate : [AuthGuard]},
+{path: 'aboutUs', component: AboutUsComponent},
+{path: 'footer', component: FooterComponent},
 ];
 
 @NgModule({
