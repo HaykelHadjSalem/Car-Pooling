@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
       phoneNumber : null,
       idCard : null,
       driverLicense : null,
-      type : "driver"
+      type : "passenger"
     })
   }
 
