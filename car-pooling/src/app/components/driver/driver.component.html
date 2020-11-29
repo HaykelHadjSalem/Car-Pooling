@@ -134,7 +134,7 @@
           <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
           <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
           <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
-          <button  type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
+          <button *ngIf="ride.checkedStatus === true && now - ride.Date > 24" type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
         </td>
       </tr>
     </tbody>

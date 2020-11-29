@@ -11,7 +11,7 @@ import { DriverService } from 'src/app/services/driver.service';
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent implements OnInit {
-  // *ngIf="ride.checkedStatus === true && now - ride.Date > 24"
+  
   driver: any;
   car:any;
   rides: any[];
