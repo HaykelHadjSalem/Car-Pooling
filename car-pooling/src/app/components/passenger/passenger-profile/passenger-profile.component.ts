@@ -4,11 +4,15 @@ import { RideService } from 'src/app/services/ride.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
 import {NgForm} from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
-  styleUrls: ['./passenger-profile.component.scss']
+  styleUrls: ['./passenger-profile.component.scss'],
+ 
+  
 })
 
 export class PassengerProfileComponent implements OnInit {
@@ -19,10 +23,11 @@ export class PassengerProfileComponent implements OnInit {
   rating:any[];
   now = Date.now() / 1000 / 3600;
   hasRides: boolean = false;
+  file: File = null;
   constructor(private tokenStorage: TokenStorageService,
      private router: Router,
      private feedbackService: FeedbackService,
-      private rideService: RideService) { }
+      private rideService: RideService, private authService: AuthService) { }
 
   ngOnInit(): void {   
       this.passenger = this.tokenStorage.getUser();
@@ -35,6 +40,27 @@ export class PassengerProfileComponent implements OnInit {
         this.hasRides = true;
       });
   }
+
+  onFileSelected(event) {
+    this.file = event.addedFiles[0];
+    console.log(this.file);
+  }
+  onRemove() {
+    this.file = null;
+  }
+
+  onUpload() {
+    const data = new FormData();
+    data.append('file', this.file);
+    data.append('type', 'passenger')
+    console.log(data)
+    this.authService.uploadImage(this.passenger.id, data).subscribe(image => {
+      this.passenger.imageUrl = image.result.url;
+      this.tokenStorage.saveUser(this.passenger);
+      console.log(image.result.url)
+    })
+  }
+
 
   onSubmit(form: NgForm, rideId, driverId){
     this.obj.message = form.value['comment']

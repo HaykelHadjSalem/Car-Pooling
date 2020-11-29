@@ -1,38 +1,46 @@
 
 <app-navbar></app-navbar>
-<div class=" container mt-5">
 
-    <!-- Default column sizing form -->
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
-    <!-- Grid row -->
-    <div class="form-row">
-      <!-- Grid column -->
-      <div class="col-auto">
-        <!-- Default input -->
-        <input mdbInput type="text" class="form-control" placeholder="Departure" formControlName="departure">
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col-auto">
-        <!-- Default input -->
-        <input mdbInput type="text" class="form-control" placeholder="Destination" formControlName="destination">
-      </div>
-      <!-- Grid column -->
-      <!-- Grid column -->
-      <div class="col-auto">
-        <!-- Default input -->
-        <!-- <i class="fas fa-search"></i> -->
-        <button mdbBtn color="info" size="sm" type="submit">Search</button>
-      </div>
-      <!-- Grid column -->
+<div class=" container mt-5">
+  <div class="row">
+    <div class="col-3">
+      <ng-select [items]="resultRides"
+           bindLabel="departure"
+           bindValue="departure"
+           [(ngModel)]="selectedDeparture"
+           placeholder="Departure"
+           [loading]="ridesLoading">
+      </ng-select>
     </div>
-    <!-- Grid row -->
-  </form>
-  <!-- Default column sizing form -->
+    <div class="col-3">
+      <ng-select [items]="resultRides"
+           bindLabel="destination"
+           bindValue="destination"
+           [(ngModel)]="selectedDestination"
+           placeholder= "Destination"
+           [loading]="ridesLoading">
+      </ng-select>
+    </div>
+    <div class="col-3">
+      <ng-select [items]="resultRides"
+           bindLabel="date"
+           bindValue="date"
+           [(ngModel)]="selectedDate"
+           placeholder= "Date"
+           [loading]="ridesLoading">
+      </ng-select>
+    </div>
+    <div class="col-auto">
+      <button mdbBtn color="info" size="sm" (click)="check()">Check</button>
+    </div>
+  </div>
 </div>
-<div *ngIf = "activateResults">
+
+
+<div *ngIf = "results">
   <app-feed [rides]="results" [user]="user"></app-feed>
 </div>
+
+
 
 

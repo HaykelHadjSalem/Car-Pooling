@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+const passengerUrl = 'http://localhost:3000/passenger/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +20,8 @@ export class RideService {
 
 
 
- getAllRides() {
-   return this.http.get(AUTH_Rides)
+ getAllRides(passengerId) {
+   return this.http.get(AUTH_Rides + passengerId, httpOptions);
   }
 
   getDriverRides(driverId): Observable<any> {
@@ -57,5 +58,10 @@ export class RideService {
   getRidePassengers(rideId: any): Observable<any>{
     return this.http.get(AUTH_Rides + 'passengers/' + rideId, httpOptions);
   }
+
+  public getPassenger(passengerId): Observable<any> {
+    return this.http.get(passengerUrl + passengerId , httpOptions);
+  }
+
 
 }

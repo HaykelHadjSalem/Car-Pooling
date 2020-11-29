@@ -1,17 +1,21 @@
 <app-navbar></app-navbar>
-<div class="container">
-<div class="row justify-content-md-center mt-5">
-<div class="col-6">
-    <!-- <img src={user.imgUrl}/> -->
-    <mdb-card class="blue-gradient">
-        <mdb-card-body>
-<mdb-card cascade="true" wider="true">
-
+<div class="container mt-5">
+<div class="row">
+<div class="col-5">
+          
+<mdb-card cascade="true" wider="true" >
+<div><img src={{passenger.imageUrl}} style="height: 15em; width: auto;"/>
+<ngx-dropzone (change)="onFileSelected($event)" style="height: 10em; width:15em">
+  <ngx-dropzone-label>Update your photo</ngx-dropzone-label>
+  <ngx-dropzone-preview *ngIf="file" [removable]="true" (removed)="onRemove()" >
+      <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
+  </ngx-dropzone-preview>
+</ngx-dropzone></div>
+<button (click)="onUpload()">Upload</button>
   <div class="view view-cascade gradient-card-header blue-gradient">
     <div class="white-text ml-4">
-    <h2 class="card-header-title text-uppercase mt-4 mb-4">{{passenger.firstName}} {{passenger.lastName}}</h2>
-    <p class="lead font-weight-bold">
-      Welcome to your account</p>
+    <h2 class="card-header-title text-uppercase">{{passenger.firstName}} {{passenger.lastName}}</h2>
+    
   </div>
   </div>
 
@@ -23,21 +27,17 @@
     <p class="lead font-weight-bold">Address: {{passenger.address}}</p>
     </mdb-card-text>
 
-    <a routerLink='/home' class="indigo-text mt-1 d-flex flex-row-reverse">
-      <h5 class="waves-effect p-2" mdbWavesEffect>Check our rides
+    <a routerLink='/home' class="indigo-text d-flex flex-row-reverse">
+      <h5 class="waves-effect" mdbWavesEffect>Check our rides
         <mdb-icon fas icon="chevron-right"></mdb-icon>
       </h5>
     </a>
 
-  </mdb-card-body>
-</mdb-card>
 </mdb-card-body>
 </mdb-card>
 </div>
-</div>
-</div>
 
-<div class="col-md-8" *ngIf="rides">
+<div class="col-6" *ngIf="rides">
   <table mdbTable>
     <thead class="black white-text">
       <tr>
@@ -62,7 +62,8 @@
           <div class="col-2"> <img src="https://i.imgur.com/xELPaag.jpg" width="70" class="rounded-circle mt-2"> </div>
           <div class="col-4 bg-white mt">
               <div class="comment-box ml-2">
-                  <h4>Add a comment</h4>
+                  <h4>Add a comment for :</h4>
+                  <h3>{{ride.Driver.firstName}}</h3>
                   <div class="rating" > <input type="radio" name="rating5" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating4" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating3" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating2" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating1" value="1" id="1" ngModel><label for="1" >☆</label> </div>
                   <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="what is your view?" rows="4" ngModel></textarea> </div>
                   <div class="comment-btns mt-2">
@@ -80,4 +81,8 @@
     </tbody>
   </table>
 </div>
+</div>
+</div>
+
+
 

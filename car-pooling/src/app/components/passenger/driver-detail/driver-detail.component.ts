@@ -32,7 +32,6 @@ getDriver(){
   console.log(id)
   this.driverService.getDriver(id).subscribe(driver =>  this.Driver = driver);
 this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  this.feedBack= feedback);
-this.feedBack = this.feedBack.sort({createdAt: -1})
 }
 
 goBack(): void {
