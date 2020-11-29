@@ -50,6 +50,8 @@ onUpload(){
   data.append('cloud_name', 'dc36tjyia');
   this.driver.type = "driver"
   this.driverService.uploadImage(this.driver, data).subscribe(image => {
+    this.driver.imageUrl = image.result.url;
+    this.tokenStorage.saveUser(this.driver);
     console.log(image.result.url)
   })
 }

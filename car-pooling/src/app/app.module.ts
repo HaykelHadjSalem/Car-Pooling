@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeedComponent } from '../app/components/feed/feed.component';
 import { RouterModule } from '@angular/router';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 
 import {AuthPassengerGuard} from './components/_helper/auth.passenger.guard'
 import {AuthGuard} from './components/_helper/auth.guard'
@@ -63,9 +65,10 @@ import { PassengerDetailComponent } from './components/driver/passenger-detail/p
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    NgSelectModule,
+    NgOptionHighlightModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxDropzoneModule,
   ],
   providers: [authInterceptorProviders, AuthPassengerGuard, AuthGuard],
   bootstrap: [AppComponent]

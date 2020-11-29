@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
     "@fortawesome/fontawesome-free": "^5.15.1",
+    "@ng-select/ng-option-highlight": "0.0.5",
+    "@ng-select/ng-select": "^5.0.9",
     "angular-bootstrap-md": "10.0.0",
     "angular-password-strength-meter": "^3.0.1",
     "chart.js": "^2.9.4",

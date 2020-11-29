@@ -20,8 +20,8 @@ export class RideService {
 
 
 
- getAllRides() {
-   return this.http.get(AUTH_Rides)
+ getAllRides(passengerId) {
+   return this.http.get(AUTH_Rides + passengerId, httpOptions);
   }
 
   getDriverRides(driverId): Observable<any> {
