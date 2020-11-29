@@ -129,6 +129,7 @@
         <td>{{ride.date}}</td>
         <td>{{ride.time}}</td>
         <td>{{ride.seats}}</td>
+        <td *ngFor="let passenger of ride.Passengers" routerLink="detail/{{passenger.id}}">{{passenger.firstName}}</td>
         <td >
           <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
           <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>

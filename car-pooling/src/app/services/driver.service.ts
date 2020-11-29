@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 const carUrl = 'http://localhost:3000/car/';
-const DriverUrl = 'http://localhost:3000/driver'
+const DriverUrl = 'http://localhost:3000/driver/'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -39,18 +39,18 @@ public getOneCar(driverId): Observable<any> {
   return this.http.get(carUrl + driverId , httpOptions);
 }
 
-public sendImage(data){ 
-  return  this.http.post(DriverUrl + "image", data, httpOptions);
+public sendImage(driverId , data){ 
+  return  this.http.put(DriverUrl + driverId, data, httpOptions);
 }
 
-public uploadImage(pic): Observable<any> {
+public uploadImage(obj, pic): Observable<any> {
 let data = pic;
-return  this.http.post('http://localhost:3000/file/upload', data);
+return  this.http.put('http://localhost:3000/file/upload/' + obj.id, data);
 }
 
 public getDriver(driverId): Observable<any> {
   console.log(driverId)
-  return this.http.get('http://localhost:3000/driver/' + driverId , httpOptions);
+  return this.http.get(DriverUrl + driverId , httpOptions);
 }
 
 
