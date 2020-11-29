@@ -22,6 +22,12 @@
               </div>
             </div>
           </div>
-          <div><img id="img" src="https://cdn2.iconfinder.com/data/icons/circular-flat-ui/500/012-512.png" class="rounded-circle"></div>
-      
-    
+          <div><img id="img" src="{{driver.imageUrl}}" class="rounded-circle"></div>
+          <ngx-dropzone (change)="onFileSelected($event)">
+            <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+    <button (click)="onUpload()">Upload</button>
+ 

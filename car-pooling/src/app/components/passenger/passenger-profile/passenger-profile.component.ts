@@ -5,10 +5,13 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
 import {NgForm} from '@angular/forms';
 
+
 @Component({
   selector: 'app-passenger-profile',
   templateUrl: './passenger-profile.component.html',
-  styleUrls: ['./passenger-profile.component.scss']
+  styleUrls: ['./passenger-profile.component.scss'],
+ 
+  
 })
 
 export class PassengerProfileComponent implements OnInit {
