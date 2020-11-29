@@ -15,7 +15,6 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 export class DriverProfileComponent implements OnInit {
   driver: any;
   files: File[] = [];
-  downloadURL: Observable<string> | undefined;
   selectedFile: File = null;
 
   constructor(private tokenStorage: TokenStorageService, 
@@ -30,24 +29,12 @@ export class DriverProfileComponent implements OnInit {
   }
 
 onFileSelected(event){
-// this.selectedFile = <File>event.target.files[0];
-// console.log(this.selectedFile);
-console.log(event);
 this.files.push(...event.addedFiles);   //Scape empty array
 if (!this.files[0]) {
   alert('Wrong file');
 }
-const file_data = this.files[0];
-const data = new FormData();
-data.append('file', file_data);
-data.append('upload_preset', 'ml_default');
-data.append('cloud_name', 'dc36tjyia');
-this.driverService.uploadImage(data).subscribe(image => {
-  console.log(image.result.url)
-  this.downloadURL = image.result.url;
-})
-
 }
+
 onRemove(event) {
   console.log(event);
   this.files.splice(this.files.indexOf(event), 1);
@@ -55,9 +42,16 @@ onRemove(event) {
 
 
 onUpload(){
-this.driverService.sendImage(this.downloadURL).subscribe(image =>{
-  console.log(image, "saved in databse")
-})
+  const file_data = this.files[0];
+  const data = new FormData();
+  data.append('file', file_data);
+  console.log(data)
+  data.append('upload_preset', 'ml_default');
+  data.append('cloud_name', 'dc36tjyia');
+  this.driver.type = "driver"
+  this.driverService.uploadImage(this.driver, data).subscribe(image => {
+    console.log(image.result.url)
+  })
 }
 
 
