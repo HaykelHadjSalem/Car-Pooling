@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 const AUTH_DRIVER = 'http://localhost:3000/driver/';
 const AUTH_PASSENGER = 'http://localhost:3000/passenger/';
+const UPLOAD_IMAGE = 'http://localhost:3000/file/upload/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -55,5 +56,9 @@ export class AuthService {
       password: passenger.password,
     });
   }
+
+  public uploadImage(userId: number, pic: any): Observable<any> {
+    return  this.http.put(UPLOAD_IMAGE + userId, pic);
+    }
 
 }
