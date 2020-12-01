@@ -14,6 +14,7 @@ import * as moment from 'moment';
 export class DriverDetailComponent implements OnInit {
 Driver : any;
 feedBack:any;
+car:any;
 passenger : any;
   constructor(private driverService : DriverService, 
     private route: ActivatedRoute, 
@@ -32,6 +33,8 @@ getDriver(){
   console.log(id)
   this.driverService.getDriver(id).subscribe(driver =>  this.Driver = driver);
 this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  this.feedBack= feedback);
+this.driverService.getOneCar(id).subscribe((car:any) => { 
+  this.car= car})
 }
 
 goBack(): void {
