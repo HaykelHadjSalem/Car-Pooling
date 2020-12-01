@@ -16,7 +16,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let ride of rides">
-        <td routerLink="detail/{{ride.Driver.id}}">{{ride.Driver.firstName}} {{ride.Driver.lastName}}
+        <td >
+          <a target="_blank" routerLink="detail/{{ride.Driver.id}}">
+          {{ride.Driver.firstName}} {{ride.Driver.lastName}}</a>
           <i *ngFor="let i of [1,2,3,4,5]">
             <mdb-icon fas icon="star" [ngClass]="{'checked': ride.Driver.rating >= i}"></mdb-icon>
             </i>

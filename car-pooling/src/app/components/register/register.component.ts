@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
       address: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required,Validators.minLength(6)]),
-      type: new FormControl('', [Validators.required]),
+      // type: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required,Validators.minLength(8)]),
       driverLicense: new FormControl('', [Validators.required,Validators.minLength(10)]),
  })
@@ -68,8 +68,8 @@ get driverLicense() { return this.signupForm.get('driverLicense');
 }
 get address() { return this.signupForm.get('address');
 }
-get type() { return this.signupForm.get('type');
-}
+// get type() { return this.signupForm.get('type');
+// }
 
 
 
