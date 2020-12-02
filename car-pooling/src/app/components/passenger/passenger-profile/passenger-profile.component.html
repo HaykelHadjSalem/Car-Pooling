@@ -91,19 +91,17 @@
             <div class="card">
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
-                  <div class="col-xl-8 col-md-4 text-center">
-
-                    <img src={{passenger.imageUrl}} class="img-fluid z-depth-1 rounded-circle"
-                      alt="Responsive image">
-                
+                  <div class="col-xl-8 d-flex flex-column align-items-center">
+                    <img src={{passenger.imageUrl}} class="z-depth-1 rounded-circle"
+                      alt="Responsive image" height="250" width="250">
                   </div>
-                  <!-- <img src={{passenger.imageUrl}} alt="Admin" class="rounded-circle" width="200" height="auto"> -->
+                  
                   <i type="button" class="waves-light" data-toggle="modal" data-target="file"
           (click)="frame.show()" mdbWavesEffect><mdb-icon fas icon="camera" style="color:goldenrod"></mdb-icon></i>
 
           <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-warning" role="document">
+  <div class="modal-dialog modal-sm modal-notify modal-info" role="document">
     <!--Content-->
     <div class="modal-content text-center">
       <!--Header-->
@@ -123,17 +121,17 @@
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <a mdbBtn color="warning" outline="true" class="waves-effect" (click)="onUpload();
+        <a mdbBtn color="indigo" outline="true" class="waves-effect" (click)="onUpload();
           frame.hide()"
           mdbWavesEffect>Upload</a>
-        <a type="button" mdbBtn color="warning" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cancel</a>
+        <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cancel</a>
       </div>
     </div>
     <!--/.Content-->
   </div>
 </div>
                   <div class="mt-3">
-                    <h4>{{passenger.firstName}} {{passenger.lastName}}</h4>
+                   <h4 class="text-uppercase font-weight-bolder indigo-text">{{passenger.firstName}} {{passenger.lastName}}</h4>
                     
                   </div>
                 </div>
@@ -182,16 +180,14 @@
 
                       <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
   aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-notify modal-warning" role="document">
+  <div class="modal-dialog modal-md modal-notify modal-info" role="document">
     <!--Content-->
     <div class="modal-content text-center">
       <!--Header-->
       <div class="modal-header d-flex justify-content-center">
-        <div class="col-xl-12 col-md-4 mb-3 text-center">
-
-          <img src={{ride.Driver.imageUrl}} class="img-fluid z-depth-1 rounded-circle"
-            alt="Responsive image">
-      
+        <div class="col-xl-8 d-flex flex-column align-items-center">
+          <img src={{ride.Driver.imageUrl}} class="z-depth-1 rounded-circle"
+            alt="Responsive image" height="250" width="250">
         </div>
       </div>
 
@@ -201,16 +197,16 @@
 
         <h4>Add a comment for: {{ride.Driver.firstName}}</h4>
                                 
-                                <div class="rating" > <input type="radio" name="rating5" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating4" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating3" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating2" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating1" value="1" id="1" ngModel><label for="1" >☆</label> </div>
-                                <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="what is your view?" rows="4" ngModel></textarea> </div>
+        <div class="rating" > <input type="radio" name="rating5" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating4" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating3" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating2" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating1" value="1" id="1" ngModel><label for="1" >☆</label> </div>
+        <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="what is your view?" rows="4" ngModel></textarea> </div>
                                 
       </div>
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
-        <button mdbBtn color="warning" outline="true" class="waves-effect"
-          mdbWavesEffect>Yes</button>
-        <a type="button" mdbBtn color="warning" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+        <button mdbBtn color="indigo" outline="true" class="waves-effect" type="submit"
+          mdbWavesEffect (click)="frame.hide()">Yes</button>
+        <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
       </div>
     </form>
     </div>

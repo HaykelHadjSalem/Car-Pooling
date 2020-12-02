@@ -1,5 +1,5 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark purple lighten-1" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color lighten-1" [containerInside]="false">
 
     <!-- Navbar brand -->
     <mdb-navbar-brand><a class="navbar-brand" href="#">Car Pooling</a></mdb-navbar-brand>
@@ -10,10 +10,6 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link waves-light" mdbWavesEffect routerLink="/home">Home<span class="sr-only">(current)</span></a>
-        </li>
-  
-        <li class="nav-item active">
-          <a class="nav-link waves-light" mdbWavesEffect routerLink="/rides">Rides<span class="sr-only">(current)</span></a>
         </li>
   
       </ul>
@@ -30,7 +26,7 @@
         </li>
         <li class="nav-item avatar dropdown" dropdown>
           <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-            <img src="https://fanfare-makabes.fr/wp-content/uploads/2015/09/user-image.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height: 2em;">
+            <img src={{user.imageUrl}} alt="" class="img-fluid rounded-circle z-depth-0" style="height: 2em; width: 2em">
           </a>
           <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
             <a class="dropdown-item waves-light" mdbWavesEffect (click)="checkProfile()">My account</a>
