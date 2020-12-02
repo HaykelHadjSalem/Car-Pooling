@@ -77,13 +77,15 @@ for(var i=0; i < this.rating.length ; i++){
     this.obj.rating = this.rating[i]
   }
 this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
-  console.log(response)
+  if(response) {
+    this.rides = this.rides.filter(ride => ride.id !== rideId);
+    console.log(response)
+  alert("Added feedback");
+  }
 })
 
 
 }
-
-  console.log(this.obj)
 }  
 
 feedback(){
