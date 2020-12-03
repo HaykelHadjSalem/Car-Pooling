@@ -1,16 +1,21 @@
-
+<div class="container mt-2 mb-5">
+  <div class="row justify-content-md-center">
+      <div class="col-md-6">
+          
+          <mdb-card cascade="true" narrower="true">
+            <mdb-card-body cascade="true">
 
   <!--Passenger-->
 <!-- Default form register -->
-<form  class="text-center border border-light p-5" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
+<form  class="text-center border border-light p-4" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm.value)">
 
-  <p class="h4 mb-4">Sign up</p>
+  <p class="h2 indigo-text mb-4 font-weight-bold">Sign up</p>
 
   <div class="form-row mb-4">
     <div class="input-group mb-3">
               
       <label class="input-group-text">User Type</label>
-      <select class="form-select" formControlName="type">
+      <select class="form-control" formControlName="type">
         <option value="driver">
           Driver
         </option>
@@ -38,7 +43,7 @@
       
             </mdb-error>
             <mdb-success
-              *ngIf="email.invalid && (email.dirty || email.touched)">
+              *ngIf="email.valid && (email.dirty || email.touched)">
             </mdb-success>
 </div>
   <!-- Password -->
@@ -51,9 +56,9 @@
 
   </mdb-error>
   <mdb-success
-    *ngIf="password.invalid && (password.dirty || password.touched)">
+    *ngIf="password.valid && (password.dirty || password.touched)">
   </mdb-success>
-    At least 6 characters and 1 digit
+    At least 6 characters with 1 Capital and 1 digit
   </small>
    </div>
    <!-- reconfirm Password -->
@@ -68,7 +73,7 @@
     
   </small>
   <!-- Phone number -->
-  <input type="number"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
+  <input type="string"  class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock" formControlName="phoneNumber">
   <small  class="form-text text-muted mb-4">
   </small>
 
@@ -85,11 +90,17 @@
 
         <!-- Licence driver -->
         <input  *ngIf="signupForm.value.type==='driver'" type="number"  class="form-control" placeholder="Driver Licence number"  formControlName="driverLicense">
-        <small  class="form-text text-muted mb-4">
+        <small  class="form-text text-muted">
           
         </small>
      
   <!-- Sign up button -->
-  <br/><br/>
-  <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign Up</button>
+  <button mdbBtn color="indigo" block="true" class="my-4" type="submit">Sign Up</button>
 </form>
+
+</mdb-card-body>
+</mdb-card>
+
+</div>
+</div>
+</div>
