@@ -3,6 +3,8 @@ import { TokenStorageService } from '../../../services/token-storage.service';
 import {Router} from '@angular/router';
 import { DriverService } from 'src/app/services/driver.service';
 import { AuthService } from 'src/app/services/auth.service';
+import {FeedbackService} from 'src/app/services/feedback.service';
+
 
 @Component({
   selector: 'app-driver-profile',
@@ -11,10 +13,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DriverProfileComponent implements OnInit {
   driver: any;
+  feedBack:any;
   files: File = null;
 
 
-  constructor(private tokenStorage: TokenStorageService, 
+  constructor(private tokenStorage: TokenStorageService,
+    private feedbackService: FeedbackService, 
     private authService: AuthService,
     private driverService: DriverService, 
     private router: Router) { } 
@@ -24,6 +28,7 @@ export class DriverProfileComponent implements OnInit {
   ngOnInit(): void {
     this.driver = this.tokenStorage.getUser();
     console.log(this.driver)
+    this.feedback();
   }
 
 onFileSelected(event){
@@ -49,5 +54,10 @@ onUpload(){
   })
 }
 
+feedback(){
+  this.feedbackService.getFeedbackDriver(this.driver.id).subscribe((response)=> {
+    this.feedBack = response;
+  })
+}
 
 }

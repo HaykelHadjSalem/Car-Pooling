@@ -20,6 +20,7 @@ export class PassengerProfileComponent implements OnInit {
   passenger: any;
   headElements = ['Departure', 'Destination', 'Date', 'Time', 'Status'];
   rides: any[];
+  feedBack:any;
   rating:any[];
   now = Date.now() / 1000 / 3600;
   hasRides: boolean = false;
@@ -39,6 +40,9 @@ export class PassengerProfileComponent implements OnInit {
         this.rides = rides.filter(ride => ride.RidePassengers.createdAt == ride.RidePassengers.updatedAt);
         this.hasRides = true;
       });
+
+this.feedback() ;
+      
   }
 
   onFileSelected(event) {
@@ -79,7 +83,15 @@ this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
   alert("Added feedback");
   }
 })
+
+
 }
 }  
+
+feedback(){
+  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((response)=> {
+    this.feedBack = response;
+  })
+}
 
 }
