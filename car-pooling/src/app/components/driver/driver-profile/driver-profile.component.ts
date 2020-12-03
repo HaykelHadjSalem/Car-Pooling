@@ -14,7 +14,7 @@ import {FeedbackService} from 'src/app/services/feedback.service';
 export class DriverProfileComponent implements OnInit {
   driver: any;
   feedBack:any;
-  files: File = null;
+  file: File = null;
 
 
   constructor(private tokenStorage: TokenStorageService,
@@ -32,20 +32,20 @@ export class DriverProfileComponent implements OnInit {
   }
 
 onFileSelected(event){
-  this.files = event.addedFiles[0];   //Scape empty array
-if (!this.files) {
+  this.file = event.addedFiles[0];   //Scape empty array
+if (!this.file) {
   alert('Wrong file');
 }
 }
 
 onRemove(event) {
-  this.files = null;
+  this.file = null;
 }
 
 
 onUpload(){
   const data = new FormData();
-  data.append('file', this.files);
+  data.append('file', this.file);
   data.append('type', 'driver')
   this.authService.uploadImage(this.driver.id, data).subscribe(image => {
     this.driver.imageUrl = image.result.url;
