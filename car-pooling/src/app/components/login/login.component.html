@@ -29,13 +29,13 @@
 <!-- Default form login -->
 <form  class="text-center border border-light p-5" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
 
-  <h1 class="h4 mb-4">Login</h1>
+  <h1 class="indigo-text mb-4 display-4 font-weight-bolder">Login</h1>
 
   <!--type to choose between passenger and driver-->
   <div class="input-group mb-3">
             
       <label class="input-group-text">User Type</label>
-      <select class="form-select" formControlName="type" style="background :bisque">
+      <select class="form-select" formControlName="type" style="background :rgb(233, 245, 252)">
         <option value="driver">
           Driver
         </option>
@@ -55,10 +55,10 @@
   <button mdbBtn color="login" block="true" class="my-4" type="submit">Login</button>
 
   <!-- Register -->
-  <p>Not a member?</p>
+  <p class="text-muted">Not a member?</p>
 
  <!-- Register button -->
- <button mdbBtn color="register" block="true" class="my-4" type="submit" routerLink="/register" >Create an account</button>
+ <button mdbBtn color="register" block="true" class="my-2" type="submit" routerLink="/register" >Create an account</button>
 </form>
 <!-- Default form login -->
 

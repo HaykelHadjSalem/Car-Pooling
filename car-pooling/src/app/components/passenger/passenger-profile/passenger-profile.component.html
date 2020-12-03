@@ -18,21 +18,17 @@
     
   </div>
   </div>
-
   <mdb-card-body cascade="true">
-
     <mdb-card-text class="indigo-text">
       <p class="lead font-weight-bold">Email address: {{passenger.email}}</p>
     <p class="lead font-weight-bold">Phone number: {{passenger.phoneNumber}}</p>
     <p class="lead font-weight-bold">Address: {{passenger.address}}</p>
     </mdb-card-text>
-
     <a routerLink='/home' class="indigo-text d-flex flex-row-reverse">
       <h5 class="waves-effect" mdbWavesEffect>Check our rides
         <mdb-icon fas icon="chevron-right"></mdb-icon>
       </h5>
     </a>
-
 </mdb-card-body>
 </mdb-card>
 </div> -->
@@ -195,18 +191,18 @@
       <form (ngSubmit)="onSubmit(f,ride.id,ride.driverId)" #f="ngForm">
       <div class="modal-body">
 
-        <h4>Add a comment for: {{ride.Driver.firstName}}</h4>
+        <h4>Rate your ride with {{ride.Driver.firstName}}</h4>
                                 
         <div class="rating" > <input type="radio" name="rating5" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating4" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating3" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating2" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating1" value="1" id="1" ngModel><label for="1" >☆</label> </div>
-        <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="what is your view?" rows="4" ngModel></textarea> </div>
+        <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="Do you have any feedBack?" rows="4" ngModel></textarea> </div>
                                 
       </div>
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">
         <button mdbBtn color="indigo" outline="true" class="waves-effect" type="submit"
-          mdbWavesEffect (click)="frame.hide()">Yes</button>
-        <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">No</a>
+          mdbWavesEffect (click)="frame.hide()">Send</button>
+        <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cancel</a>
       </div>
     </form>
     </div>
@@ -265,6 +261,4 @@
 </div>
 </div>
 </div>
-</div>      
-  
-
+</div>   
