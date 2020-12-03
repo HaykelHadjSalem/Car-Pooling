@@ -1,50 +1,140 @@
 <app-navbar></app-navbar>
-<div class="container">
-            <div class="card card-profile shadow mt--300">
-              <div class="px-4">
-                
-                <div class="text-center mt-5">
-                  <h3>{{driver.firstName}}, {{driver.lastName}}
-                    <span class="font-weight-light"></span>
-                  </h3>
-                  <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i><h3>{{driver.address}}, Tunisia</h3></div>
-                  <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i><h2>Experimented driver</h2></div>
-                  <div><i class="ni education_hat mr-2"></i> <h3>Phone Number: {{driver.phoneNumber}} </h3></div>
-                  <h3><span class="font-weight-light">National card: {{driver.ICN}}</span></h3>
+
+<div class="container mt-5">
+  <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-5 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <div class="col-xl-8 d-flex flex-column align-items-center">
+                    <img src={{driver.imageUrl}} class="z-depth-1 rounded-circle"
+                      alt="Responsive image" height="250" width="250">
+                  </div>
+                  
+                  <i type="button" class="waves-light" data-toggle="modal" data-target="file"
+          (click)="frame.show()" mdbWavesEffect><mdb-icon fas icon="camera" style="color:goldenrod"></mdb-icon></i>
+
+          <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Choose a photo</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <ngx-dropzone (change)="onFileSelected($event)" style="height: 10em; width:15em">
+          <ngx-dropzone-label>Update your photo</ngx-dropzone-label>
+          <ngx-dropzone-preview *ngIf="file" [removable]="true" (removed)="onRemove()" >
+              <ngx-dropzone-label>{{ file.name }} ({{ file.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+        </ngx-dropzone>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <a mdbBtn color="indigo" outline="true" class="waves-effect" (click)="onUpload();
+          frame.hide()"
+          mdbWavesEffect>Upload</a>
+        <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cancel</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+                  <div class="mt-3">
+                   <h4 class="text-uppercase font-weight-bolder indigo-text">{{driver.firstName}} {{driver.lastName}}</h4>
+                    
+                  </div>
                 </div>
-                <div class="mt-5 py-5 border-top text-center">
-                  <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                      <a href="javascript:void(0)">Comments</a>
+              </div>
+            </div>
+            <div class="card mt-3">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <h6 class="mb-0">Email address: {{driver.email}}</h6>
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <h6 class="mb-0">Phone number: {{driver.phoneNumber}}</h6>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <h6 class="mb-0">Address: {{driver.address}}</h6>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-7 mb-3 mt-5">
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{driver.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{driver.phoneNumber}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{driver.phoneNumber}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        {{driver.address}}, Tunisia
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div><img id="img" src="{{driver.imageUrl}}" class="rounded-circle"></div>
-          <ngx-dropzone (change)="onFileSelected($event)">
-            <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
-            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-            </ngx-dropzone-preview>
-        </ngx-dropzone>
-    <button (click)="onUpload()">Upload</button>
- 
-    <div class="container mt-5" *ngIf="feedBack">
-      <div class="d-flex justify-content-center row">
-          <div class="col-md-6">
-              <div class="p-3 bg-white rounded">
-                  <h6>Reviews[{{Driver.timesRated}}]</h6>
-                  <div class="review mt-4" *ngFor="let feed of feedBack">
-                      <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Passenger.imageUrl}} width="40">
-                          <div class="ml-2">
-                              <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Passenger.firstName}} {{feed.Passenger.lastName}}</span><span class="dot"></span><span class="date">{{feed.createdAt }}</span></div>
-                              <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                          </div>
+
+             <div class="container mt-5" *ngIf="feedBack">
+  <div class="d-flex justify-content-center row">
+      <div class="col-md-12">
+          <div class="p-3 bg-white rounded">
+            <h4>Reviews</h4>
+              <div class="review mt-4" *ngFor="let feed of feedBack">
+                  <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Passenger.imageUrl}} width="40">
+                      <div class="ml-2">
+                          <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Passenger.firstName}} {{feed.Passenger.lastName}}</span><span class="dot"></span><span class="date">{{feed.createdAt }}</span></div>
+                          <!-- <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
                       </div>
+                  </div>
+                  <div class="mt-2">
+                      <p class="comment-text">{{feed.message}}</p>
                   </div>
               </div>
           </div>
       </div>
-  </div> 
+  </div>
+</div> 
+
+
+</div>
+</div>
+</div>      
+  
+
