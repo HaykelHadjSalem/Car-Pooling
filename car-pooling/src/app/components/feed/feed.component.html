@@ -17,11 +17,26 @@
     <tbody>
       <tr *ngFor="let ride of rides">
         <td >
-          <a target="_blank" routerLink="detail/{{ride.Driver.id}}">
+
+          <ng-template #hoverImgTemp style="height:200px; width:200px">
+            <div>
+              <img src={{ride.Driver.imageUrl}} height="150px" width="150px">
+              <p class="indigo-text h6 text-uppercase ml-4">
+                <mdb-icon fas icon="car"></mdb-icon>{{ride.Driver.Car.model}}
+              </p>
+            </div>
+          </ng-template>
+
+
+          <a target="_blank" routerLink="detail/{{ride.Driver.id}}" placement="bottom" [mdbPopover]="hoverImgTemp" 
+          mdbWavesEffect triggers="hover" class="text-uppercase font-weight-bolder white-text">
           {{ride.Driver.firstName}} {{ride.Driver.lastName}}</a>
-          <i *ngFor="let i of [1,2,3,4,5]">
+          <div>
+            <i *ngFor="let i of [1,2,3,4,5]">
             <mdb-icon fas icon="star" [ngClass]="{'checked': ride.Driver.rating >= i}"></mdb-icon>
             </i>
+          </div>
+          
         </td>
         <td>{{ride.departure}}</td>
         <td>{{ride.destination}}</td>

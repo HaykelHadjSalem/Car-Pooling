@@ -13,20 +13,8 @@ export class RegisterComponent implements OnInit {
   checkedPassword: string = ''
   signupForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private tokenStorage: TokenStorageService) { 
-    this.signupForm = this.formBuilder.group({
-      firstName : "",
-      lastName : "",
-      email : "", 
-      password : "",
-      confirmPassword : "",
-      address : "",
-      phoneNumber : null,
-      idCard : null,
-      driverLicense : null,
-      type : "passenger"
-    })
-  }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, 
+    private tokenStorage: TokenStorageService) {  }
 
 
 
@@ -35,7 +23,9 @@ export class RegisterComponent implements OnInit {
       password : new FormControl('', Validators.compose([
         Validators.minLength(6),
         Validators.required,
-        Validators.pattern(/A-Za-z0-9/), // <-- Allow uppercase and lowercase letters and numbers 
+        Validators.pattern(/\d/), //has at least a number
+        Validators.pattern(/[a-z]/), //contains lower-case letters
+        Validators.pattern(/[A-Z]/) //contains upper-case letters
       ])),
       email: new FormControl('', [Validators.required, Validators.email]),
       firstName: new FormControl('', [Validators.required]),
@@ -43,7 +33,7 @@ export class RegisterComponent implements OnInit {
       address: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
       idCard: new FormControl('', [Validators.required,Validators.minLength(6)]),
-      // type: new FormControl('', [Validators.required]),
+      type: new FormControl('passenger', [Validators.required]),
       phoneNumber: new FormControl('', [Validators.required,Validators.minLength(8)]),
       driverLicense: new FormControl('', [Validators.required,Validators.minLength(10)]),
  })
@@ -68,8 +58,8 @@ get driverLicense() { return this.signupForm.get('driverLicense');
 }
 get address() { return this.signupForm.get('address');
 }
-// get type() { return this.signupForm.get('type');
-// }
+get type() { return this.signupForm.get('type');
+}
 
 
 
