@@ -155,6 +155,7 @@
           </div>
           <div class="col-md-7 mb-3 mt-5">
               <div class="col-7" *ngIf="rides">
+                <h3>My Rides</h3>
                 <table mdbTable style="width:600px">
                   <thead class="black white-text">
                     <tr>
@@ -240,18 +241,19 @@
 
              <div class="container mt-5" *ngIf="feedBack">
   <div class="d-flex justify-content-center row">
-      <div class="col-md-6">
-          <div class="p-3 bg-white rounded">
+      <div class="col-md-10">
+          <div class="p-6 bg-white rounded">
+            <h3>Given Feedback</h3>
               <div class="review mt-4" *ngFor="let feed of feedBack">
-                  <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Driver.imageUrl}} width="40">
+                  <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Driver.imageUrl}} width="50" height="50">
                       <div class="ml-2">
-                          <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Driver.firstName}} {{feed.Driver.lastName}}</span><span class="dot"></span><span class="date">{{feed.createdAt }}</span></div>
-                          <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                          <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Driver.firstName}} {{feed.Driver.lastName}}. </span><span class="dot"></span><span class="date">@{{feed.createdAt }}</span></div>
+                          <div><p class="comment-text">{{feed.message}}</p></div>
                       </div>
                   </div>
-                  <div class="mt-2">
+                  <!-- <div class="mt-2">
                       <p class="comment-text">{{feed.message}}</p>
-                  </div>
+                  </div> -->
               </div>
           </div>
       </div>

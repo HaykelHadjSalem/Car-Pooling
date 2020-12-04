@@ -107,7 +107,7 @@
   
         </div>
         <div class="d-flex justify-content-center">
-          <button mdbBtn color="unique" class="waves-light" mdbWavesEffect (click)="addRide()">Send
+          <button mdbBtn color="indigo" class="waves-light" mdbWavesEffect (click)="addRide()">Send
             <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
           </button>
         </div>
@@ -115,33 +115,47 @@
     </div>
   </div>
 </div>
-<div class="col-md-8" *ngIf="rides">
-  <table mdbTable>
-    <thead class="black white-text">
-      <tr>
-        <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr mdbTableCol *ngFor="let ride of rides" style="color: white; height: 5em;">
-        <td scope="row">{{ride.departure}}</td>
-        <td>{{ride.destination}}</td>
-        <td>{{ride.date}}</td>
-        <td>{{ride.time}}</td>
-        <td>{{ride.seats}}</td>
-        <td>
-         <span *ngFor="let passenger of ride.Passengers" routerLink="detail/{{passenger.id}}">{{passenger.firstName}}</span>   
-        <span *ngIf="!ride.Passengers.length">Still not reserved..</span>
-        </td>
-        <td >
-          <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
-          <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
-          <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
-          <button *ngIf="ride.checkedStatus === true && now - ride.Date > 24" type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+
+<div class="col-md-12" *ngIf="rides">
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th *ngFor="let head of headElements; let i = index" [ngClass]="['cell100', 'column'+(i+1)]">{{head}} </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
+                <tr class="row100 body">
+                <tr *ngFor="let ride of rides" class="row100 body" style="height: 5em;">
+                  <td class="cell100 column1">{{ride.departure}}</td>
+                  <td class="cell100 column2">{{ride.destination}}</td>
+                  <td class="cell100 column3">{{ride.date}}</td>
+                  <td class="cell100 column4">{{ride.time}}</td>
+                  <td class="cell100 column5">{{ride.seats}}</td>
+                  <td class="cell100 column6">
+                   <a *ngFor="let passenger of ride.Passengers" routerLink="detail/{{passenger.id}}" target="_blank">{{passenger.firstName}}</a>   
+                  <span *ngIf="!ride.Passengers.length">Still not reserved..</span>
+                  </td>
+                  <td class="cell100 column7">
+                    <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
+                    <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
+                    <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
+                    <button *ngIf="ride.checkedStatus === true && now - ride.Date > 24" type="button" mdbBtn color="info" size="sm" mdbWavesEffect (click)="giveFeedback(ride.id)">Feedback</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
   
 </div>
 </div>
