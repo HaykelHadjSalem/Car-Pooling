@@ -157,63 +157,79 @@
           <div class="col-md-7 mb-3 mt-5">
               <div class="col-7" *ngIf="rides">
                 <h3>My Rides</h3>
-                <table mdbTable style="width:600px">
-                  <thead class="black white-text">
-                    <tr>
-                      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr mdbTableCol *ngFor="let ride of rides" style="height: 5em;">
-                      <td scope="row">{{ride.departure}}</td>
-                      <td>{{ride.destination}}</td>
-                      <td>{{ride.date}}</td>
-                      <td>{{ride.time}}</td>
-                      <td >
-                        <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
-                        <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
-                        <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
-                        <button  type="button" mdbBtn color="info" size="sm"  mdbWavesEffect (click)="frame.show()" *ngIf="ride.checkedStatus === true && now - ride.Date > 24" >Feedback</button>
-                      </td>
 
-                      <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
-  aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-notify modal-info" role="document">
-    <!--Content-->
-    <div class="modal-content text-center">
-      <!--Header-->
-      <div class="modal-header d-flex justify-content-center">
-        <div class="col-xl-8 d-flex flex-column align-items-center">
-          <img src={{ride.Driver.imageUrl}} class="z-depth-1 rounded-circle"
-            alt="Responsive image" height="250" width="250">
-        </div>
-      </div>
-
-      <!--Body-->
-      <form (ngSubmit)="onSubmit(f,ride.id,ride.driverId)" #f="ngForm">
-      <div class="modal-body">
-
-        <h4>Rate your ride with {{ride.Driver.firstName}}</h4>
-                                
-        <div class="rating" > <input type="radio" name="rating" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1" ngModel><label for="1" >☆</label> </div>
-        <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="Do you have any feedBack?" rows="4" ngModel></textarea> </div>
-                                
-      </div>
-
-      <!--Footer-->
-      <div class="modal-footer justify-content-center">
-        <button mdbBtn color="indigo" outline="true" class="waves-effect" type="submit"
-          mdbWavesEffect (click)="frame.hide()">Send</button>
-        <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cancel</a>
-      </div>
-    </form>
-    </div>
-    <!--/.Content-->
-  </div>
-</div>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="limiter">
+                  <div class="container-table100">
+                    <div class="wrap-table100">
+                      <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                          <table>
+                            <thead>
+                              <tr class="row100 head">
+                                <th *ngFor="let head of headElements; let i = index" [ngClass]="['cell100', 'column'+(i+1)]">{{head}} </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <div class="table100-body js-pscroll">
+                          <table>
+                            <tbody>
+                              <tr class="row100 body">
+                              <tr *ngFor="let ride of rides" class="row100 body" style="height: 5em;">
+                                <td class="cell100 column1">{{ride.departure}}</td>
+                                <td class="cell100 column2">{{ride.destination}}</td>
+                                <td class="cell100 column3">{{ride.date}}</td>
+                                <td class="cell100 column4">{{ride.time}}</td>
+                                <td class="cell100 column5">
+                                  <span *ngIf="ride.Date - now < 0 && now - ride.Date < 24">On the way..</span>
+                                  <span *ngIf="ride.checkedStatus === false && ride.Date - now > 0">Coming..</span>
+                                  <span *ngIf="ride.checkedStatus === true && ride.Date - now > 0">Ready to go!</span>
+                                  <button  type="button" mdbBtn color="info" size="sm"  mdbWavesEffect (click)="frame.show()" *ngIf="ride.checkedStatus === true && now - ride.Date > 24" >Feedback</button>
+                                </td>
+                                <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-md modal-notify modal-info" role="document">
+                                  <!--Content-->
+                                  <div class="modal-content text-center">
+                                    <!--Header-->
+                                    <div class="modal-header d-flex justify-content-center">
+                                      <div class="col-xl-8 d-flex flex-column align-items-center">
+                                        <img src={{ride.Driver.imageUrl}} class="z-depth-1 rounded-circle"
+                                          alt="Responsive image" height="250" width="250">
+                                      </div>
+                                    </div>
+                              
+                                    <!--Body-->
+                                    <form (ngSubmit)="onSubmit(f,ride.id,ride.driverId)" #f="ngForm">
+                                    <div class="modal-body d-flex flex-column align-items-center">
+                              
+                                      <h4>Rate your ride with {{ride.Driver.firstName}}</h4>
+                                                              
+                                      <div class="rating" > <input type="radio" name="rating" value="5" id="5" ngModel><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4" ngModel><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3" ngModel><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2" ngModel><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1" ngModel><label for="1" >☆</label> </div>
+                                      <div class="comment-area"> <textarea name="comment" class="form-control" placeholder="Do you have any feedBack?" rows="4" ngModel></textarea> </div>
+                                                              
+                                    </div>
+                              
+                                    <!--Footer-->
+                                    <div class="modal-footer justify-content-center">
+                                      <button mdbBtn color="indigo" outline="true" class="waves-effect" type="submit"
+                                        mdbWavesEffect (click)="frame.hide()">Send</button>
+                                      <a type="button" mdbBtn color="indigo" class="waves-effect" mdbWavesEffect data-dismiss="modal" (click)="frame.hide()">Cancel</a>
+                                    </div>
+                                  </form>
+                                  </div>
+                                  <!--/.Content-->
+                                </div>
+                              </div>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                
+              </div>
+              </div>
+              </div>
               </div>
 
              <div class="container mt-5" *ngIf="feedBack">
