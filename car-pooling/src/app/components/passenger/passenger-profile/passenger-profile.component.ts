@@ -89,7 +89,7 @@ this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
 }  
 
 feedback(){
-  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((response)=> {
+  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((response)=> { 
     this.feedBack = response;
   })
 }
