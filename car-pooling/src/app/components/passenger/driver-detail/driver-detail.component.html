@@ -8,7 +8,7 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src={{Driver.imageUrl}} alt="Admin" class="rounded-circle" width="150" height="150">
                     <div class="mt-3">
-                      <h4>{{Driver.firstName}} {{Driver.lastName}}</h4>
+                      <h4>{{Driver.firstName | uppercase}} {{Driver.lastName | uppercase}}</h4>
                       <p class="text-secondary mb-1"><i *ngFor="let i of [1,2,3,4,5]">
                         <mdb-icon fas icon="star" [ngClass]="{'stars': true, 'checked': Driver.rating >= i}"></mdb-icon>
                         </i></p>
