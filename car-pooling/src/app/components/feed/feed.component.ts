@@ -10,7 +10,7 @@ import { DriverService} from '../../services/driver.service';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-
+obj= {rideId : 0, passengerId : 0}
   @Input() rides: any[];
   @Input() user: any;
   @Input() driver: any[];

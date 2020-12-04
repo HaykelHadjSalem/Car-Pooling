@@ -5,14 +5,14 @@
   <section class="form-dark">
   
     <!--Form without header-->
-    <mdb-card style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg')">
+    <mdb-card style="background-image: url('https://www.mordeo.org/download/12998/')">
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
   
         <!--Header-->
         <div class="text-center">
           <h4 class="white-text font-weight-bold text-uppercase">
             <strong>{{passenger.firstName}}</strong>
-            <a class="green-text font-weight-bold">
+            <a class="blue-text font-weight-bold">
               <strong> {{passenger.lastName}}</strong>
             </a>
           </h4>
@@ -33,7 +33,7 @@
   
           <!--Grid column-->
           <div class="text-center col-md-12">
-            <button type="button" mdbBtn color="success" rounded="true" block="true" class="z-depth-1" (click)="sendFeedback(passenger.id, i)">Send</button>
+            <button type="button" mdbBtn color="primary" rounded="true" block="true" class="z-depth-1" (click)="sendFeedback(passenger.id, i)">Send</button>
           </div>
           <!--Grid column-->
         </div>

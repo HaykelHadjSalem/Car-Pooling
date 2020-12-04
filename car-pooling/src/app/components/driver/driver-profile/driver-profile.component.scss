@@ -1,40 +1,124 @@
-.container {
-    margin-top: 55px;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+
+
+.stars {
+    color: rgb(226, 215, 215);
   }
-  
-  img {
-    //   width: 11em;
-    //   position: relative;
-    //   right: -43em;
-    //   bottom: 31em;
-    width: 25em;
+
+.card {
     position: relative;
-    right: -30em;
-    opacity: 0.25;
-    bottom: 33em;
-  }
-  
-  h2 {
-    font-weight: bolder;
-    font-size: 2em;
-    font-family: "Galada", cursive;
-    color: rgb(0, 0, 204) !important;
-    font-weight: bold;
-    font-family: fantasy;
-  }
-  
-  h3 {
-    font-weight: bolder;
-    font-size: 2em;
-    font-family: "Galada", cursive;
-    color: rgb(0, 0, 81) !important;
-    font-weight: bold;
-    font-family: fantasy;
-  }
-  
-  .px-4 {
-    background-image: url("https://jopwijk.be/wp-content/uploads/2020/02/car-1149997_1920-1140x641.jpg");
-    background-color: red;
-    opacity: 0.8;
-  }
-  
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 5px;
+    width: 450px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+
+.comment-box {
+    padding: 5px
+}
+
+.comment-area textarea {
+    resize: none;
+    border: 1px solid #ad9f9f
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgb(255, 0, 0) !important
+}
+
+.send {
+    color: #fff;
+    background-color: #ff0000;
+    border-color: #ff0000
+}
+
+.send:hover {
+    color: #fff;
+    background-color: #f50202;
+    border-color: #f50202
+}
+
+.rating {
+    display: flex;
+    margin-top: -10px;
+    flex-direction: row-reverse;
+    margin-left: -4px;
+    float: left
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: #ff0000;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+.dot {
+  height: 6px;
+  width: 6px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 2px;
+  background-color: rgb(91, 92, 91);
+  border-radius: 50%;
+  display: inline-block
+}
+
+.name {
+  font-size: 14px
+}
+
+.date {
+  font-size: 12px
+}
+
+.rating i {
+  color: green;
+  font-size: 13px
+}
+
+.comment-text {
+  font-size: 12px
+}
