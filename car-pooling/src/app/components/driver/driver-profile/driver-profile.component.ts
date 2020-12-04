@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { DriverService } from 'src/app/services/driver.service';
 import { AuthService } from 'src/app/services/auth.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -55,8 +56,11 @@ onUpload(){
 }
 
 feedback(){
-  this.feedbackService.getFeedbackDriver(this.driver.id).subscribe((response)=> {
-    this.feedBack = response;
+  this.feedbackService.getFeedbackDriver(this.driver.id).subscribe((feedback)=> {
+    for(var i =0; i < feedback.length; i++) {
+      feedback[i].createdAt = moment(feedback[i].createdAt).format('LLL') 
+    }
+    this.feedBack = feedback;
   })
 }
 

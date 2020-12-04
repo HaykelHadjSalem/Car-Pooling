@@ -1,28 +1,30 @@
 
 <app-navbar></app-navbar>
 
-<div class="container mt-5" *ngIf="car">
+<div class="container mt-2 mb-5" *ngIf="car">
     <div class="row justify-content-lg-center">
         <div class="col-md-6">
 <form class="text-center border border-light p-5">
-    <p class="h4 mb-4">Your car information :</p>
+    <p class="h4 mb-4">Your car information</p>
     <div   id="defaultContactFormName"  class="form-control mb-4" >Model : {{car.model}}</div>
     <div class="form-control mb-4" > Type of fuel : {{car.fuelType}} </div>
-    <div class="form-control mb-4">car color : {{car.color}}</div>
+    <div class="form-control mb-4">Car color : {{car.color}}</div>
     <div class="form-control mb-4" >Kilometer traveled : {{car.VKT}}</div>
     <div class="form-control mb-4">Vehicule identification number : {{car.VIN}}</div>
     <div class="form-control mb-4">Capacity : {{car.maxSeats}}</div>
+    <button mdbBtn color="info"  block="true" class="z-depth-0 waves-effect"
+      mdbWavesEffect type="submit">Update</button>
   </form>
 </div>
 </div>
 </div>
 
-<div class="container mt-5" *ngIf="!car">
+<div class="container mt-2" *ngIf="!car">
     <div class="row justify-content-lg-center">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-5">
 <form class="text-center border border-light p-5" [formGroup]="carForm" (ngSubmit)="onSubmit(carForm.value)">
 
-    <p class="h4 mb-4">You need to provide us with your car information :</p>
+    <p class="h4 mb-4 indigo-text">Please provide your car information</p>
   
     <input type="text" formControlName="model" mdbInput class="form-control mb-4" placeholder="model">
     <input type="text" formControlName="fuelType" mdbInput class="form-control mb-4" placeholder="Fuel Type">
@@ -31,8 +33,8 @@
     <input type="number" formControlName="VKT" mdbInput class="form-control mb-4" placeholder="Kilometers Traveled">
     <input type="number" formControlName="VIN" mdbInput class="form-control mb-4" placeholder="Vehicule Indentification Number">
 
-    <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
-      mdbWavesEffect type="submit">Add Car</button>
+    <button mdbBtn color="info" block="true" class="z-depth-0 waves-effect"
+      mdbWavesEffect type="submit">Add your Car</button>
   
   </form>
 </div>

@@ -33,7 +33,13 @@ getDriver(){
   console.log(id)
   this.driverService.getDriver(id).subscribe(driver => {console.log(driver) 
     this.Driver = driver});
-this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  this.feedBack= feedback);
+this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  {
+  for(var i =0; i < feedback.length; i++) {
+    feedback[i].createdAt = moment(feedback[i].createdAt).format('LLL') 
+  }
+  this.feedBack= feedback});
+
+
 this.driverService.getOneCar(id).subscribe((car:any) => { 
   this.car= car})
 }

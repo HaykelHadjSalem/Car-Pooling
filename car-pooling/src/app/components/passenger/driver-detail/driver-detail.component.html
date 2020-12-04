@@ -11,8 +11,10 @@
                       <h4>{{Driver.firstName}} {{Driver.lastName}}</h4>
                       <p class="text-secondary mb-1"><i *ngFor="let i of [1,2,3,4,5]">
                         <mdb-icon fas icon="star" [ngClass]="{'stars': true, 'checked': Driver.rating >= i}"></mdb-icon>
-                        </i></p>
+                        </i></p><p *ngIf="Driver.ridesNumber > 1"><strong>{{Driver.ridesNumber}} Rides</strong></p>
+                        <p *ngIf="Driver.ridesNumber === 1">One Ride</p>
                       <p class="text-muted font-size-sm">{{Driver.address}}, Tunisia</p>
+            
                     </div>
                   </div>
                 </div>
@@ -35,6 +37,7 @@
                     <span class="text-secondary">{{Driver.Car.maxSeats}}</span>
                   </li>
                 </ul>
+                
               </div>
             </div>
             <div class="col-md-8">
@@ -61,15 +64,6 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        {{Driver.phoneNumber}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
@@ -86,17 +80,17 @@
     <div class="d-flex justify-content-center row">
         <div class="col-md-6">
             <div class="p-3 bg-white rounded">
-                <h6>Reviews[{{Driver.timesRated}}]</h6>
+                <h6><strong>Passengers Reviews[{{Driver.timesRated}}]</strong></h6>
                 <div class="review mt-4" *ngFor="let feed of feedBack">
                     <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Passenger.imageUrl}} width="60">
                         <div class="ml-2">
-                            <h1 class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Passenger.firstName}} {{feed.Passenger.lastName}}</span><span class="dot"></span><span class="date">{{feed.createdAt }}</span></h1>
-                            <div class="rating">Passenger</div>
+                            <h1 class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Passenger.firstName}} {{feed.Passenger.lastName}} &nbsp;&nbsp;&nbsp;&nbsp;</span><span class="date">{{feed.createdAt }}</span></h1>
+                            <div class="mt-2">
+                              <p class="comment-text">{{feed.message}}</p>
+                          </div>
                         </div>
                     </div>
-                    <div class="mt-2">
-                      <p class="comment-text">{{feed.message}}</p>
-                  </div>
+                    
                 </div>
             </div>
         </div>

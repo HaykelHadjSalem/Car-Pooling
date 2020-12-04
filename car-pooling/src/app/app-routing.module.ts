@@ -17,6 +17,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PassengerDetailComponent } from './components/driver/passenger-detail/passenger-detail.component';
 
+
 const routes: Routes = [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
 {path:'login', component: LoginComponent},
@@ -32,7 +33,8 @@ const routes: Routes = [
 {path:'passenger/profile', component:  PassengerProfileComponent, canActivate : [AuthPassengerGuard]},
 {path:'driver/feedback/:id', component:  FeedbackComponent, canActivate : [AuthGuard]},
 {path: 'aboutUs', component: AboutUsComponent},
-{path: 'footer', component: FooterComponent},
+{path: 'footer', component: FooterComponent}
+
 ];
 
 @NgModule({
