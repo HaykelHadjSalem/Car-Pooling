@@ -21,7 +21,6 @@ export class PassengerProfileComponent implements OnInit {
   headElements = ['Departure', 'Destination', 'Date', 'Time', 'Status'];
   rides: any[];
   feedBack:any;
-  rating:any[];
   now = Date.now() / 1000 / 3600;
   hasRides: boolean = false;
   file: File = null;
@@ -71,21 +70,15 @@ this.feedback() ;
 this.obj.driverId = driverId;
 this.obj.rideId = rideId;
 this.obj.passengerId = this.passenger.id
-this.rating= [...form.value['rating1'],...form.value['rating2'],...form.value['rating3'],...form.value['rating4'],...form.value['rating5']];
-for(var i=0; i < this.rating.length ; i++){
-  if(this.rating[i] !== ''){
-    this.obj.rating = this.rating[i]
-  }
+this.obj.rating = form.value['rating'];
 this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
   if(response) {
     this.rides = this.rides.filter(ride => ride.id !== rideId);
-    console.log(response)
+    console.log(response);
+    form.resetForm();
   alert("Added feedback");
   }
 })
-
-
-}
 }  
 
 feedback(){

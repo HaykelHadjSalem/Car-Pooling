@@ -48,9 +48,14 @@
 </div>
                   <div class="mt-3">
                    <h4 class="text-uppercase font-weight-bolder indigo-text">{{driver.firstName}} {{driver.lastName}}</h4>
-                   <p class="text-secondary mb-1"><i *ngFor="let i of [1,2,3,4,5]">
+                   <p class="text-primary mb-1"><i *ngFor="let i of [1,2,3,4,5]">
                     <mdb-icon fas icon="star" [ngClass]="{'stars': driver.rating < i}"></mdb-icon>
                     </i></p>
+                    <div *ngIf="driver.ridesNumber" class="indigo-text">
+                      <strong> <p *ngIf="driver.ridesNumber === 1">One Ride</p>
+                      <p *ngIf="driver.ridesNumber > 1">{{driver.ridesNumber}} Rides</p></strong>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -61,7 +66,7 @@
                   <div class="col-sm-3">
                     <h6 class="mb-0">Email</h6>
                   </div>
-                  <div class="col-sm-9 text-secondary">
+                  <div class="col-sm-9 indigo-text font-weight-bolder">
                     {{driver.email}}
                   </div>
                 </div>
@@ -70,7 +75,7 @@
                   <div class="col-sm-3">
                     <h6 class="mb-0">Phone</h6>
                   </div>
-                  <div class="col-sm-9 text-secondary">
+                  <div class="col-sm-9 indigo-text font-weight-bolder">
                       {{driver.phoneNumber}}
                   </div>
                 </div>
@@ -79,7 +84,7 @@
                   <div class="col-sm-3">
                     <h6 class="mb-0">Address</h6>
                   </div>
-                  <div class="col-sm-9 text-secondary">
+                  <div class="col-sm-9 indigo-text font-weight-bolder">
                       {{driver.address}}, Tunisia
                   </div>
                 </div>
@@ -93,13 +98,15 @@
   <div class="d-flex justify-content-center row">
       <div class="col-md-10">
           <div class="p-3 bg-white rounded">
-            <h4 class="font-weight-bolder indigo-text">Reviews [{{driver.timesRated}}]</h4>
+            <h4 class="font-weight-bolder indigo-text">Passengers Reviews [{{driver.timesRated}}]</h4>
               <div class="review mt-4" *ngFor="let feed of feedBack">
                   <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Passenger.imageUrl}} width="40" height="40">
                       <div class="ml-2">
-                          <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold text-primary">{{feed.Passenger.firstName}} {{feed.Passenger.lastName}}</span><span><small> , passenger @ </small></span><span class="date">{{feed.createdAt }}</span></div>
-                          <div >
-                            <p class="comment-text">{{feed.message}}</p>
+                          <div class="d-flex flex-row align-items-center"><span class="name font-weight-bolder indigo-text">{{feed.Passenger.firstName | uppercase}} {{feed.Passenger.lastName | uppercase}}</span>&nbsp;&nbsp;<span class="date">{{feed.createdAt }}</span></div>
+                          <div class="comment-text">
+                            <span *ngIf="feed.Passenger.ridesNumber === 1">One Ride</span>
+                      <span *ngIf="feed.Passenger.ridesNumber > 1">{{feed.Passenger.ridesNumber}} Rides</span>
+                            <div class="comment-text">{{feed.message}}</div>
                         </div>
                       </div>
                   </div>
