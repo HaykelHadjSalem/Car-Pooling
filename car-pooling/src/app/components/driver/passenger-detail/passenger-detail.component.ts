@@ -27,7 +27,12 @@ export class PassengerDetailComponent implements OnInit {
 const id = +this.route.snapshot.paramMap.get('id');
 this.Driver = this.tokenStorage.getUser()
 this.rideService.getPassenger(id).subscribe(passenger =>  this.passenger = passenger);
-this.feedbackService.getFeedbackPassenger(id).subscribe(feedback =>  this.feedBack= feedback);
+this.feedbackService.getFeedbackPassenger(id).subscribe(feedback =>  {
+  for(var i =0; i < feedback.length; i++) {
+    feedback[i].createdAt = moment(feedback[i].createdAt).format('LLL') 
+  }
+
+  this.feedBack= feedback});
   }
 
 }

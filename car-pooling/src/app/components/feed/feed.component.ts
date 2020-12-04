@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RideService } from '../../services/ride.service';
-import { DriverService} from '../../services/driver.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
  
 
 @Component({
@@ -14,7 +14,7 @@ obj= {rideId : 0, passengerId : 0}
   @Input() rides: any[];
   @Input() user: any;
   @Input() driver: any[];
-  constructor( private router: Router, private rideService: RideService, private driverService: DriverService) {}
+  constructor( private router: Router, private rideService: RideService, private tokenStorageService: TokenStorageService) {}
    
   ngOnInit() {
 
@@ -28,15 +28,12 @@ obj= {rideId : 0, passengerId : 0}
     console.log(this.user)
     this.rideService.reserveRide({rideId: rideId, passengerId: this.user.id}).subscribe(results => {
     console.log(results);
+    this.user.ridesNumber++;
+    this.tokenStorageService.saveUser(this.user);
     this.router.navigate(['passenger/profile'])
-   
     })
   }
 
-//   viewProfile(){
-//  this.driverService.currentDriver = this.rides[0].driver
-//     this.router.navigate(['passenger/profile'])
-//   }
 
 }
 
