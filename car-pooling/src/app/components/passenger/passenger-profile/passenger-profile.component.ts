@@ -5,7 +5,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
 import {NgForm} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-passenger-profile',
@@ -35,6 +35,7 @@ export class PassengerProfileComponent implements OnInit {
         for(var i = 0; i < rides.length; i++) {
           let time = rides[i].time.split(':').reduce((acc,time) => (60 * acc) + +time);
           rides[i].Date = ((Date.parse(rides[i].date) / 1000) + time) / 3600;
+          console.log(rides)
         }
         this.rides = rides.filter(ride => ride.RidePassengers.createdAt == ride.RidePassengers.updatedAt);
         this.hasRides = true;
@@ -82,8 +83,11 @@ this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
 }  
 
 feedback(){
-  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((response)=> {
-    this.feedBack = response;
+  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((feedback)=> { 
+    for(var i =0; i < feedback.length; i++) {
+      feedback[i].createdAt = moment(feedback[i].createdAt).format('LLL') 
+    }
+    this.feedBack = feedback;
   })
 }
 

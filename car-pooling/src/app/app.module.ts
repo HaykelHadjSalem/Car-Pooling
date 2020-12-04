@@ -37,6 +37,7 @@ import { PassengerDetailComponent } from './components/driver/passenger-detail/p
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { PassengerDetailComponent } from './components/driver/passenger-detail/p
     AboutUsComponent,
     FooterComponent,
     PassengerDetailComponent,
+
   ],
   imports: [
     BrowserModule,

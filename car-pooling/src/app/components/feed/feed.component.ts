@@ -29,9 +29,10 @@ obj= {rideId : 0, passengerId : 0}
     this.rideService.reserveRide({rideId: rideId, passengerId: this.user.id}).subscribe(results => {
     console.log(results);
     this.user.ridesNumber++;
-    this.tokenStorageService.saveUser(this.user);
+    this.tokenStorageService.saveUser(this.user); 
     this.router.navigate(['passenger/profile'])
     })
+    
   }
 
 
