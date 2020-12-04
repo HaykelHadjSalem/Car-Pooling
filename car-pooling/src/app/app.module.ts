@@ -32,7 +32,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PassengerDetailComponent } from './components/driver/passenger-detail/passenger-detail.component';
-import { TestComponent } from './components/test/test.component';
+
 
 
 
@@ -57,7 +57,7 @@ import { TestComponent } from './components/test/test.component';
     AboutUsComponent,
     FooterComponent,
     PassengerDetailComponent,
-    TestComponent,
+
   ],
   imports: [
     BrowserModule,

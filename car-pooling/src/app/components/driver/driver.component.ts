@@ -76,7 +76,9 @@ export class DriverComponent implements OnInit {
     this.validatingForm.value.driverId = this.driver.id;
     console.log(this.validatingForm.value);
     this.rideService.addRide(this.validatingForm.value).subscribe(ride => {console.log(ride);})
-    this.router.navigate(['driver/profile'])
+    this.driver.ridesNumber++;
+    this.tokenStorageService.saveUser(this.driver);
+    this.router.navigate(['driver/profile']);
   }
 
   giveFeedback(rideId) {

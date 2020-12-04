@@ -34,8 +34,8 @@ getDriver(){
   this.driverService.getDriver(id).subscribe(driver => {console.log(driver) 
     this.Driver = driver});
 this.feedbackService.getFeedbackDriver(id).subscribe(feedback =>  {
-  if(feedback){
-    feedback.createdAt = moment(feedback.createdAt).format('LL')
+  for(var i =0; i < feedback.length; i++) {
+    feedback[i].createdAt = moment(feedback[i].createdAt).format('LLL') 
   }
   this.feedBack= feedback});
 

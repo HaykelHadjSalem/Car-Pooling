@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div class="container mt-5">
-    <div class="row justify-content-lg-center">
-      <div class="col-md-4" *ngIf="car">
+    <div class="row justify-content-lg-center" *ngIf="car">
+      <!-- <div class="col-md-10"> -->
 
-          <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+          <button type="button" mdbBtn color="info" rounded="true" data-toggle="modal" data-target="#basicExample"
           (click)="frame.show()" mdbWavesEffect>Add a ride
   </button>
   
@@ -117,7 +117,7 @@
 </div>
 
 
-<div class="col-md-12" *ngIf="rides">
+<div  *ngIf="rides">
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
@@ -142,7 +142,7 @@
                   <td class="cell100 column4">{{ride.time}}</td>
                   <td class="cell100 column5">{{ride.seats}}</td>
                   <td class="cell100 column6">
-                   <a *ngFor="let passenger of ride.Passengers" routerLink="detail/{{passenger.id}}" target="_blank">{{passenger.firstName}}</a>   
+                   <a *ngFor="let passenger of ride.Passengers" routerLink="detail/{{passenger.id}}" target="_blank">{{passenger.firstName}}&nbsp;&nbsp;</a>   
                   <span *ngIf="!ride.Passengers.length">Still not reserved..</span>
                   </td>
                   <td class="cell100 column7">
@@ -160,4 +160,5 @@
 </div>
 </div>
 </div>
-
+</div>
+</div>

@@ -5,7 +5,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 import {FeedbackService} from 'src/app/services/feedback.service';
 import {NgForm} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-passenger-profile',
@@ -21,7 +21,6 @@ export class PassengerProfileComponent implements OnInit {
   headElements = ['Departure', 'Destination', 'Date', 'Time', 'Status'];
   rides: any[];
   feedBack:any;
-  rating:any[];
   now = Date.now() / 1000 / 3600;
   hasRides: boolean = false;
   file: File = null;
@@ -36,6 +35,7 @@ export class PassengerProfileComponent implements OnInit {
         for(var i = 0; i < rides.length; i++) {
           let time = rides[i].time.split(':').reduce((acc,time) => (60 * acc) + +time);
           rides[i].Date = ((Date.parse(rides[i].date) / 1000) + time) / 3600;
+          console.log(rides)
         }
         this.rides = rides.filter(ride => ride.RidePassengers.createdAt == ride.RidePassengers.updatedAt);
         this.hasRides = true;
@@ -71,26 +71,23 @@ this.feedback() ;
 this.obj.driverId = driverId;
 this.obj.rideId = rideId;
 this.obj.passengerId = this.passenger.id
-this.rating= [...form.value['rating1'],...form.value['rating2'],...form.value['rating3'],...form.value['rating4'],...form.value['rating5']];
-for(var i=0; i < this.rating.length ; i++){
-  if(this.rating[i] !== ''){
-    this.obj.rating = this.rating[i]
-  }
+this.obj.rating = form.value['rating'];
 this.feedbackService.addFeedback(this.obj).subscribe((response)=> {
   if(response) {
     this.rides = this.rides.filter(ride => ride.id !== rideId);
-    console.log(response)
+    console.log(response);
+    form.resetForm();
   alert("Added feedback");
   }
 })
-
-
-}
 }  
 
 feedback(){
-  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((response)=> { 
-    this.feedBack = response;
+  this.feedbackService.getFeedbackPassenger(this.passenger.id).subscribe((feedback)=> { 
+    for(var i =0; i < feedback.length; i++) {
+      feedback[i].createdAt = moment(feedback[i].createdAt).format('LLL') 
+    }
+    this.feedBack = feedback;
   })
 }
 
