@@ -237,17 +237,26 @@
       <div class="col-md-10">
           <div class="p-6 bg-white rounded">
             <h3>Given Feedback</h3>
-              <div class="review mt-4" *ngFor="let feed of feedBack">
-                  <div class="d-flex flex-row comment-user"><img class="rounded" src={{feed.Driver.imageUrl}} width="50" height="50">
-                      <div class="ml-2">
-                          <div class="d-flex flex-row align-items-center"><span class="name font-weight-bold">{{feed.Driver.firstName}} {{feed.Driver.lastName}} &nbsp;&nbsp;&nbsp;&nbsp; </span><span class="date">{{feed.createdAt }}</span></div>
-                          <div><p class="comment-text">{{feed.message}}</p></div>
-                      </div>
-                  </div>
-                  <!-- <div class="mt-2">
-                      <p class="comment-text">{{feed.message}}</p>
-                  </div> -->
+            <div class="review mt-4" *ngFor="let feed of feedBack">
+              <div class="d-flex flex-row comment-user"><img class="rounded" src="{{feed.Driver.imageUrl}}"  width="15%" height="15%">
+                  <div class="ml-2">
+                      <div class="d-flex flex-row align-items-center">
+                        <span class="name font-weight-bold indigo-text">{{feed.Driver.firstName}} {{feed.Driver.lastName}} &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="date text-right">{{feed.createdAt }}</span></div>
+                        <p class="text-primary mb-1">
+                          <small><span class="black-text" *ngIf="feed.Driver.ridesNumber === 1">One Ride</span>
+                          <span class="black-text" *ngIf="feed.Driver.ridesNumber > 1">{{feed.Driver.ridesNumber}} Rides</span></small>
+                          &nbsp;<i *ngFor="let i of [1,2,3,4,5]">
+                          <mdb-icon size="sm" fas icon="star" [ngClass]="{'stars': feed.Driver.rating < i}"></mdb-icon>
+                          </i></p>
+                        <p class="comment-text">{{feed.message}}</p>
+                      <div class="mt-2">
+                  
               </div>
+                  </div>
+              </div>
+              
+          </div>
           </div>
       </div>
   </div>
